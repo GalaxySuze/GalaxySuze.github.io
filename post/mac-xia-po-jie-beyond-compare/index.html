@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mac下破解Beyond Compare | 张阿简的博客</title>
+<link rel="shortcut icon" href="VickStar.coding.me/favicon.ico">
+<link rel="stylesheet" href="VickStar.coding.me/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="VickStar.coding.me">
+  <img class="avatar" src="VickStar.coding.me/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    张阿简的博客
+  </h1>
+  <p class="site-description">
+    Kill Time, Or Kiss Time
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Mac下破解Beyond Compare
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2018-12-05 ·
+              </time>
+              
+                <a href="VickStar.coding.me/tag/R9XMeHPGI" class="post-tags">
+                  # Mac
+                </a>
+              
+                <a href="VickStar.coding.me/tag/-v19lpUsp" class="post-tags">
+                  # Beyond Compare
+                </a>
+              
+                <a href="VickStar.coding.me/tag/wa6VE0See" class="post-tags">
+                  # 原创
+                </a>
+              
+            </div>
+            <div class="post-content">
+              <ul>
+<li><p>1 . 去官网下载Beyond Compare并安装</p>
+</li>
+<li><p>2 . 进入Beyond Compare应用程序MacOS目录下(/Applications/Beyond Compare.app/Contents/MacOS)</p>
+</li>
+<li><p>3 . 将主启动程序BCompare重命名为BCompare.real </p>
+</li>
+<li><p>4 . 在同级目录下新建一个脚本文件命名为BCompare</p>
+<pre><code class="language-shell">vim BCompare</code></pre>
+<p>写入<br>```vim<br>#!/bin/bash</p>
+</li>
+</ul>
+<p>rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat&quot;</p>
+<p>&quot;<code>dirname &quot;$0&quot;</code>&quot;/BCompare.real $@</p>
+<pre><code>
+&gt; ps: 代码意义，第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序
+
+- 5 . 给新建的文件BCompare，授权文件执行权限
+
+```shell
+chmod a+x /Applications/Beyond\ Compare.app/Contents/MacOS/BCompare</code></pre><p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。</p>
+<blockquote>
+<p><a href="https://m.pythontab.com/article/1356">参考资料 - https://m.pythontab.com/article/1356</a></p>
+</blockquote>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="VickStar.coding.me/post/tong-guo-certbot-an-zhuang-lets-encrypt-zheng-shu-lai-shi-xian-quan-zhan-de-https-fang-wen">
+              <h3 class="post-title">
+                通过Certbot安装Let&#39;s Encrypt证书，来实现全站的HTTPS访问
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes, © 2017 - 2019 Copyright 张阿简. All Rights Reserved.
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

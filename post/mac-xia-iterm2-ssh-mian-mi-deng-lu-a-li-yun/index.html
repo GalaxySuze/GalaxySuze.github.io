@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mac下iTerm2 SSH 免密登陆阿里云 | 张阿简的博客</title>
+<link rel="shortcut icon" href="VickStar.coding.me/favicon.ico">
+<link rel="stylesheet" href="VickStar.coding.me/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="VickStar.coding.me">
+  <img class="avatar" src="VickStar.coding.me/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    张阿简的博客
+  </h1>
+  <p class="site-description">
+    Kill Time, Or Kiss Time
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Mac下iTerm2 SSH 免密登陆阿里云
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2018-11-09 ·
+              </time>
+              
+                <a href="VickStar.coding.me/tag/R9XMeHPGI" class="post-tags">
+                  # Mac
+                </a>
+              
+                <a href="VickStar.coding.me/tag/linux" class="post-tags">
+                  # Linux
+                </a>
+              
+                <a href="VickStar.coding.me/tag/wa6VE0See" class="post-tags">
+                  # 原创
+                </a>
+              
+            </div>
+            <div class="post-content">
+              <h1 id="服务器配置">服务器配置</h1><p>1 登录到服务器修改sshd的配置文件</p>
+<blockquote>
+<p>vim  /etc/ssh/sshd_config</p>
+</blockquote>
+<p>找到以下内容，去掉前面的注释（#）</p>
+<pre><code class="language-shell">RSAAuthentication yes 
+PubkeyAuthentication yes 
+AuthorizedKeysFile .ssh/authorized_keys</code></pre>
+<p>重启sshd服务</p>
+<blockquote>
+<p>service sshd restart</p>
+</blockquote>
+<h1 id="本机配置">本机配置</h1><p>1 本机生成公钥和私钥（已生成跳过）</p>
+<blockquote>
+<p>ssh-keygen -t rsa</p>
+</blockquote>
+<p>一路回车即可。默认在 ~/.ssh目录生成两个文件</p>
+<pre><code class="language-shell">id_rsa ：私钥 
+id_rsa.pub ：公钥</code></pre>
+<p>2 将本地公钥导入到服务器认证文件中</p>
+<blockquote>
+<p>ssh-copy-id -i ~/.ssh/id_rsa.pub root@你的公网IP</p>
+</blockquote>
+<p>3 修改 mac 下的配置文件 ~/.ssh/config （没有则创建）</p>
+<pre><code class="language-shell">Host aliyun  ### 别名
+Hostname 192.168.10.10  ###公网 IP
+Port 22  ###端口
+User root  ###登录账号
+IdentityFile ~/.ssh/id_rsa ###本机私钥地址</code></pre>
+<p>4 使用ssh连接</p>
+<blockquote>
+<p>ssh aliyun</p>
+</blockquote>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="VickStar.coding.me/post/zai-a-li-yun-shang-bu-shu-wordpress">
+              <h3 class="post-title">
+                在阿里云上部署WordPress
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes, © 2017 - 2019 Copyright 张阿简. All Rights Reserved.
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

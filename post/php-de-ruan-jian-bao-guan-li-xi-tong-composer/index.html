@@ -1,0 +1,171 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PHP的软件包管理系统-Composer | 张阿简的博客</title>
+<link rel="shortcut icon" href="VickStar.coding.me/favicon.ico">
+<link rel="stylesheet" href="VickStar.coding.me/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="VickStar.coding.me">
+  <img class="avatar" src="VickStar.coding.me/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    张阿简的博客
+  </h1>
+  <p class="site-description">
+    Kill Time, Or Kiss Time
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              PHP的软件包管理系统-Composer
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2017-10-07 ·
+              </time>
+              
+                <a href="VickStar.coding.me/tag/XljxheWyB" class="post-tags">
+                  # Composer
+                </a>
+              
+                <a href="VickStar.coding.me/tag/gWr_Ce0M-" class="post-tags">
+                  # PHP
+                </a>
+              
+                <a href="VickStar.coding.me/tag/wa6VE0See" class="post-tags">
+                  # 原创
+                </a>
+              
+            </div>
+            <div class="post-content">
+              <p><img src="https://getcomposer.org/img/logo-composer-transparent.png" style="zoom:50%" alt="composer" />  </p>
+<h1 id="一. what is composer?">一. What is composer?</h1><blockquote>
+<p>是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件。  ---- <a href="http://docs.phpcomposer.com/00-intro.html">Composer文档</a></p>
+</blockquote>
+<p>这边的依赖可以理解为各种开发包或者插件，当我们在项目中要使用第三方工具库的时候，我们往往要从官网或者一些别的其他途径来获取源文件，并放入到自己的项目中，在使用的时候，通过手动<strong>require</strong>的方式引用。当然我们大部分会通过写一个<strong>自动加载</strong>方法来进行<strong>require</strong>。但当我们使用比较大的第三方工具库时，可能它的其中又去依赖了更多别的第三方包。而且往往有时候工具库的版本更新可能会不兼容旧版本，我们手动去进行依赖那将会是一件痛苦的事情。<br/></p>
+<h4 id="那么compser能为我们解决哪些问题：">那么Compser能为我们解决哪些问题：</h4><blockquote>
+<ul>
+<li>a) 你有一个项目依赖于若干个库。</li>
+<li>b) 其中一些库依赖于其他库。</li>
+<li>c) 你声明你所依赖的东西。</li>
+<li>d) Composer 会找出哪个版本的包需要安装，并安装它们（将它们下载到你的项目中）。</li>
+</ul>
+</blockquote>
+ <br>
+
+<h1 id="二. 开始使用composer">二. 开始使用Composer</h1><blockquote>
+<p>系统要求: 运行 Composer 需要 PHP 5.3.2+ 以上版本。<br/><br> 安装Composer: <a href="http://docs.phpcomposer.com/00-intro.html#Installation-*nix">Composer文档-安装</a></p>
+</blockquote>
+<h4 id="composer的包版本符号">Composer的包版本符号</h4><p>composer的依赖声明通常都写在项目根目录下的<strong>composer.json</strong>文件中，通过<strong>JSON format</strong>的方式进行编写，就像这样子：</p>
+<pre><code>{
+    &quot;require&quot;: {
+        &quot;monolog/monolog&quot;: &quot;1.0.*&quot;
+    }
+}</code></pre><p><strong>require</strong>是指定Key，我们需要做的，就是在这个指定key中增加我们需要的依赖包 (&quot;monolog/monolog&quot;) 和指定的版本 (&quot;1.0.*&quot;),那么在使用前，首先我们需要知道composer中是怎么声明我们需要依赖的包版本的<br><a href="https://docs.phpcomposer.com/01-basic-usage.html#Package-Versions" title="点击链接查看">:point_right:点击链接查看</a></p>
+<h4 id="composer install和update">Composer install和update</h4><p>如果composer已经安装成功的话，可以直接在命令行中执行 &quot;composer&quot; 命令来查看命令列表，但在大部分的时候，使用频率最高的是<strong>install</strong>和<strong>update</strong>命令，顾名思义就是使用composer安装和更新依赖包。比如我们已经在项目的composer.json中声明了依赖</p>
+<pre><code>{
+  &quot;require&quot;:{
+    &quot;mustache/mustache&quot;:&quot;2.8.0&quot;
+  }
+}</code></pre><p>在命令行中直接执行 &quot;composer install&quot;，就能直接将这个工具库依赖到我们系统中</p>
+<pre><code>$ composer install
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing mustache/mustache (v2.8.0): Downloading (100%)
+Writing lock file
+Generating autoload files</code></pre><p>再打开项目文件夹，就能发现新增了<strong>vendor</strong>文件夹和<strong>composer.lock</strong>文件，vendor目录存放是composer的<strong>自动加载</strong>文件和我们刚刚下载的工具库，composer.lock文件是在安装依赖后，composer将把安装时确切的版本号列表(composer.json定义的)写入composer.lock 文件中，锁定项目所使用的包版本。<strong>这样做的意义是：</strong></p>
+<blockquote>
+<ol>
+<li>在提交项目的时候，请将lock文件也提交，这样在团队开发中，如果有别的成员进入开发，建立项目时都将下载与指定版本完全相同的依赖，减轻潜在的部署错误。</li>
+<li>当我们的项目搁浅很久，在几个月后重新安装项目，也能正常的继续工作，尽管可能项目的依赖包已经发布了很多新版本。</li>
+</ol>
+</blockquote>
+<p>所以，如果已经存在lock文件的话，我们要更新在使用的依赖，这时候就需要执行 &quot;composer update&quot; 命令进行更新，update命令会从新读取composer.json的文件，更新所声明依赖版本并重新读写composer.lock文件。这边我将composer.json中的依赖版本声明为 &quot;v2.9.0&quot;执行命令</p>
+<pre><code>$ composer update
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 0 installs, 1 update, 0 removals
+  - Updating mustache/mustache (v2.8.0 =&gt; v2.9.0): Loading from cache
+Writing lock file
+Generating autoload files</code></pre><p>可以通过 &quot;composer show -i&quot; 命令查看当前已经安装的依赖包版本</p>
+<pre><code>$ composer show -i
+mustache/mustache v2.9.0 A Mustache implementation in PHP.</code></pre><h1 id="三. 在项目中使用依赖包">三. 在项目中使用依赖包</h1><p>composer提供了<strong>自动加载</strong>文件来提供自动加载支持，我们只要在项目的入口文件中添加这行代码</p>
+<pre><code class="language-php">&lt;?php
+    require &quot;vendor/autoload.php&quot;;
+
+    $obj = new Mustache_Engine();
+    $obj-&gt;render(&#39;Hello world&#39;);</code></pre>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="VickStar.coding.me/post/li-jie-yi-lai-zhu-ru-he-kong-zhi-fan-zhuan">
+              <h3 class="post-title">
+                理解「依赖注入」和「控制反转」
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes, © 2017 - 2019 Copyright 张阿简. All Rights Reserved.
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

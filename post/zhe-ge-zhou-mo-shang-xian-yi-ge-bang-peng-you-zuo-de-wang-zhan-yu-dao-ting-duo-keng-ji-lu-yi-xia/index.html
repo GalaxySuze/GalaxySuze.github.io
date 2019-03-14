@@ -1,0 +1,513 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>这个周末上线一个帮朋友做的网站，遇到挺多坑，记录一下 | 张阿简的博客</title>
+<link rel="shortcut icon" href="VickStar.coding.me/favicon.ico">
+<link rel="stylesheet" href="VickStar.coding.me/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="VickStar.coding.me">
+  <img class="avatar" src="VickStar.coding.me/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    张阿简的博客
+  </h1>
+  <p class="site-description">
+    Kill Time, Or Kiss Time
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              这个周末上线一个帮朋友做的网站，遇到挺多坑，记录一下
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2018-05-07 ·
+              </time>
+              
+                <a href="VickStar.coding.me/tag/zpAo_gez-" class="post-tags">
+                  # Mysql
+                </a>
+              
+                <a href="VickStar.coding.me/tag/laravel" class="post-tags">
+                  # Laravel
+                </a>
+              
+                <a href="VickStar.coding.me/tag/XljxheWyB" class="post-tags">
+                  # Composer
+                </a>
+              
+                <a href="VickStar.coding.me/tag/gWr_Ce0M-" class="post-tags">
+                  # PHP
+                </a>
+              
+                <a href="VickStar.coding.me/tag/nginx" class="post-tags">
+                  # Nginx
+                </a>
+              
+                <a href="VickStar.coding.me/tag/linux" class="post-tags">
+                  # Linux
+                </a>
+              
+                <a href="VickStar.coding.me/tag/wa6VE0See" class="post-tags">
+                  # 原创
+                </a>
+              
+            </div>
+            <div class="post-content">
+              <h1 id="网站上线流程">网站上线流程</h1><ul>
+<li><h4 id="购买服务器，目前选择的是阿里云服务器，选择的是入门型1核1g实例">购买服务器，目前选择的是阿里云服务器，选择的是入门型1核1G实例</h4></li>
+</ul>
+<ul>
+<li><h5 id="配置ssh连接">配置SSH连接</h5><blockquote>
+<ul>
+<li>增加本机ssh连接配置，一般激活实例后，ssh的22端口是默认开放的，可以直接通过root用户进行登录配置部署环境，</li>
+<li>登录到服务器后，将自己的公钥加入到 <strong>~/.ssh/authorized_keys</strong> 配置文件中就可直接通过秘钥进行登录</li>
+</ul>
+</blockquote>
+</li>
+<li><h5 id="服务器配置">服务器配置</h5><blockquote>
+<ul>
+<li>服务器系统版本：CentOS Linux release 7.4.1708 (Core)</li>
+<li>内存：1G</li>
+<li>CPU：1核</li>
+<li>硬盘：40G</li>
+</ul>
+</blockquote>
+<h1 id="一. 安装mysql5.5">一. 安装Mysql5.5</h1><p>因为服务器配置有点低，所以这边选择安装比较低的mysql版本。从CentOS 7.0发布以来，yum源中开始使用mariadb来代替MySQL的安装。即使你输入的是yum install mysql , 显示的也是mariadb的安装内容，因此，如果使用yum安装MySQL的话，就需要去下载官方指定的yum源。</p>
+<p>网址：<a href="https://dev.mysql.com/downloads/repo/yum/"> https://dev.mysql.com/downloads/repo/yum/</a>。</p>
+<p><strong>1. 先卸载mariadb，查看mariadb是否已经安装</strong> </p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z ~]#  yum list installed | grep mariadb
+mariadb-libs.x86_64                     1:5.5.56-2.el7                 @anaconda</code></pre>
+<p>进行卸载</p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z ~]# yum -y remove mariadb*
+Loaded plugins: fastestmirror
+Resolving Dependencies
+......     **省略过程**
+
+Removed:
+  mariadb-libs.x86_64 1:5.5.56-2.el7
+
+Dependency Removed:
+  postfix.x86_64 2:2.10.1-6.el7                                                                redhat-lsb-core.x86_64 0:4.1-27.el7.centos.1
+
+Complete!</code></pre>
+<p><strong>2. 获取yum源和数据库安装，<a href="https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/#repo-qg-yum-fresh-install">官方指南</a></strong> </p>
+<pre><code class="language-shell">wget http://repo.mysql.com/yum/mysql-5.5-community/el/6/x86_64/mysql-community-release-el6-5.noarch.rpm     #MySQL5.5yum源</code></pre>
+<p>安装yum源</p>
+<pre><code class="language-shell">rpm -ivh mysql-5.5-community/el/6/x86_64/mysql-community-release-el6-5.noarch.rpm </code></pre>
+<p>安装好yum源后，需要修改一下配置文件，文件路径在 <strong>/etc/yum.repos.d/mysql-community.repo</strong>，要将5.5的enabled改为1，而5.6的enabled改为0</p>
+<pre><code class="language-shell"># Enable to use MySQL 5.5
+[mysql55-community]
+name=MySQL 5.5 Community Server
+baseurl=http://repo.mysql.com/yum/mysql-5.5-community/el/6/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+
+# Enable to use MySQL 5.6
+[mysql56-community]
+name=MySQL 5.6 Community Server
+baseurl=http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+
+# Note: MySQL 5.7 is currently in development. For use at your own risk.
+# Please read with sub pages: https://dev.mysql.com/doc/relnotes/mysql/5.7/en/
+[mysql57-community-dmr]
+name=MySQL 5.7 Community Server Development Milestone Release
+baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/6/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</code></pre>
+<p>修改后保存退出，开始安装MySQL。在安装之前，可以查看下是否已有MySQL可安装文件</p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z ~]# yum repolist enabled | grep &quot;mysql.*-community.*&quot;
+mysql-connectors-community/x86_64 MySQL Connectors Community                  49
+mysql-tools-community/x86_64      MySQL Tools Community                       61
+mysql55-community/x86_64          MySQL 5.5 Community Server                 449</code></pre>
+<p><strong>3. 安装mysql</strong> </p>
+<pre><code class="language-shell"># 安装client，devel，server
+yum install mysql-community-client mysql-community-devel mysql-community-server</code></pre>
+<p>安装完毕后，可以查看下当前mysql版本</p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z ~]# rpm -qi mysql-community-server
+Name        : mysql-community-server
+Version     : 5.5.60
+Release     : 2.el6
+Architecture: x86_64
+Install Date: 2018年05月05日 星期六 16:26:00
+......</code></pre>
+<p><strong>4. 启动mysql</strong></p>
+<p>执行 <strong>service mysqld start</strong> 启动mysql</p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z ~]# service mysqld start
+Starting mysqld (via systemctl):                           [  OK  ]</code></pre>
+<p>ok，mysql安装完毕</p>
+<blockquote>
+<p>常用命令：</p>
+<p><strong>systemctl start mysqld    #启动mysqld</strong></p>
+<p><strong>systemctl stop mysqld    #停止mysqld</strong></p>
+<p><strong>systemctl restart mysqld    #重启mysqld</strong></p>
+<p><strong>systemctl enable mysqld   #设置开机启动</strong></p>
+<p><strong>systemctl status mysqld    #查看 MySQL Server 状态</strong></p>
+</blockquote>
+<p><strong>5. 数据库安全设置</strong></p>
+<p>设置mysql root账户密码</p>
+<pre><code class="language-shell"># mysqladmin -u root password &#39;new password&#39;</code></pre>
+<p>重新登录mysql报如下错误</p>
+<pre><code class="language-shell">ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: YES)</code></pre>
+<p>执行如下命令进行解决</p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z ~]# systemctl stop mysqld        **关闭mysql服务**
+[root@iZbp17dq2xryqoixibq5u1Z ~]# mysqld --user=root --skip-grant-tables &amp;        **关闭skip-grant-tables**
+[1] 32163
+[root@iZbp17dq2xryqoixibq5u1Z ~]# 180505 16:57:08 [Note] mysqld (mysqld 5.5.60) starting as process 32163 ...
+180505 16:57:08 [Note] Plugin &#39;FEDERATED&#39; is disabled.
+180505 16:57:08 InnoDB: The InnoDB memory heap is disabled
+180505 16:57:08 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+180505 16:57:08 InnoDB: Compressed tables use zlib 1.2.3
+180505 16:57:08 InnoDB: Using Linux native AIO
+180505 16:57:08 InnoDB: Initializing buffer pool, size = 128.0M
+180505 16:57:08 InnoDB: Completed initialization of buffer pool
+180505 16:57:08 InnoDB: highest supported file format is Barracuda.
+180505 16:57:08  InnoDB: Waiting for the background threads to start
+180505 16:57:09 InnoDB: 5.5.60 started; log sequence number 1595675
+180505 16:57:09 [Note] Server hostname (bind-address): &#39;0.0.0.0&#39;; port: 3306
+180505 16:57:09 [Note]   - &#39;0.0.0.0&#39; resolves to &#39;0.0.0.0&#39;;
+180505 16:57:09 [Note] Server socket created on IP: &#39;0.0.0.0&#39;.
+180505 16:57:09 [Note] mysqld: ready for connections.
+Version: &#39;5.5.60&#39;  socket: &#39;/var/lib/mysql/mysql.sock&#39;  port: 3306  MySQL Community Server (GPL)
+mysql -u root mysql        **空密码登入**
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.5.60 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt; UPDATE user SET authentication_string=PASSWORD(&#39;new password&#39;) where USER=&#39;root&#39;;        **重新设置root密码**
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql&gt; FLUSH PRIVILEGES;        **刷新设置**
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; quit
+Bye</code></pre>
+<h1 id="二. 安装php环境">二. 安装PHP环境</h1><p><strong>1. 开始安装PHP和PHP-FPM</strong></p>
+<p>首先安装EPEL。EPEL即Extra Packages for Enterprise Linux的简称，是为企业级Linux提供的一组高质量的额外软件包</p>
+<pre><code class="language-shell">yum -y install epel-release</code></pre>
+<p>安装PHP和PHP-FPM</p>
+<pre><code class="language-shell">yum -y install php php-fpm</code></pre>
+<p>查看PHP版本</p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z ~]# php -v
+PHP 5.4.16 (cli) (built: Mar  7 2018 13:34:47)
+Copyright (c) 1997-2013 The PHP Group
+Zend Engine v2.4.0, Copyright (c) 1998-2013 Zend Technologies</code></pre>
+<p>这时发现PHP版本是5.4的，原因是yum默认的epel-release源太低了，而我需要部署的网站是基于Laravel5.5开发的，环境要求：</p>
+<blockquote>
+<ul>
+<li><strong>PHP &gt;= 7.0.0</strong>        需要重新安装PHP7</li>
+<li>PHP OpenSSL 扩展</li>
+<li>PHP PDO 扩展</li>
+<li>PHP Mbstring 扩展</li>
+<li>PHP Tokenizer 扩展</li>
+<li>PHP XML 扩展</li>
+</ul>
+</blockquote>
+<p>删除之前安装的PHP版本</p>
+<pre><code class="language-shell">yum remove php* php-common</code></pre>
+<p>我们需要更换下rpm源，搜索epel-release源并删除后进行更新</p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z ~]# rpm -qa | grep epel
+epel-release-7-11.noarch
+[root@iZbp17dq2xryqoixibq5u1Z ~]# rpm -e epel-release-7-11.noarch
+warning: /etc/yum.repos.d/epel.repo saved as /etc/yum.repos.d/epel.repo.rpmsave
+[root@iZbp17dq2xryqoixibq5u1Z ~]# rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm
+Retrieving https://mirror.webtatic.com/yum/el7/epel-release.rpm
+warning: /var/tmp/rpm-tmp.PHnPwl: Header V4 RSA/SHA1 Signature, key ID 62e74ca5: NOKEY
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:epel-release-7-5                 ################################# [100%]
+[root@iZbp17dq2xryqoixibq5u1Z ~]# rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+Retrieving https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+warning: /var/tmp/rpm-tmp.ohTozh: Header V4 RSA/SHA1 Signature, key ID 62e74ca5: NOKEY
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:webtatic-release-7-3             ################################# [100%]</code></pre>
+<p>重新安装PHP和一些相关扩展</p>
+<pre><code class="language-shell">yum install php72w-cli.x86_64 php72w-common.x86_64 php72w-gd.x86_64 php72w-ldap.x86_64 php72w-mbstring.x86_64 php72w-pdo.x86_64</code></pre>
+<p>安装PHP-FPM</p>
+<pre><code class="language-shell">yum install php72w-fpm</code></pre>
+<p>再次查看PHP版本</p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z ~]# php -v
+PHP 7.2.4 (cli) (built: Mar 30 2018 08:49:13) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies</code></pre>
+<p>启动PHP-FPM</p>
+<pre><code class="language-shell">systemctl start php-fpm
+systemctl enable php-fpm.service        **开机自启动**</code></pre>
+<p>常用命令：</p>
+<blockquote>
+<p>systemctl start php-fpm        # 启动 </p>
+<p>systemctl stop php-fpm        # 停止 </p>
+<p>systemctl restart php-fpm        # 重启</p>
+<p>systemctl enable php-fpm        #开机自启动</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="三. 安装nginx">三. 安装Nginx</h1><p>  <strong>1. 开始Nginx</strong></p>
+<pre><code class="language-shell">  yum install nginx</code></pre>
+<p>  安装完毕后，启动Nginx</p>
+<pre><code class="language-shell">  systemctl start nginx
+  systemctl enable nginx        **系统启动时自动启动Nginx**</code></pre>
+<p>  常用命令：</p>
+<blockquote>
+<p>fuser -k 80/tcp                     # 杀死80端口 </p>
+<p>nginx -s stop      # 停止</p>
+<p>nginx -s reopen    # 重启 </p>
+<p>nginx -s reload    # 重新载入配置文件</p>
+</blockquote>
+<h1 id="四. 网站部署">四. 网站部署</h1><p>  <strong>1. 生成秘钥</strong></p>
+<pre><code class="language-shell">  ssh-keygen -t rsa</code></pre>
+<p>  提示一直回车就行，将生成的秘钥添加到项目托管的git库网站上，因为我的网站是放在Coding上，我直接添加在了项目部署秘钥</p>
+<p>  <strong>2. 克隆项目</strong></p>
+<p>  通过 <strong>git clone</strong> 命令将项目拉取到服务器上，我这边因为是Nginx，所以我拉取到 <strong>/var/www/</strong> 目录下，</p>
+<p>  <strong>3. 安装composer</strong></p>
+<pre><code class="language-shell">  [root@iZbp17dq2xryqoixibq5u1Z project_fjylhjjsyxgs]# curl -sS https://getcomposer.org/installer | php
+  All settings correct for using Composer
+  Downloading...
+
+  Composer (version 1.6.5) successfully installed to: /var/www/project_fjylhjjsyxgs/composer.phar
+  Use it: php composer.phar</code></pre>
+<p>  移动composer.phar文件到/usr/local/bin目录下 ，使命令全局可用，并更换Packagist中国全量镜像</p>
+<pre><code class="language-shell">  mv composer.phar /usr/local/bin/composer
+  composer config -g repo.packagist composer https://packagist.phpcomposer.com</code></pre>
+<p>  通过composer安装项目依赖，但是出现了报错</p>
+<pre><code class="language-shell">  [root@iZbp17dq2xryqoixibq5u1Z project_fjylhjjsyxgs]# composer install
+  Loading composer repositories with package information
+  Installing dependencies (including require-dev) from lock file
+  Your requirements could not be resolved to an installable set of packages.
+
+    Problem 1
+      - Installation request for phar-io/manifest 1.0.1 -&gt; satisfiable by phar-io/manifest[1.0.1].
+      - phar-io/manifest 1.0.1 requires ext-dom * -&gt; the requested PHP extension dom is missing from your system.
+    Problem 2
+      - Installation request for phpunit/php-code-coverage 5.3.0 -&gt; satisfiable by phpunit/php-code-coverage[5.3.0].
+      - phpunit/php-code-coverage 5.3.0 requires ext-dom * -&gt; the requested PHP extension dom is missing from your system.
+    Problem 3
+      - Installation request for phpunit/phpunit 6.5.7 -&gt; satisfiable by phpunit/phpunit[6.5.7].
+      - phpunit/phpunit 6.5.7 requires ext-dom * -&gt; the requested PHP extension dom is missing from your system.
+    Problem 4
+      - Installation request for theseer/tokenizer 1.1.0 -&gt; satisfiable by theseer/tokenizer[1.1.0].
+      - theseer/tokenizer 1.1.0 requires ext-dom * -&gt; the requested PHP extension dom is missing from your system.
+
+    To enable extensions, verify that they are enabled in your .ini files:
+      - /etc/php.ini
+      - /etc/php.d/bz2.ini
+      - /etc/php.d/calendar.ini
+      - /etc/php.d/ctype.ini
+      - /etc/php.d/curl.ini
+      - /etc/php.d/exif.ini
+      - /etc/php.d/fileinfo.ini
+      - /etc/php.d/ftp.ini
+      - /etc/php.d/gd.ini
+      - /etc/php.d/gettext.ini
+      - /etc/php.d/gmp.ini
+      - /etc/php.d/iconv.ini
+      - /etc/php.d/json.ini
+      - /etc/php.d/ldap.ini
+      - /etc/php.d/mbstring.ini
+      - /etc/php.d/pdo.ini
+      - /etc/php.d/pdo_sqlite.ini
+      - /etc/php.d/phar.ini
+      - /etc/php.d/shmop.ini
+      - /etc/php.d/simplexml.ini
+      - /etc/php.d/sockets.ini
+      - /etc/php.d/sqlite3.ini
+      - /etc/php.d/tokenizer.ini
+      - /etc/php.d/xml.ini
+      - /etc/php.d/zip.ini
+    You can also run `php --ini` inside terminal to see which files are used by PHP in CLI mode.</code></pre>
+<p>  Google后发现，php-xml扩展有以上需要的相关软件包</p>
+<pre><code class="language-shell">  yum install php72w-xml.x86_64</code></pre>
+<p>  重新执行composer install命令，依赖下载成功</p>
+<p>  开始配置Nginx配置</p>
+<p>  我本机<strong>homestead</strong>中的Nginx是通过 <strong>/etc/nginx/sites-available</strong> 目录设置对应多域名的nginx配置文件，但是不知道服务器上安装的Nginx，却没有这个目录，所以查看了下Nginx.conf文件，发现http模块中有如下一条配置</p>
+<pre><code class="language-shell">      本机homestead中Nginx.conf
+      ##
+      # Virtual Host Configs
+      ##
+      include /etc/nginx/conf.d/*.conf;
+      include /etc/nginx/sites-enabled/*;
+
+      服务器上安装的Nginx.conf
+      # Load modular configuration files from the /etc/nginx/conf.d directory.
+      # See http://nginx.org/en/docs/ngx_core_module.html#include
+      # for more information.
+      include /etc/nginx/conf.d/*.conf;</code></pre>
+<p>  那好吧，我估计sites-available也是软连接的conf.d或者sites-enabled目录吧，所以我就直接将官方手册中Nginx配置复制了一份到/etc/nginx/conf.d/域名.conf，修改了一些配置</p>
+<pre><code class="language-shell">  server {
+      listen 80;
+      server_name 域名或公网IP;
+      root 项目地址指向到public目录;
+
+      add_header X-Frame-Options &quot;SAMEORIGIN&quot;;
+      add_header X-XSS-Protection &quot;1; mode=block&quot;;
+      add_header X-Content-Type-Options &quot;nosniff&quot;;
+
+      index index.html index.htm index.php;
+
+      charset utf-8;
+
+      location / {
+          try_files $uri $uri/ /index.php?$query_string;
+      }
+
+      location = /favicon.ico { access_log off; log_not_found off; }
+      location = /robots.txt  { access_log off; log_not_found off; }
+
+      error_page 404 /index.php;
+
+      location ~ \.php$ {
+          fastcgi_split_path_info ^(.+\.php)(/.+)$;
+          fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;        **这里有个坑下面讲**
+          fastcgi_index index.php;
+          include fastcgi_params;
+      }
+
+      location ~ /\.(?!well-known).* {
+          deny all;
+      }
+  }</code></pre>
+<p>  配置完毕，保存退出，通过域名访问，发现报502错误，查看下Nginx的错误日志，发现报如下错误</p>
+<pre><code class="language-shell">  2018/05/06 20:17:37 [crit] 5898#0: *66 connect() to unix:/var/run/php/php7.2-fpm.sock failed (2: No such file or directory) while connecting to upstream,</code></pre>
+<p>  简单的讲下，php-fpm.sock文件就是让Nginx和PHP-FPM的进程间进行通信的文件，具体的含义，这边就不做详细介绍了。进这个目录查看下是否存在这个目录或文件，发现两个问题：</p>
+<ul>
+<li><p>目录错误，不是/var/run/php，而是/var/run/php-fpm</p>
+</li>
+<li><p>php7.2-fpm.sock这个文件未生成</p>
+<p><strong>未生成原因</strong>：php5.3之后的版本，php-fpm.conf里的listen的默认配置是127.0.0.1:9000，也就是tcp的方式，不会生成php-fpm.sock。</p>
+<p>因为这次上线的网站没有什么并发量，unix socket方式要比tcp的方式快而且消耗资源少，所以我还是采用unix socket方式。定位到问题后，修改下 <strong>/etc/php-fpm.d/<a href="http://www.conf">www.conf</a></strong>，也就是php-fpm的配置文件，关闭原来的listen方式，然后重启下php-fpm</p>
+<pre><code class="language-shell">;listen = 127.0.0.1:9000
+listen = /var/run/php-fpm/php7.2-fpm.sock</code></pre>
+<p>这个时候，由于职业习惯，想把Nginx也重启下，然后就又碰到了一个问题</p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z project_fjylhjjsyxgs]# nginx -s stop
+[root@iZbp17dq2xryqoixibq5u1Z project_fjylhjjsyxgs]# nginx -s reload
+nginx: [error] open() &quot;/run/nginx.pid&quot; failed (2: No such file or directory)</code></pre>
+<p>这应该是因为把Nginx进程杀死后pid丢失了，下一次再开启nginx -s reload时无法启动。再次面向Google编程，发现还有挺多人碰到这个问题，所以解决方法马上就能搜索到了，执行如下命令</p>
+<pre><code class="language-shell">nginx -c /etc/nginx/nginx.conf
+nginx -s reload</code></pre>
+<p>ok，接着Navicat远程连接到服务器数据库，source下数据库完毕。现看起来应该是可以跑起网站来了。再次访问域名，发现还是502，再次查看Nginx日志，报如下错误：</p>
+<pre><code class="language-shell">2018/05/06 20:37:00 [crit] 6078#0: *1 connect() to unix:/var/run/php-fpm/php7.2-fpm.sock failed (13: Permission denied) while connecting to upstream,</code></pre>
+<p>和上面报错看起来差不多，但是这次主要问题出在跑Nginx的用户是Nginx，而php-fpm.sock这个文件，监听的Nginx用户没有该权限，导致Nginx无法访问php-fpm.sock这个文件，自然监听就失去了效果，再次修改php-fpm配置文件和重启下php-fpm</p>
+<pre><code class="language-shell">; Set permissions for unix socket, if one is used. In Linux, read/write
+; permissions must be set in order to allow connections from a web server. Many
+; BSD-derived systems allow connections regardless of permissions.
+; Default Values: user and group are set as the running user
+;                 mode is set to 0660
+listen.owner = nginx
+listen.group = nginx
+listen.mode = 0660</code></pre>
+<p>重新访问下域名，发现访问任何路由都是白屏，这次状态码都是200了，但是没有任何输出，再次面向Google编程……发现问题：</p>
+<blockquote>
+<p>由于nginx与php-fpm之间的一个小bug，会导致这样的现象： 网站中的静态页面 <em>.html 都能正常访问，而</em> .php 文件虽然会返回200状态码， 但实际输出给浏览器的页面内容却是空白。 简而言之，原因是nginx无法正确的将 *.php 文件的地址传递给php-fpm去解析， 相当于php-fpm接受到了请求，但这请求却指向一个不存在的文件，于是返回空结果。 为了解决这个问题，需要改动nginx默认的fastcgiparams配置文件</p>
+</blockquote>
+<p>在 <strong>/etc/nginx/fastcgi_params</strong> 文件的最后增加两行：</p>
+<pre><code class="language-shell">fastcgi_param SCRIPT_FILENAME  $document_root$fastcgi_script_name;  
+fastcgi_param PATH_INFO     $fastcgi_script_name;  </code></pre>
+<p>再再再次访问域名，终于正常显示了，但是页面上又出现了新的错误：</p>
+<blockquote>
+<p><strong>could not find driver（select * from users where deleted = 0）</strong></p>
+</blockquote>
+<p>任何有sql查询的页面都报如上错误，这个错误多半是因为pdo_mysql未打开或者未安装此模块造成，执行 <strong>php -m</strong> 发现还真没装，安装php72w-mysql的又遇到一个坑</p>
+<pre><code class="language-shell">yum install php72w-mysql</code></pre>
+<p>报如下错误，说缺少libmysqlclient.so.18依赖</p>
+<pre><code class="language-shell">......
+error: package: php72w-mysql 
+requires: libmysqlclient.so.18(libmysqlclient_18)(64bit)
+Available: 1:mariadb-libs-5.5.52-1.el7.x86_64 (base)
+         libmysqlclient.so.18(libmysqlclient_18)(64bit)
+......</code></pre>
+<p>这就很奇怪了，查看用户库文件目录内libmysqlclient.so.18已经存在</p>
+<pre><code class="language-shell">[root@iZbp17dq2xryqoixibq5u1Z ~]# ll /usr/lib64/mysql/libmysqlclient.so.18
+libmysqlclient.so.18      libmysqlclient.so.18.1.0</code></pre>
+<p>这个坑花了一个小时，Google多次尝试无果后，认真思考下可能的原因，想了想可能是mysql版本的问题，修改下 <strong>/etc/yum.repos.d/mysql-community.repo</strong> 配置文件，将5.6的enabled设为1，5.5设为0，更新Mysql版本后，再次执行 <strong>yum install php72w-mysql</strong> 成功安装pdo_mysql模块…...</p>
+<h1 id="至此，网站访问终于成功！">至此，网站访问终于成功！</h1><p>后续的部署优化，另外开篇记录。</p>
+</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="VickStar.coding.me/post/php-de-ruan-jian-bao-guan-li-xi-tong-composer">
+              <h3 class="post-title">
+                PHP的软件包管理系统-Composer
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes, © 2017 - 2019 Copyright 张阿简. All Rights Reserved.
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

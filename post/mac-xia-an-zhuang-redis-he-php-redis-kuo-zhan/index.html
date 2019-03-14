@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mac下安装Redis和php-redis扩展 | 张阿简的博客</title>
+<link rel="shortcut icon" href="VickStar.coding.me/favicon.ico">
+<link rel="stylesheet" href="VickStar.coding.me/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="VickStar.coding.me">
+  <img class="avatar" src="VickStar.coding.me/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    张阿简的博客
+  </h1>
+  <p class="site-description">
+    Kill Time, Or Kiss Time
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Mac下安装Redis和php-redis扩展
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2017-03-10 ·
+              </time>
+              
+                <a href="VickStar.coding.me/tag/f8yREx6Zn" class="post-tags">
+                  # Redis
+                </a>
+              
+                <a href="VickStar.coding.me/tag/gWr_Ce0M-" class="post-tags">
+                  # PHP
+                </a>
+              
+                <a href="VickStar.coding.me/tag/R9XMeHPGI" class="post-tags">
+                  # Mac
+                </a>
+              
+                <a href="VickStar.coding.me/tag/wa6VE0See" class="post-tags">
+                  # 原创
+                </a>
+              
+            </div>
+            <div class="post-content">
+              <h1 id="一. 安装redis服务器">一. 安装redis服务器</h1><blockquote>
+<p>使用Homebrew安装redis可以减少大量的安装和配置的工作量。</p>
+</blockquote>
+<h4 id="执行 brew install redis 安装redis">执行 brew install redis 安装redis</h4><h4 id="常用命令">常用命令</h4><ul>
+<li>redis-server #启动redis服务器</li>
+<li>redis-cli # redis客户端</li>
+<li>redis-server --port 6380 #Redis 默认端口是6379，也可以换个端口号启动</li>
+<li>redis-cli shutdown #关闭redis，服务端会断开所有客户端的连接，然后根据配置执行持久化，最后退出。</li>
+</ul>
+<h1 id="二. 安装php-redis扩展">二. 安装php-redis扩展</h1><blockquote>
+<p>php默认不支持redis，需要进行编译才能使用。</p>
+</blockquote>
+<ul>
+<li>下载源码编译 <a href="http://pecl.php.net/package/redis">php官方扩展库链接</a></li>
+<li>将redis-4.0.2.tgz（写这篇文章时的最新版本）下载到本地</li>
+<li>执行<strong>tar -xzf</strong>命令，解压.tgz 后缀的文件</li>
+<li>进入到<strong>redis-4.0.2</strong>文件夹中，依次执行如下命令：<ul>
+<li>phpize</li>
+<li>./configure</li>
+<li>make</li>
+<li>sudo make install</li>
+</ul>
+</li>
+<li>在php.ini中启用redis<ul>
+<li>添加 <strong>extension=redis.so;</strong></li>
+</ul>
+</li>
+<li>重启php-fpm和nginx</li>
+</ul>
+<h1 id="三. 在php中使用redis">三. 在PHP中使用redis</h1><blockquote>
+<p>连接到 redis 服务php代码</p>
+</blockquote>
+<pre><code class="language-php">&lt;?php
+    //连接本地的 Redis 服务
+   $redis = new Redis();
+   $redis-&gt;connect(&#39;127.0.0.1&#39;, 6379);
+   echo &quot;Connection to server sucessfully&quot;;//查看服务是否运行
+   echo &quot;Server is running: &quot; . $redis-&gt;ping();?&gt;</code></pre>
+<p>执行脚本，输出结果为：</p>
+<pre><code class="language-shell">Connection to server sucessfully
+Server is running: PONG</code></pre>
+
+            </div>
+          </article>
+        </div>
+    
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes, © 2017 - 2019 Copyright 张阿简. All Rights Reserved.
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
