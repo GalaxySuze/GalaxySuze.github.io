@@ -1,103 +1,227 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
+      
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>张阿简的博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>理解「依赖注入」和「控制反转」 | 张阿简的博客</title>
-<meta name="description" content="Kill Time, Or Kiss Time">
+<meta name="description" content="Kill Time, Or Kiss Time"/>
+<meta name="keywords" content="Kill Time, Or Kiss Time"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="https://zhangajian.com//favicon.ico">
+
 <link rel="stylesheet" href="https://zhangajian.com//styles/main.css">
 
+<!-- Modernizr JS -->
+<script src="https://zhangajian.com//media/scripts/_vendors/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<scripts src="https://zhangajian.com//media/scripts/_vendors/respond.min.js"></scripts>
+<![endif]-->
 
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/tomorrow-night.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<link crossorigin="anonymous" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" href="https://lib.baomitu.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
 
   </head>
   <body>
-    <div id="app" class="main">
+  
+<div id="fh5co-offcanvas">
+    <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
+        <span><i class="icon-cross3"></i> <span>Close</span></span>
+    </a>
+    <div class="fh5co-bio">
+        <figure>
+            <img src="https://zhangajian.com//media/images/avatar.png" alt="张阿简的博客" class="img-responsive">
+        </figure>
+        <h3 class="heading">ABOUT ME</h3>
+        <h2>张阿简的博客</h2>
+        <p>Kill Time, Or Kiss Time</p>
+        <ul class="fh5co-social">
+            
+                <li>
+                    <a href="/"
+                     >
+                        首页
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/archives"
+                     >
+                        归档
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/tags"
+                     >
+                        标签
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/about"
+                     >
+                        关于
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
 
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://zhangajian.com/">
-        <img src="https://zhangajian.com//images/avatar.png" class="site-logo">
-        <h1 class="site-title">张阿简的博客</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
+    <div class="fh5co-menu">
+        <div class="fh5co-box">
+            <h3 class="heading">搜索</h3>
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="输入关键字">
+                </div>
+            </form>
+        </div>
+        <div class="fh5co-box">
+            <h3 class="heading">标签</h3>
+            <ul>
+                
+                    <li><a href="https://zhangajian.com//tag/wa6VE0See">原创</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/TnE9j9p54">生活</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/2Lrsz8nQ5">Java</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/linux">Linux</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/Q1TPBCeTZ">Minecraft</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/screen">screen</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/R9XMeHPGI">Mac</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/-v19lpUsp">Beyond Compare</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/7GuO-rABn">Certbot</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/32-ELgkvl">HTTPS</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/nginx">Nginx</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/gWr_Ce0M-">PHP</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/WU4oQ_US9">WordPress</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/zpAo_gez-">Mysql</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/laravel">Laravel</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/XljxheWyB">Composer</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/Zo5YAjmh-">设计模式</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/f8yREx6Zn">Redis</a></li>
+                
+            </ul>
+        </div>
     </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="site-description">
-      Kill Time, Or Kiss Time
-    </div>
-    <div class="site-footer">
-      Powered by Hve Notes, © 2016 - 2019 Copyright 张阿简. All Rights Reserved.
-    </div>
-  </div>
 </div>
 
+<header id="fh5co-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+            <ul class="fh5co-social">
+                
+                    <li>
+                        <a href="/"
+                         >
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives"
+                         >
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags"
+                         >
+                            标签
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/about"
+                         >
+                            关于
+                        </a>
+                    </li>
+                
+            </ul>
+            <div class="col-lg-12 col-md-12 text-center">
+                <h1 id="fh5co-logo">
+                    <a href="https://zhangajian.com/">张阿简的博客</a>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">理解「依赖注入」和「控制反转」</h2>
-            <div class="post-date">2017-06-05</div>
-            
-              <div class="feature-container" style="background-image: url('https://zhangajian.com//post-images/li-jie-yi-lai-zhu-ru-he-kong-zhi-fan-zhuan.jpg')">
-              </div>
-            
-            <div class="post-content">
-              <h1 id="一. 依赖注入和控制反转是什么？">一. 依赖注入和控制反转是什么？</h1><h4 id="名词解释：">名词解释：</h4><h4 id="ioc">IoC</h4><blockquote>
+
+<!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+<!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
+
+  <div class="container-fluid">
+      <div class="row fh5co-post-entry single-entry">
+          <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+              <figure class="animate-box">
+                  
+                      <img src="https://wx1.sinaimg.cn/mw690/bf82a72bly1g0f6rd2w2vj20ku0thqbk.jpg" alt="理解「依赖注入」和「控制反转」" class="img-responsive">
+                  
+              </figure>
+              <span class="fh5co-meta animate-box">
+                  
+                      <div class="tag-container">
+                          
+                              <a href="https://zhangajian.com//tag/Zo5YAjmh-" class="tag">设计模式, </a>
+                          
+                              <a href="https://zhangajian.com//tag/gWr_Ce0M-" class="tag">PHP, </a>
+                          
+                              <a href="https://zhangajian.com//tag/wa6VE0See" class="tag">原创, </a>
+                          
+                      </div>
+                  
+              </span>
+              <h2 class="fh5co-article-title animate-box">理解「依赖注入」和「控制反转」</h2>
+              <span class="fh5co-meta fh5co-date animate-box">2017-06-05</span>
+
+              <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                  <div class="row">
+                      <div class="col-md-12 animate-box post-content">
+                          <p> <h1 id="一-依赖注入和控制反转是什么">一. 依赖注入和控制反转是什么？</h1>
+<h4 id="名词解释">名词解释：</h4>
+<h4 id="ioc">IoC</h4>
+<blockquote>
 <ul>
 <li>控制反转 Inversion of Control</li>
 <li>依赖关系的转移</li>
 <li>依赖抽象而非实践</li>
 </ul>
 </blockquote>
-<h4 id="di">DI</h4><blockquote>
+<h4 id="di">DI</h4>
+<blockquote>
 <ul>
 <li>依赖注入 Dependency Injection</li>
 <li>不必自己在代码中维护对象的依赖</li>
 <li>容器自动根据配置，将依赖注入指定对象</li>
 </ul>
 </blockquote>
-<h4 id="container">Container</h4><blockquote>
+<h4 id="container">Container</h4>
+<blockquote>
 <ul>
 <li>管理对象的生成、资源取得、销毁等生命周期</li>
 <li>建立对象与对象之间的依赖关系</li>
@@ -105,7 +229,8 @@
 </ul>
 </blockquote>
 <p>------------以上引用自网络</p>
-<h1 id="二. ioc代码演示">二. IoC代码演示</h1><p>高层应用程序需要调用底层模块接口,导致高层应用程序对低层模块产生依赖。</p>
+<h1 id="二-ioc代码演示">二. IoC代码演示</h1>
+<p>高层应用程序需要调用底层模块接口,导致高层应用程序对低层模块产生依赖。</p>
 <pre><code class="language-php">&lt;?php
     // 高层类
     class Order
@@ -130,9 +255,11 @@
         }
     }
     $order = new Order();
-    $order-&gt;query();</code></pre>
+    $order-&gt;query();
+</code></pre>
 <p>假设我们有一个订单类，需要跟踪订单的物流信息，物流目前是和顺丰快递进行合作。但后因种种原因，需要迁移快递物流平台到圆通上去,那现在因为产生了物流接口依赖，程序无法重用，并且必须要修改或者新增圆通快递接口。这就是由于低层模块变化导致高层也跟着变化，不好的设计。</p>
-<h4 id="而正如上面的ioc解释">而正如上面的IoC解释</h4><blockquote>
+<h4 id="而正如上面的ioc解释">而正如上面的IoC解释</h4>
+<blockquote>
 <ul>
 <li>控制反转 Inversion of Control</li>
 <li>依赖关系的转移</li>
@@ -186,9 +313,12 @@
     $order-&gt;query(): //顺丰快递已送达
 
     $order-&gt;setTrack(new yt());
-    $order-&gt;query(): //圆通快递已送达</code></pre>
-<p>这样就将原来的物流查询模块对程序的控制权转移到trackBox接口上，让order类和各种物流接口类都依赖于trackBox,这样就实现了控制反转。面对变化，高层不用修改一行代码，不再依赖低层，而是依赖注入，这也就引出了(依赖注入)DI。<br/><br>依赖注入的方式有很多，但是主要思想就是如上所示，我们将一个依赖通过注入的方式进行使用。而不是直接将依赖写入被依赖中进行具体的实现。</p>
-<h1 id="三. 依赖注入容器 dependency injection container">三. 依赖注入容器 Dependency Injection Container</h1><p>那我们接下来继续思考，如果此后业务扩张，合作的物流平台越来越丰富，那么高层程序依赖的物流接口就会越来越多，我们就需要创建的依赖接口实例也会越来越多，这样就很不利于后期的维护</p>
+    $order-&gt;query(): //圆通快递已送达
+</code></pre>
+<p>这样就将原来的物流查询模块对程序的控制权转移到trackBox接口上，让order类和各种物流接口类都依赖于trackBox,这样就实现了控制反转。面对变化，高层不用修改一行代码，不再依赖低层，而是依赖注入，这也就引出了(依赖注入)DI。<br/>
+依赖注入的方式有很多，但是主要思想就是如上所示，我们将一个依赖通过注入的方式进行使用。而不是直接将依赖写入被依赖中进行具体的实现。</p>
+<h1 id="三-依赖注入容器-dependency-injection-container">三. 依赖注入容器 Dependency Injection Container</h1>
+<p>那我们接下来继续思考，如果此后业务扩张，合作的物流平台越来越丰富，那么高层程序依赖的物流接口就会越来越多，我们就需要创建的依赖接口实例也会越来越多，这样就很不利于后期的维护</p>
 <pre><code class="language-php">    //底层物流接口
     class sf implements trackBox{ ... } //顺丰
     class yt implements trackBox{ ... } //圆通
@@ -211,7 +341,8 @@
     $order-&gt;select(): //韵达快递已送达
 
     $order-&gt;setTrack(new ems());
-    $order-&gt;select(): //EMS快递已送达</code></pre>
+    $order-&gt;select(): //EMS快递已送达
+</code></pre>
 <p>这个时候，我们有一种比较优雅的设计方案就是采用&quot;工厂模式&quot;，</p>
 <blockquote>
 <p>工厂模式，个人理解就是一个类所依赖的外部实例，可以被一个或多个&quot;工厂&quot;创建的这样一种开发模式</p>
@@ -224,11 +355,11 @@
         public function makeTrack($trackName)
         {
             switch ($trackName) {
-                case &#39;sf&#39;:     return new sf();
-                case &#39;yt&#39;:     return new yt();
-                case &#39;zt&#39;:     return new zt();
-                case &#39;yd&#39;:     return new yd();
-                case &#39;ems&#39;:     return new ems();
+                case 'sf':     return new sf();
+                case 'yt':     return new yt();
+                case 'zt':     return new zt();
+                case 'yd':     return new yd();
+                case 'ems':     return new ems();
             }
 
             // return new $trackName();
@@ -256,13 +387,15 @@
         }
     }
 
-    $Order = new Order([&#39;sf&#39;,&#39;yd&#39;,&#39;ems&#39;,&#39;zt&#39;,]);
-    $Order-&gt;query(&#39;sf&#39;);
-    $Order-&gt;query(&#39;yd&#39;);
-    $Order-&gt;query(&#39;ems&#39;);
+    $Order = new Order(['sf','yd','ems','zt',]);
+    $Order-&gt;query('sf');
+    $Order-&gt;query('yd');
+    $Order-&gt;query('ems');
+
 </code></pre>
 <p>尽管工厂模式让我们的代码变得优雅了一点，但是我们又回到了开头的错误中来，我们现在对工厂类进行了依赖,并且在物流接口愈加丰富后，工厂类也会慢慢变的冗长而不利于维护，那我们要怎么才能设计出一套即优雅又松耦合的应用程序呢？这个时候就需要有容器这个概念</p>
-<h4 id="container">Container</h4><blockquote>
+<h4 id="container-2">Container</h4>
+<blockquote>
 <ul>
 <li>管理对象的生成、资源取得、销毁等生命周期</li>
 <li>建立对象与对象之间的依赖关系</li>
@@ -304,71 +437,61 @@
     }
 
     $container = new Container();
-    $container-&gt;bind(&#39;sf&#39;, function($container) {
+    $container-&gt;bind('sf', function($container) {
         return new sf();
     });
-    $container-&gt;bind(&#39;Order&#39;, function($container) {
+    $container-&gt;bind('Order', function($container) {
         return new Order();
     });
 
-    $Order = $container-&gt;make(&#39;Order&#39;,&#39;sf&#39;);
+    $Order = $container-&gt;make('Order','sf');
+
 </code></pre>
+ </p>
+                      </div>
+                  </div>
 
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://zhangajian.com//tag/Zo5YAjmh-" class="tag">
-                    设计模式
-                  </a>
-                
-                  <a href="https://zhangajian.com//tag/gWr_Ce0M-" class="tag">
-                    PHP
-                  </a>
-                
-                  <a href="https://zhangajian.com//tag/wa6VE0See" class="tag">
-                    原创
-                  </a>
-                
+                  <div class="row">
+                      <div class="col-md-12 animate-box">
+                          
+                              <div class="next-post">
+                                  <div class="next">下一篇</div>
+                                  <a href="https://zhangajian.com//post/mac-xia-an-zhuang-redis-he-php-redis-kuo-zhan">
+                                      <h3 class="post-title">
+                                          Mac下安装Redis和php-redis扩展
+                                      </h3>
+                                  </a>
+                              </div>
+                          
+                      </div>
+                  </div>
               </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://zhangajian.com//post/mac-xia-an-zhuang-redis-he-php-redis-kuo-zhan">
-                  <h3 class="post-title">
-                    Mac下安装Redis和php-redis扩展
-                  </h3>
-                </a>
-              </div>
-            
 
-            
-
-          </div>
-
-        </div>
+          </article>
       </div>
-    </div>
+  </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+<footer id="fh5co-footer">
+  <p>Powered by Hve Notes, © 2016 - 2019 Copyright 张阿简. All Rights Reserved.</p>
+</footer>
+
+
+    
+<!-- jQuery -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="https://zhangajian.com//media/scripts/_vendors/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.waypoints.min.js"></script>
+<!-- Main JS -->
+<script src="https://zhangajian.com//media/scripts/_vendors/main.js"></script>
 
 <script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+    hljs.initHighlightingOnLoad();
 </script>
-
-
 
 
   </body>

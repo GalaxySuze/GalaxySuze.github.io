@@ -1,94 +1,215 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
+      
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>张阿简的博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>PHP的软件包管理系统-Composer | 张阿简的博客</title>
-<meta name="description" content="Kill Time, Or Kiss Time">
+<meta name="description" content="Kill Time, Or Kiss Time"/>
+<meta name="keywords" content="Kill Time, Or Kiss Time"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="https://zhangajian.com//favicon.ico">
+
 <link rel="stylesheet" href="https://zhangajian.com//styles/main.css">
 
+<!-- Modernizr JS -->
+<script src="https://zhangajian.com//media/scripts/_vendors/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<scripts src="https://zhangajian.com//media/scripts/_vendors/respond.min.js"></scripts>
+<![endif]-->
 
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/tomorrow-night.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<link crossorigin="anonymous" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" href="https://lib.baomitu.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
 
   </head>
   <body>
-    <div id="app" class="main">
+  
+<div id="fh5co-offcanvas">
+    <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
+        <span><i class="icon-cross3"></i> <span>Close</span></span>
+    </a>
+    <div class="fh5co-bio">
+        <figure>
+            <img src="https://zhangajian.com//media/images/avatar.png" alt="张阿简的博客" class="img-responsive">
+        </figure>
+        <h3 class="heading">ABOUT ME</h3>
+        <h2>张阿简的博客</h2>
+        <p>Kill Time, Or Kiss Time</p>
+        <ul class="fh5co-social">
+            
+                <li>
+                    <a href="/"
+                     >
+                        首页
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/archives"
+                     >
+                        归档
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/tags"
+                     >
+                        标签
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/about"
+                     >
+                        关于
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
 
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://zhangajian.com/">
-        <img src="https://zhangajian.com//images/avatar.png" class="site-logo">
-        <h1 class="site-title">张阿简的博客</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
+    <div class="fh5co-menu">
+        <div class="fh5co-box">
+            <h3 class="heading">搜索</h3>
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="输入关键字">
+                </div>
+            </form>
+        </div>
+        <div class="fh5co-box">
+            <h3 class="heading">标签</h3>
+            <ul>
+                
+                    <li><a href="https://zhangajian.com//tag/wa6VE0See">原创</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/TnE9j9p54">生活</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/2Lrsz8nQ5">Java</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/linux">Linux</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/Q1TPBCeTZ">Minecraft</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/screen">screen</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/R9XMeHPGI">Mac</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/-v19lpUsp">Beyond Compare</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/7GuO-rABn">Certbot</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/32-ELgkvl">HTTPS</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/nginx">Nginx</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/gWr_Ce0M-">PHP</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/WU4oQ_US9">WordPress</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/zpAo_gez-">Mysql</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/laravel">Laravel</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/XljxheWyB">Composer</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/Zo5YAjmh-">设计模式</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/f8yREx6Zn">Redis</a></li>
+                
+            </ul>
+        </div>
     </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="site-description">
-      Kill Time, Or Kiss Time
-    </div>
-    <div class="site-footer">
-      Powered by Hve Notes, © 2016 - 2019 Copyright 张阿简. All Rights Reserved.
-    </div>
-  </div>
 </div>
 
+<header id="fh5co-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+            <ul class="fh5co-social">
+                
+                    <li>
+                        <a href="/"
+                         >
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives"
+                         >
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags"
+                         >
+                            标签
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/about"
+                         >
+                            关于
+                        </a>
+                    </li>
+                
+            </ul>
+            <div class="col-lg-12 col-md-12 text-center">
+                <h1 id="fh5co-logo">
+                    <a href="https://zhangajian.com/">张阿简的博客</a>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">PHP的软件包管理系统-Composer</h2>
-            <div class="post-date">2017-10-07</div>
-            
-              <div class="feature-container" style="background-image: url('https://zhangajian.com//post-images/php-de-ruan-jian-bao-guan-li-xi-tong-composer.jpg')">
-              </div>
-            
-            <div class="post-content">
-              <p><img src="https://getcomposer.org/img/logo-composer-transparent.png" style="zoom:50%" alt="composer" />  </p>
-<h1 id="一. what is composer?">一. What is composer?</h1><blockquote>
+
+<!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+<!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
+
+  <div class="container-fluid">
+      <div class="row fh5co-post-entry single-entry">
+          <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+              <figure class="animate-box">
+                  
+                      <img src="https://zhangajian.com//post-images/php-de-ruan-jian-bao-guan-li-xi-tong-composer.jpg" alt="PHP的软件包管理系统-Composer" class="img-responsive">
+                  
+              </figure>
+              <span class="fh5co-meta animate-box">
+                  
+                      <div class="tag-container">
+                          
+                              <a href="https://zhangajian.com//tag/XljxheWyB" class="tag">Composer, </a>
+                          
+                              <a href="https://zhangajian.com//tag/gWr_Ce0M-" class="tag">PHP, </a>
+                          
+                              <a href="https://zhangajian.com//tag/wa6VE0See" class="tag">原创, </a>
+                          
+                      </div>
+                  
+              </span>
+              <h2 class="fh5co-article-title animate-box">PHP的软件包管理系统-Composer</h2>
+              <span class="fh5co-meta fh5co-date animate-box">2017-10-07</span>
+
+              <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                  <div class="row">
+                      <div class="col-md-12 animate-box post-content">
+                          <p> <img src="https://getcomposer.org/img/logo-composer-transparent.png" style="zoom:50%" alt="composer" />  
+<h1 id="一-what-is-composer">一. What is composer?</h1>
+<blockquote>
 <p>是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件。  ---- <a href="http://docs.phpcomposer.com/00-intro.html">Composer文档</a></p>
 </blockquote>
 <p>这边的依赖可以理解为各种开发包或者插件，当我们在项目中要使用第三方工具库的时候，我们往往要从官网或者一些别的其他途径来获取源文件，并放入到自己的项目中，在使用的时候，通过手动<strong>require</strong>的方式引用。当然我们大部分会通过写一个<strong>自动加载</strong>方法来进行<strong>require</strong>。但当我们使用比较大的第三方工具库时，可能它的其中又去依赖了更多别的第三方包。而且往往有时候工具库的版本更新可能会不兼容旧版本，我们手动去进行依赖那将会是一件痛苦的事情。<br/></p>
-<h4 id="那么compser能为我们解决哪些问题：">那么Compser能为我们解决哪些问题：</h4><blockquote>
+<h4 id="那么compser能为我们解决哪些问题">那么Compser能为我们解决哪些问题：</h4>
+<blockquote>
 <ul>
 <li>a) 你有一个项目依赖于若干个库。</li>
 <li>b) 其中一些库依赖于其他库。</li>
@@ -97,29 +218,39 @@
 </ul>
 </blockquote>
  <br>
-
-<h1 id="二. 开始使用composer">二. 开始使用Composer</h1><blockquote>
-<p>系统要求: 运行 Composer 需要 PHP 5.3.2+ 以上版本。<br/><br> 安装Composer: <a href="http://docs.phpcomposer.com/00-intro.html#Installation-*nix">Composer文档-安装</a></p>
+<h1 id="二-开始使用composer">二. 开始使用Composer</h1>
+<blockquote>
+<p>系统要求: 运行 Composer 需要 PHP 5.3.2+ 以上版本。<br/>
+安装Composer: <a href="http://docs.phpcomposer.com/00-intro.html#Installation-*nix">Composer文档-安装</a></p>
 </blockquote>
-<h4 id="composer的包版本符号">Composer的包版本符号</h4><p>composer的依赖声明通常都写在项目根目录下的<strong>composer.json</strong>文件中，通过<strong>JSON format</strong>的方式进行编写，就像这样子：</p>
+<h4 id="composer的包版本符号">Composer的包版本符号</h4>
+<p>composer的依赖声明通常都写在项目根目录下的<strong>composer.json</strong>文件中，通过<strong>JSON format</strong>的方式进行编写，就像这样子：</p>
 <pre><code>{
     &quot;require&quot;: {
         &quot;monolog/monolog&quot;: &quot;1.0.*&quot;
     }
-}</code></pre><p><strong>require</strong>是指定Key，我们需要做的，就是在这个指定key中增加我们需要的依赖包 (&quot;monolog/monolog&quot;) 和指定的版本 (&quot;1.0.*&quot;),那么在使用前，首先我们需要知道composer中是怎么声明我们需要依赖的包版本的<br><a href="https://docs.phpcomposer.com/01-basic-usage.html#Package-Versions" title="点击链接查看">:point_right:点击链接查看</a></p>
-<h4 id="composer install和update">Composer install和update</h4><p>如果composer已经安装成功的话，可以直接在命令行中执行 &quot;composer&quot; 命令来查看命令列表，但在大部分的时候，使用频率最高的是<strong>install</strong>和<strong>update</strong>命令，顾名思义就是使用composer安装和更新依赖包。比如我们已经在项目的composer.json中声明了依赖</p>
+}
+</code></pre>
+<p><strong>require</strong>是指定Key，我们需要做的，就是在这个指定key中增加我们需要的依赖包 (&quot;monolog/monolog&quot;) 和指定的版本 (&quot;1.0.*&quot;),那么在使用前，首先我们需要知道composer中是怎么声明我们需要依赖的包版本的
+<a href="https://docs.phpcomposer.com/01-basic-usage.html#Package-Versions" title="点击链接查看">:point_right:点击链接查看</a></p>
+<h4 id="composer-install和update">Composer install和update</h4>
+<p>如果composer已经安装成功的话，可以直接在命令行中执行 &quot;composer&quot; 命令来查看命令列表，但在大部分的时候，使用频率最高的是<strong>install</strong>和<strong>update</strong>命令，顾名思义就是使用composer安装和更新依赖包。比如我们已经在项目的composer.json中声明了依赖</p>
 <pre><code>{
   &quot;require&quot;:{
     &quot;mustache/mustache&quot;:&quot;2.8.0&quot;
   }
-}</code></pre><p>在命令行中直接执行 &quot;composer install&quot;，就能直接将这个工具库依赖到我们系统中</p>
+}
+</code></pre>
+<p>在命令行中直接执行 &quot;composer install&quot;，就能直接将这个工具库依赖到我们系统中</p>
 <pre><code>$ composer install
 Loading composer repositories with package information
 Updating dependencies (including require-dev)
 Package operations: 1 install, 0 updates, 0 removals
   - Installing mustache/mustache (v2.8.0): Downloading (100%)
 Writing lock file
-Generating autoload files</code></pre><p>再打开项目文件夹，就能发现新增了<strong>vendor</strong>文件夹和<strong>composer.lock</strong>文件，vendor目录存放是composer的<strong>自动加载</strong>文件和我们刚刚下载的工具库，composer.lock文件是在安装依赖后，composer将把安装时确切的版本号列表(composer.json定义的)写入composer.lock 文件中，锁定项目所使用的包版本。<strong>这样做的意义是：</strong></p>
+Generating autoload files
+</code></pre>
+<p>再打开项目文件夹，就能发现新增了<strong>vendor</strong>文件夹和<strong>composer.lock</strong>文件，vendor目录存放是composer的<strong>自动加载</strong>文件和我们刚刚下载的工具库，composer.lock文件是在安装依赖后，composer将把安装时确切的版本号列表(composer.json定义的)写入composer.lock 文件中，锁定项目所使用的包版本。<strong>这样做的意义是：</strong></p>
 <blockquote>
 <ol>
 <li>在提交项目的时候，请将lock文件也提交，这样在团队开发中，如果有别的成员进入开发，建立项目时都将下载与指定版本完全相同的依赖，减轻潜在的部署错误。</li>
@@ -133,72 +264,67 @@ Updating dependencies (including require-dev)
 Package operations: 0 installs, 1 update, 0 removals
   - Updating mustache/mustache (v2.8.0 =&gt; v2.9.0): Loading from cache
 Writing lock file
-Generating autoload files</code></pre><p>可以通过 &quot;composer show -i&quot; 命令查看当前已经安装的依赖包版本</p>
+Generating autoload files
+</code></pre>
+<p>可以通过 &quot;composer show -i&quot; 命令查看当前已经安装的依赖包版本</p>
 <pre><code>$ composer show -i
-mustache/mustache v2.9.0 A Mustache implementation in PHP.</code></pre><h1 id="三. 在项目中使用依赖包">三. 在项目中使用依赖包</h1><p>composer提供了<strong>自动加载</strong>文件来提供自动加载支持，我们只要在项目的入口文件中添加这行代码</p>
+mustache/mustache v2.9.0 A Mustache implementation in PHP.
+</code></pre>
+<h1 id="三-在项目中使用依赖包">三. 在项目中使用依赖包</h1>
+<p>composer提供了<strong>自动加载</strong>文件来提供自动加载支持，我们只要在项目的入口文件中添加这行代码</p>
 <pre><code class="language-php">&lt;?php
     require &quot;vendor/autoload.php&quot;;
 
     $obj = new Mustache_Engine();
-    $obj-&gt;render(&#39;Hello world&#39;);</code></pre>
+    $obj-&gt;render('Hello world');
+</code></pre>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://zhangajian.com//tag/XljxheWyB" class="tag">
-                    Composer
-                  </a>
-                
-                  <a href="https://zhangajian.com//tag/gWr_Ce0M-" class="tag">
-                    PHP
-                  </a>
-                
-                  <a href="https://zhangajian.com//tag/wa6VE0See" class="tag">
-                    原创
-                  </a>
-                
+<script>hljs.initHighlightingOnLoad();</script> </p>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-12 animate-box">
+                          
+                              <div class="next-post">
+                                  <div class="next">下一篇</div>
+                                  <a href="https://zhangajian.com//post/li-jie-yi-lai-zhu-ru-he-kong-zhi-fan-zhuan">
+                                      <h3 class="post-title">
+                                          理解「依赖注入」和「控制反转」
+                                      </h3>
+                                  </a>
+                              </div>
+                          
+                      </div>
+                  </div>
               </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://zhangajian.com//post/li-jie-yi-lai-zhu-ru-he-kong-zhi-fan-zhuan">
-                  <h3 class="post-title">
-                    理解「依赖注入」和「控制反转」
-                  </h3>
-                </a>
-              </div>
-            
 
-            
-
-          </div>
-
-        </div>
+          </article>
       </div>
-    </div>
+  </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+<footer id="fh5co-footer">
+  <p>Powered by Hve Notes, © 2016 - 2019 Copyright 张阿简. All Rights Reserved.</p>
+</footer>
+
+
+    
+<!-- jQuery -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="https://zhangajian.com//media/scripts/_vendors/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.waypoints.min.js"></script>
+<!-- Main JS -->
+<script src="https://zhangajian.com//media/scripts/_vendors/main.js"></script>
 
 <script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+    hljs.initHighlightingOnLoad();
 </script>
-
-
 
 
   </body>

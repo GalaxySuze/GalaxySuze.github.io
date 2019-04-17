@@ -1,180 +1,295 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
+      
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>张阿简的博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>Mac下安装Redis和php-redis扩展 | 张阿简的博客</title>
-<meta name="description" content="Kill Time, Or Kiss Time">
+<meta name="description" content="Kill Time, Or Kiss Time"/>
+<meta name="keywords" content="Kill Time, Or Kiss Time"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="https://zhangajian.com//favicon.ico">
+
 <link rel="stylesheet" href="https://zhangajian.com//styles/main.css">
 
+<!-- Modernizr JS -->
+<script src="https://zhangajian.com//media/scripts/_vendors/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<scripts src="https://zhangajian.com//media/scripts/_vendors/respond.min.js"></scripts>
+<![endif]-->
 
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/tomorrow-night.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<link crossorigin="anonymous" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" href="https://lib.baomitu.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
 
   </head>
   <body>
-    <div id="app" class="main">
+  
+<div id="fh5co-offcanvas">
+    <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
+        <span><i class="icon-cross3"></i> <span>Close</span></span>
+    </a>
+    <div class="fh5co-bio">
+        <figure>
+            <img src="https://zhangajian.com//media/images/avatar.png" alt="张阿简的博客" class="img-responsive">
+        </figure>
+        <h3 class="heading">ABOUT ME</h3>
+        <h2>张阿简的博客</h2>
+        <p>Kill Time, Or Kiss Time</p>
+        <ul class="fh5co-social">
+            
+                <li>
+                    <a href="/"
+                     >
+                        首页
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/archives"
+                     >
+                        归档
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/tags"
+                     >
+                        标签
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/about"
+                     >
+                        关于
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
 
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://zhangajian.com/">
-        <img src="https://zhangajian.com//images/avatar.png" class="site-logo">
-        <h1 class="site-title">张阿简的博客</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
+    <div class="fh5co-menu">
+        <div class="fh5co-box">
+            <h3 class="heading">搜索</h3>
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="输入关键字">
+                </div>
+            </form>
+        </div>
+        <div class="fh5co-box">
+            <h3 class="heading">标签</h3>
+            <ul>
+                
+                    <li><a href="https://zhangajian.com//tag/wa6VE0See">原创</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/TnE9j9p54">生活</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/2Lrsz8nQ5">Java</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/linux">Linux</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/Q1TPBCeTZ">Minecraft</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/screen">screen</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/R9XMeHPGI">Mac</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/-v19lpUsp">Beyond Compare</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/7GuO-rABn">Certbot</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/32-ELgkvl">HTTPS</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/nginx">Nginx</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/gWr_Ce0M-">PHP</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/WU4oQ_US9">WordPress</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/zpAo_gez-">Mysql</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/laravel">Laravel</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/XljxheWyB">Composer</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/Zo5YAjmh-">设计模式</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/f8yREx6Zn">Redis</a></li>
+                
+            </ul>
+        </div>
     </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="site-description">
-      Kill Time, Or Kiss Time
-    </div>
-    <div class="site-footer">
-      Powered by Hve Notes, © 2016 - 2019 Copyright 张阿简. All Rights Reserved.
-    </div>
-  </div>
 </div>
 
+<header id="fh5co-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+            <ul class="fh5co-social">
+                
+                    <li>
+                        <a href="/"
+                         >
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives"
+                         >
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags"
+                         >
+                            标签
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/about"
+                         >
+                            关于
+                        </a>
+                    </li>
+                
+            </ul>
+            <div class="col-lg-12 col-md-12 text-center">
+                <h1 id="fh5co-logo">
+                    <a href="https://zhangajian.com/">张阿简的博客</a>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">Mac下安装Redis和php-redis扩展</h2>
-            <div class="post-date">2017-03-10</div>
-            
-              <div class="feature-container" style="background-image: url('https://zhangajian.com//post-images/mac-xia-an-zhuang-redis-he-php-redis-kuo-zhan.jpg')">
-              </div>
-            
-            <div class="post-content">
-              <h1 id="一. 安装redis服务器">一. 安装redis服务器</h1><blockquote>
+
+<!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+<!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
+
+  <div class="container-fluid">
+      <div class="row fh5co-post-entry single-entry">
+          <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+              <figure class="animate-box">
+                  
+                      <img src="https://zhangajian.com//post-images/mac-xia-an-zhuang-redis-he-php-redis-kuo-zhan.jpg" alt="Mac下安装Redis和php-redis扩展" class="img-responsive">
+                  
+              </figure>
+              <span class="fh5co-meta animate-box">
+                  
+                      <div class="tag-container">
+                          
+                              <a href="https://zhangajian.com//tag/f8yREx6Zn" class="tag">Redis, </a>
+                          
+                              <a href="https://zhangajian.com//tag/gWr_Ce0M-" class="tag">PHP, </a>
+                          
+                              <a href="https://zhangajian.com//tag/R9XMeHPGI" class="tag">Mac, </a>
+                          
+                              <a href="https://zhangajian.com//tag/wa6VE0See" class="tag">原创, </a>
+                          
+                      </div>
+                  
+              </span>
+              <h2 class="fh5co-article-title animate-box">Mac下安装Redis和php-redis扩展</h2>
+              <span class="fh5co-meta fh5co-date animate-box">2017-03-10</span>
+
+              <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                  <div class="row">
+                      <div class="col-md-12 animate-box post-content">
+                          <p> <h1 id="一-安装redis服务器">一. 安装redis服务器</h1>
+<blockquote>
 <p>使用Homebrew安装redis可以减少大量的安装和配置的工作量。</p>
 </blockquote>
-<h4 id="执行 brew install redis 安装redis">执行 brew install redis 安装redis</h4><h4 id="常用命令">常用命令</h4><ul>
+<h4 id="执行-brew-install-redis-安装redis">执行 brew install redis 安装redis</h4>
+<h4 id="常用命令">常用命令</h4>
+<ul>
 <li>redis-server #启动redis服务器</li>
 <li>redis-cli # redis客户端</li>
 <li>redis-server --port 6380 #Redis 默认端口是6379，也可以换个端口号启动</li>
 <li>redis-cli shutdown #关闭redis，服务端会断开所有客户端的连接，然后根据配置执行持久化，最后退出。</li>
 </ul>
-<h1 id="二. 安装php-redis扩展">二. 安装php-redis扩展</h1><blockquote>
+<h1 id="二-安装php-redis扩展">二. 安装php-redis扩展</h1>
+<blockquote>
 <p>php默认不支持redis，需要进行编译才能使用。</p>
 </blockquote>
 <ul>
 <li>下载源码编译 <a href="http://pecl.php.net/package/redis">php官方扩展库链接</a></li>
 <li>将redis-4.0.2.tgz（写这篇文章时的最新版本）下载到本地</li>
 <li>执行<strong>tar -xzf</strong>命令，解压.tgz 后缀的文件</li>
-<li>进入到<strong>redis-4.0.2</strong>文件夹中，依次执行如下命令：<ul>
+<li>进入到<strong>redis-4.0.2</strong>文件夹中，依次执行如下命令：
+<ul>
 <li>phpize</li>
 <li>./configure</li>
 <li>make</li>
 <li>sudo make install</li>
 </ul>
 </li>
-<li>在php.ini中启用redis<ul>
+<li>在php.ini中启用redis
+<ul>
 <li>添加 <strong>extension=redis.so;</strong></li>
 </ul>
 </li>
 <li>重启php-fpm和nginx</li>
 </ul>
-<h1 id="三. 在php中使用redis">三. 在PHP中使用redis</h1><blockquote>
+<h1 id="三-在php中使用redis">三. 在PHP中使用redis</h1>
+<blockquote>
 <p>连接到 redis 服务php代码</p>
 </blockquote>
 <pre><code class="language-php">&lt;?php
     //连接本地的 Redis 服务
    $redis = new Redis();
-   $redis-&gt;connect(&#39;127.0.0.1&#39;, 6379);
+   $redis-&gt;connect('127.0.0.1', 6379);
    echo &quot;Connection to server sucessfully&quot;;//查看服务是否运行
-   echo &quot;Server is running: &quot; . $redis-&gt;ping();?&gt;</code></pre>
+   echo &quot;Server is running: &quot; . $redis-&gt;ping();?&gt;
+</code></pre>
 <p>执行脚本，输出结果为：</p>
 <pre><code class="language-shell">Connection to server sucessfully
-Server is running: PONG</code></pre>
+Server is running: PONG
+</code></pre>
+ </p>
+                      </div>
+                  </div>
 
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://zhangajian.com//tag/f8yREx6Zn" class="tag">
-                    Redis
-                  </a>
-                
-                  <a href="https://zhangajian.com//tag/gWr_Ce0M-" class="tag">
-                    PHP
-                  </a>
-                
-                  <a href="https://zhangajian.com//tag/R9XMeHPGI" class="tag">
-                    Mac
-                  </a>
-                
-                  <a href="https://zhangajian.com//tag/wa6VE0See" class="tag">
-                    原创
-                  </a>
-                
+                  <div class="row">
+                      <div class="col-md-12 animate-box">
+                          
+                      </div>
+                  </div>
               </div>
-            
-            
 
-            
-
-          </div>
-
-        </div>
+          </article>
       </div>
-    </div>
+  </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+<footer id="fh5co-footer">
+  <p>Powered by Hve Notes, © 2016 - 2019 Copyright 张阿简. All Rights Reserved.</p>
+</footer>
+
+
+    
+<!-- jQuery -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="https://zhangajian.com//media/scripts/_vendors/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.waypoints.min.js"></script>
+<!-- Main JS -->
+<script src="https://zhangajian.com//media/scripts/_vendors/main.js"></script>
 
 <script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+    hljs.initHighlightingOnLoad();
 </script>
-
-
 
 
   </body>

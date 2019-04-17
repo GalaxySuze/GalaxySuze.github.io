@@ -1,172 +1,287 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
+      
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>张阿简的博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>Mac下破解Beyond Compare | 张阿简的博客</title>
-<meta name="description" content="Kill Time, Or Kiss Time">
+<meta name="description" content="Kill Time, Or Kiss Time"/>
+<meta name="keywords" content="Kill Time, Or Kiss Time"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="https://zhangajian.com//favicon.ico">
+
 <link rel="stylesheet" href="https://zhangajian.com//styles/main.css">
 
+<!-- Modernizr JS -->
+<script src="https://zhangajian.com//media/scripts/_vendors/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+<scripts src="https://zhangajian.com//media/scripts/_vendors/respond.min.js"></scripts>
+<![endif]-->
 
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/tomorrow-night.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<link crossorigin="anonymous" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" href="https://lib.baomitu.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
 
   </head>
   <body>
-    <div id="app" class="main">
+  
+<div id="fh5co-offcanvas">
+    <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
+        <span><i class="icon-cross3"></i> <span>Close</span></span>
+    </a>
+    <div class="fh5co-bio">
+        <figure>
+            <img src="https://zhangajian.com//media/images/avatar.png" alt="张阿简的博客" class="img-responsive">
+        </figure>
+        <h3 class="heading">ABOUT ME</h3>
+        <h2>张阿简的博客</h2>
+        <p>Kill Time, Or Kiss Time</p>
+        <ul class="fh5co-social">
+            
+                <li>
+                    <a href="/"
+                     >
+                        首页
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/archives"
+                     >
+                        归档
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/tags"
+                     >
+                        标签
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/about"
+                     >
+                        关于
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
 
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://zhangajian.com/">
-        <img src="https://zhangajian.com//images/avatar.png" class="site-logo">
-        <h1 class="site-title">张阿简的博客</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
+    <div class="fh5co-menu">
+        <div class="fh5co-box">
+            <h3 class="heading">搜索</h3>
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="输入关键字">
+                </div>
+            </form>
+        </div>
+        <div class="fh5co-box">
+            <h3 class="heading">标签</h3>
+            <ul>
+                
+                    <li><a href="https://zhangajian.com//tag/wa6VE0See">原创</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/TnE9j9p54">生活</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/2Lrsz8nQ5">Java</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/linux">Linux</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/Q1TPBCeTZ">Minecraft</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/screen">screen</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/R9XMeHPGI">Mac</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/-v19lpUsp">Beyond Compare</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/7GuO-rABn">Certbot</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/32-ELgkvl">HTTPS</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/nginx">Nginx</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/gWr_Ce0M-">PHP</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/WU4oQ_US9">WordPress</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/zpAo_gez-">Mysql</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/laravel">Laravel</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/XljxheWyB">Composer</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/Zo5YAjmh-">设计模式</a></li>
+                
+                    <li><a href="https://zhangajian.com//tag/f8yREx6Zn">Redis</a></li>
+                
+            </ul>
+        </div>
     </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="site-description">
-      Kill Time, Or Kiss Time
-    </div>
-    <div class="site-footer">
-      Powered by Hve Notes, © 2016 - 2019 Copyright 张阿简. All Rights Reserved.
-    </div>
-  </div>
 </div>
 
+<header id="fh5co-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+            <ul class="fh5co-social">
+                
+                    <li>
+                        <a href="/"
+                         >
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives"
+                         >
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags"
+                         >
+                            标签
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/about"
+                         >
+                            关于
+                        </a>
+                    </li>
+                
+            </ul>
+            <div class="col-lg-12 col-md-12 text-center">
+                <h1 id="fh5co-logo">
+                    <a href="https://zhangajian.com/">张阿简的博客</a>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">Mac下破解Beyond Compare</h2>
-            <div class="post-date">2018-12-05</div>
-            
-              <div class="feature-container" style="background-image: url('https://zhangajian.com//post-images/mac-xia-po-jie-beyond-compare.jpg')">
-              </div>
-            
-            <div class="post-content">
-              <ul>
-<li><p>1 . 去官网下载Beyond Compare并安装</p>
+
+<!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+<!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
+
+  <div class="container-fluid">
+      <div class="row fh5co-post-entry single-entry">
+          <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+              <figure class="animate-box">
+                  
+                      <img src="https://zhangajian.com//post-images/mac-xia-po-jie-beyond-compare.jpg" alt="Mac下破解Beyond Compare" class="img-responsive">
+                  
+              </figure>
+              <span class="fh5co-meta animate-box">
+                  
+                      <div class="tag-container">
+                          
+                              <a href="https://zhangajian.com//tag/R9XMeHPGI" class="tag">Mac, </a>
+                          
+                              <a href="https://zhangajian.com//tag/-v19lpUsp" class="tag">Beyond Compare, </a>
+                          
+                              <a href="https://zhangajian.com//tag/wa6VE0See" class="tag">原创, </a>
+                          
+                      </div>
+                  
+              </span>
+              <h2 class="fh5co-article-title animate-box">Mac下破解Beyond Compare</h2>
+              <span class="fh5co-meta fh5co-date animate-box">2018-12-05</span>
+
+              <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                  <div class="row">
+                      <div class="col-md-12 animate-box post-content">
+                          <p> <ul>
+<li>
+<p>1 . 去官网下载Beyond Compare并安装</p>
 </li>
-<li><p>2 . 进入Beyond Compare应用程序MacOS目录下(/Applications/Beyond Compare.app/Contents/MacOS)</p>
+<li>
+<p>2 . 进入Beyond Compare应用程序MacOS目录下(/Applications/Beyond Compare.app/Contents/MacOS)</p>
 </li>
-<li><p>3 . 将主启动程序BCompare重命名为BCompare.real </p>
+<li>
+<p>3 . 将主启动程序BCompare重命名为BCompare.real</p>
 </li>
-<li><p>4 . 在同级目录下新建一个脚本文件命名为BCompare</p>
+<li>
+<p>4 . 在同级目录下新建一个脚本文件命名为BCompare</p>
 </li>
 </ul>
-<pre><code class="language-shell">vim BCompare</code></pre>
+<pre><code class="language-shell">vim BCompare
+</code></pre>
 <p>写入</p>
 <pre><code class="language-vim">#!/bin/bash
 
 rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat&quot;
 
-&quot;`dirname &quot;$0&quot;`&quot;/BCompare.real $@</code></pre>
+&quot;`dirname &quot;$0&quot;`&quot;/BCompare.real $@
+</code></pre>
 <blockquote>
 <p>ps: 代码意义，第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序</p>
 </blockquote>
 <ul>
 <li>5 . 给新建的文件BCompare，授权文件执行权限</li>
 </ul>
-<pre><code class="language-shell">chmod a+x /Applications/Beyond\ Compare.app/Contents/MacOS/BCompare</code></pre>
+<pre><code class="language-shell">chmod a+x /Applications/Beyond\ Compare.app/Contents/MacOS/BCompare
+</code></pre>
 <p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。</p>
 <blockquote>
 <p><a href="https://m.pythontab.com/article/1356">参考资料 - https://m.pythontab.com/article/1356</a></p>
 </blockquote>
+ </p>
+                      </div>
+                  </div>
 
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://zhangajian.com//tag/R9XMeHPGI" class="tag">
-                    Mac
-                  </a>
-                
-                  <a href="https://zhangajian.com//tag/-v19lpUsp" class="tag">
-                    Beyond Compare
-                  </a>
-                
-                  <a href="https://zhangajian.com//tag/wa6VE0See" class="tag">
-                    原创
-                  </a>
-                
+                  <div class="row">
+                      <div class="col-md-12 animate-box">
+                          
+                              <div class="next-post">
+                                  <div class="next">下一篇</div>
+                                  <a href="https://zhangajian.com//post/tong-guo-certbot-an-zhuang-lets-encrypt-zheng-shu-shi-xian-quan-zhan-de-https-fang-wen">
+                                      <h3 class="post-title">
+                                          通过Certbot安装Let&#39;s Encrypt证书实现全站的HTTPS访问
+                                      </h3>
+                                  </a>
+                              </div>
+                          
+                      </div>
+                  </div>
               </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://zhangajian.com//post/tong-guo-certbot-an-zhuang-lets-encrypt-zheng-shu-lai-shi-xian-quan-zhan-de-https-fang-wen">
-                  <h3 class="post-title">
-                    通过Certbot安装Let&#39;s Encrypt证书，来实现全站的HTTPS访问
-                  </h3>
-                </a>
-              </div>
-            
 
-            
-
-          </div>
-
-        </div>
+          </article>
       </div>
-    </div>
+  </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+<footer id="fh5co-footer">
+  <p>Powered by Hve Notes, © 2016 - 2019 Copyright 张阿简. All Rights Reserved.</p>
+</footer>
+
+
+    
+<!-- jQuery -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="https://zhangajian.com//media/scripts/_vendors/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="https://zhangajian.com//media/scripts/_vendors/jquery.waypoints.min.js"></script>
+<!-- Main JS -->
+<script src="https://zhangajian.com//media/scripts/_vendors/main.js"></script>
 
 <script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+    hljs.initHighlightingOnLoad();
 </script>
-
-
 
 
   </body>
