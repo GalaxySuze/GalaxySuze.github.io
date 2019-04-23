@@ -303,6 +303,8 @@ rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.da
 <script src="https://zhangajian.com/media/scripts/_vendors/jquery.waypoints.min.js"></script>
 <!-- Main JS -->
 <script src="https://zhangajian.com/media/scripts/_vendors/main.js"></script>
+<!-- Md5 Min JS -->
+<script src="https://zhangajian.com/media/scripts/_vendors/md5.min.js"></script>
 
 <script type="application/javascript">
     hljs.initHighlightingOnLoad();
@@ -320,7 +322,7 @@ rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.da
                 repo: 'ZhangAJianBlogGitalk',
                 owner: 'GalaxySuze',
                 admin: ['GalaxySuze'],
-                id: location.pathname,      // Ensure uniqueness and length less than 50
+                id: md5(location.pathname),      // Ensure uniqueness and length less than 50
                 distractionFreeMode: false  // Facebook-like distraction free mode
             })
 
