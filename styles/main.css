@@ -876,6 +876,19 @@ figure figcaption {
   background: #f5f8fa;
   background: linear-gradient(-150deg, transparent 1.5em, #ffffff 0);
 }
+.post-content > blockquote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(to left bottom, transparent 50%, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.4)) 100% 0 no-repeat;
+  width: 1.73em;
+  height: 3em;
+  transform: translateY(-1.3em) rotate(-30deg);
+  transform-origin: bottom right;
+  border-bottom-left-radius: inherit;
+  box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+}
 /*!
 Animate.css - http://daneden.me/animate
 Licensed under the MIT license - http://opensource.org/licenses/MIT
@@ -12530,3 +12543,8 @@ html[xmlns] .flexslider .slides {
 .pagination-box .next:hover {
   color: #92abf5;
 }
+
+      body {
+        background: #f8f9fa;
+      }
+    
