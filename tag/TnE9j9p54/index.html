@@ -90,23 +90,12 @@
             <form action="#">
                 <div class="form-group">
 <!--                    <input type="text" id="bdcsMain" class="form-control" placeholder="输入关键字">-->
-<!--                    <button type="submit" class="btn btn-sm btn-warning" style="margin-top: 6px; width: 100%">点击搜索</button>-->
+<!--                    <button type="submit" class="btn btn-sm btn-warning" style="margin-top: 6px; width: 100%"-->
+<!--                            onClick="window.open('http://znsv.baidu.com/cse/search?s=18014581858743484218&entry=1&q='+document.getElementById('bdcsMain').value)"-->
+<!--                    >点击搜索</button>-->
 
-                    <div id="bdcs-frame-box"></div>
-                    <script type="text/javascript">
-                        var bdcsFrameSid="18014581858743484218";
-                        var bdcsFrameCharset= "utf-8";
-                        var bdcsFrameWidth = 650; //宽度请自行调整
-                        var bdcsFrameHeight = 0;
-                        var bdcsFrameWt = 1;
-                        var bdcsFrameHt = 2;
-                        var bdcsFrameResultNum = 20;
-                        var bdcsFrameBgColor = "#fff";
-                        var bdcsRecommend = 0;
-                        var bdcsDefaultQuery = 0;
-                        var bdcsRemoveUrl = 0;
-                    </script>
-                    <script type="text/javascript" src="https://zhangajian.com/media/scripts/_vendors/bdsearch.js"></script>
+
+                    <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = '//znsv.baidu.com/customer_search/api/js?sid=18014581858743484218' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
                 </div>
             </form>
         </div>
