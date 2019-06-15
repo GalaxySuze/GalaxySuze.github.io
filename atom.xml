@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-06-15T07:22:41.811Z</updated>
+    <updated>2019-06-15T07:23:52.767Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://zhangajian.com/post/shi-yong-supervisor-lai-guan-li-laravel-dui-lie</id>
         <link href="https://zhangajian.com/post/shi-yong-supervisor-lai-guan-li-laravel-dui-lie">
         </link>
-        <updated>2019-02-06T07:17:49.000Z</updated>
+        <updated>2019-01-06T07:17:49.000Z</updated>
         <content type="html"><![CDATA[<h3 id="supervisor是什么">Supervisor是什么</h3>
 <p><a href="http://supervisord.org/">Supervisor</a> 是基于 Python 的进程管理工具，可以帮助我们更简单的启动、重启和停止服务器上的后台进程，是 Linux 服务器管理的效率工具。</p>
 <p>什么情况下我们需要进程管理呢？就是执行一些需要以守护进程方式启动的程序，比如一个后台任务、一组 Web 服务的进程（说是一组，是因为经常用 Nginx 来做负载均衡），这些很可能是一些网站、REST API 的服务、消息推送的后台服务、日志数据的处理分析服务等等。</p>
