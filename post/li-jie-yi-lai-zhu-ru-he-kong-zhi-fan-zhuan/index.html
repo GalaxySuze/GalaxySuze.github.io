@@ -35,8 +35,8 @@
     
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/tomorrow-night.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 <link crossorigin="anonymous" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" href="https://lib.baomitu.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
 
   </head>
@@ -335,7 +335,7 @@
     $order-&gt;setTrack(new yt());
     $order-&gt;query(): //圆通快递已送达
 </code></pre>
-<p>这样就将原来的物流查询模块对程序的控制权转移到trackBox接口上，让order类和各种物流接口类都依赖于trackBox,这样就实现了控制反转。面对变化，高层不用修改一行代码，不再依赖低层，而是依赖注入，这也就引出了(依赖注入)DI。<br/>
+<p>这样就将原来的物流查询模块对程序的控制权转移到trackBox接口上，让order类和各种物流接口类都依赖于trackBox,这样就实现了控制反转。面对变化，高层不用修改一行代码，不再依赖低层，而是依赖注入，这也就引出了(依赖注入)DI。<br/><br>
 依赖注入的方式有很多，但是主要思想就是如上所示，我们将一个依赖通过注入的方式进行使用。而不是直接将依赖写入被依赖中进行具体的实现。</p>
 <h1 id="三-依赖注入容器-dependency-injection-container">三. 依赖注入容器 Dependency Injection Container</h1>
 <p>那我们接下来继续思考，如果此后业务扩张，合作的物流平台越来越丰富，那么高层程序依赖的物流接口就会越来越多，我们就需要创建的依赖接口实例也会越来越多，这样就很不利于后期的维护</p>

@@ -35,8 +35,8 @@
     
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/tomorrow-night.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 <link crossorigin="anonymous" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" href="https://lib.baomitu.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
 
   </head>
@@ -307,14 +307,14 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
 <p>找到这一行</p>
 <pre><code class="language-vim">online-mode:true
 </code></pre>
-<p>将true改为false，这是正版验证服务的设置
+<p>将true改为false，这是正版验证服务的设置<br>
 关于 <strong>server.propertices</strong> 文件，这边就不多做介绍了，可通过下面的链接了解详情</p>
 <ul>
 <li><a href="http://www.mcbbs.net/thread-569077-1-1.html">服务器配置文件详细设置</a></li>
 <li><a href="https://minecraft-zh.gamepedia.com/Server.properties">我的世界WiKi</a></li>
 </ul>
 <h1 id="保持服务会话">保持服务会话</h1>
-<p>因为博主用的是云服务器，需要通过使用ssh工具来连接到服务器启动游戏服务，但是一般服务器和ssh工具都会有连接会话的超时设置，在一段时间没有在服务器上操作后，会自动断开ssh会话，这时这个会话中的任务就会被杀掉，那小伙伴们游戏玩着玩着就<strong>与服务器断开连接</strong>了。
+<p>因为博主用的是云服务器，需要通过使用ssh工具来连接到服务器启动游戏服务，但是一般服务器和ssh工具都会有连接会话的超时设置，在一段时间没有在服务器上操作后，会自动断开ssh会话，这时这个会话中的任务就会被杀掉，那小伙伴们游戏玩着玩着就<strong>与服务器断开连接</strong>了。<br>
 这个时候我们可以使用Linux上这个 <strong>GNU Screen</strong> 工具来解决上述问题</p>
 <blockquote>
 <p>GNU Screen是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</p>

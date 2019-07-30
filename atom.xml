@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-06-15T07:23:52.767Z</updated>
+    <updated>2019-07-30T10:21:46.892Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -104,7 +104,7 @@ msp-queue:msp-queue_05           RUNNING   pid 19968, uptime 0:00:29
 msp-queue:msp-queue_06           RUNNING   pid 19971, uptime 0:00:29
 msp-queue:msp-queue_07           RUNNING   pid 19970, uptime 0:00:29
 </code></pre>
-<p>说明 Laravel 队列已经开始正常运行了
+<p>说明 Laravel 队列已经开始正常运行了<br>
 如果在 Laravel 中修改了队列代码，需要重启 Supervisor 才能生效</p>
 <h3 id="参考链接">参考链接</h3>
 <ul>
@@ -248,14 +248,14 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
 <p>找到这一行</p>
 <pre><code class="language-vim">online-mode:true
 </code></pre>
-<p>将true改为false，这是正版验证服务的设置
+<p>将true改为false，这是正版验证服务的设置<br>
 关于 <strong>server.propertices</strong> 文件，这边就不多做介绍了，可通过下面的链接了解详情</p>
 <ul>
 <li><a href="http://www.mcbbs.net/thread-569077-1-1.html">服务器配置文件详细设置</a></li>
 <li><a href="https://minecraft-zh.gamepedia.com/Server.properties">我的世界WiKi</a></li>
 </ul>
 <h1 id="保持服务会话">保持服务会话</h1>
-<p>因为博主用的是云服务器，需要通过使用ssh工具来连接到服务器启动游戏服务，但是一般服务器和ssh工具都会有连接会话的超时设置，在一段时间没有在服务器上操作后，会自动断开ssh会话，这时这个会话中的任务就会被杀掉，那小伙伴们游戏玩着玩着就<strong>与服务器断开连接</strong>了。
+<p>因为博主用的是云服务器，需要通过使用ssh工具来连接到服务器启动游戏服务，但是一般服务器和ssh工具都会有连接会话的超时设置，在一段时间没有在服务器上操作后，会自动断开ssh会话，这时这个会话中的任务就会被杀掉，那小伙伴们游戏玩着玩着就<strong>与服务器断开连接</strong>了。<br>
 这个时候我们可以使用Linux上这个 <strong>GNU Screen</strong> 工具来解决上述问题</p>
 <blockquote>
 <p>GNU Screen是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</p>
@@ -377,7 +377,7 @@ rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.da
 </blockquote>
 <h1 id="实际操作">实际操作</h1>
 <h3 id="certbot-使用方法">Certbot 使用方法</h3>
-<p>Certbot 的官网是<a href="https://certbot.eff.org/">https://certbot.eff.org/</a>, 我们打开这个链接，选择自己使用的 web server 和操作系统。选择完之后，官网就会显示出对应的安装操作步骤。
+<p>Certbot 的官网是<a href="https://certbot.eff.org/">https://certbot.eff.org/</a>, 我们打开这个链接，选择自己使用的 web server 和操作系统。选择完之后，官网就会显示出对应的安装操作步骤。<br>
 以目前我所使用的服务器为例，web server 使用Nginx(1.12)，操作系统是CentOS(7.3)。因为 Certbot 打包在EPEL中，所以在安装 Certbot 之前要先安装EPEL</p>
 <pre><code class="language-shell">yum -y install epel-release
 </code></pre>
@@ -791,9 +791,9 @@ group = apache
 <pre><code class="language-shell">chown -R apache:apache /home/wordpress
 </code></pre>
 <h1 id="再次访问成功">再次访问成功！</h1>
-<p>参开链接：
-https://laravel-china.org/articles/10803/this-weekend-theres-a-lot-of-pits-on-the-website-for-a-friend-to-do
-https://blog.csdn.net/u011475134/article/details/80222098
+<p>参开链接：<br>
+https://laravel-china.org/articles/10803/this-weekend-theres-a-lot-of-pits-on-the-website-for-a-friend-to-do<br>
+https://blog.csdn.net/u011475134/article/details/80222098<br>
 https://laravel-china.org/articles/17377#296073</p>
 ]]></content>
     </entry>
@@ -1287,7 +1287,7 @@ libmysqlclient.so.18      libmysqlclient.so.18.1.0
  <br>
 <h1 id="二-开始使用composer">二. 开始使用Composer</h1>
 <blockquote>
-<p>系统要求: 运行 Composer 需要 PHP 5.3.2+ 以上版本。<br/>
+<p>系统要求: 运行 Composer 需要 PHP 5.3.2+ 以上版本。<br/><br>
 安装Composer: <a href="http://docs.phpcomposer.com/00-intro.html#Installation-*nix">Composer文档-安装</a></p>
 </blockquote>
 <h4 id="composer的包版本符号">Composer的包版本符号</h4>
@@ -1298,7 +1298,7 @@ libmysqlclient.so.18      libmysqlclient.so.18.1.0
     }
 }
 </code></pre>
-<p><strong>require</strong>是指定Key，我们需要做的，就是在这个指定key中增加我们需要的依赖包 (&quot;monolog/monolog&quot;) 和指定的版本 (&quot;1.0.*&quot;),那么在使用前，首先我们需要知道composer中是怎么声明我们需要依赖的包版本的
+<p><strong>require</strong>是指定Key，我们需要做的，就是在这个指定key中增加我们需要的依赖包 (&quot;monolog/monolog&quot;) 和指定的版本 (&quot;1.0.*&quot;),那么在使用前，首先我们需要知道composer中是怎么声明我们需要依赖的包版本的<br>
 <a href="https://docs.phpcomposer.com/01-basic-usage.html#Package-Versions" title="点击链接查看">:point_right:点击链接查看</a></p>
 <h4 id="composer-install和update">Composer install和update</h4>
 <p>如果composer已经安装成功的话，可以直接在命令行中执行 &quot;composer&quot; 命令来查看命令列表，但在大部分的时候，使用频率最高的是<strong>install</strong>和<strong>update</strong>命令，顾名思义就是使用composer安装和更新依赖包。比如我们已经在项目的composer.json中声明了依赖</p>

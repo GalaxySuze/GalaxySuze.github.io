@@ -35,8 +35,8 @@
     
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/tomorrow-night.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 <link crossorigin="anonymous" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" href="https://lib.baomitu.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
 
   </head>
@@ -240,7 +240,7 @@
  <br>
 <h1 id="二-开始使用composer">二. 开始使用Composer</h1>
 <blockquote>
-<p>系统要求: 运行 Composer 需要 PHP 5.3.2+ 以上版本。<br/>
+<p>系统要求: 运行 Composer 需要 PHP 5.3.2+ 以上版本。<br/><br>
 安装Composer: <a href="http://docs.phpcomposer.com/00-intro.html#Installation-*nix">Composer文档-安装</a></p>
 </blockquote>
 <h4 id="composer的包版本符号">Composer的包版本符号</h4>
@@ -251,7 +251,7 @@
     }
 }
 </code></pre>
-<p><strong>require</strong>是指定Key，我们需要做的，就是在这个指定key中增加我们需要的依赖包 (&quot;monolog/monolog&quot;) 和指定的版本 (&quot;1.0.*&quot;),那么在使用前，首先我们需要知道composer中是怎么声明我们需要依赖的包版本的
+<p><strong>require</strong>是指定Key，我们需要做的，就是在这个指定key中增加我们需要的依赖包 (&quot;monolog/monolog&quot;) 和指定的版本 (&quot;1.0.*&quot;),那么在使用前，首先我们需要知道composer中是怎么声明我们需要依赖的包版本的<br>
 <a href="https://docs.phpcomposer.com/01-basic-usage.html#Package-Versions" title="点击链接查看">:point_right:点击链接查看</a></p>
 <h4 id="composer-install和update">Composer install和update</h4>
 <p>如果composer已经安装成功的话，可以直接在命令行中执行 &quot;composer&quot; 命令来查看命令列表，但在大部分的时候，使用频率最高的是<strong>install</strong>和<strong>update</strong>命令，顾名思义就是使用composer安装和更新依赖包。比如我们已经在项目的composer.json中声明了依赖</p>

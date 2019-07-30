@@ -35,8 +35,8 @@
     
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/tomorrow-night.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 <link crossorigin="anonymous" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" href="https://lib.baomitu.com/font-awesome/5.8.1/css/all.min.css" rel="stylesheet">
 
   </head>
@@ -257,7 +257,7 @@
 </blockquote>
 <h1 id="实际操作">实际操作</h1>
 <h3 id="certbot-使用方法">Certbot 使用方法</h3>
-<p>Certbot 的官网是<a href="https://certbot.eff.org/">https://certbot.eff.org/</a>, 我们打开这个链接，选择自己使用的 web server 和操作系统。选择完之后，官网就会显示出对应的安装操作步骤。
+<p>Certbot 的官网是<a href="https://certbot.eff.org/">https://certbot.eff.org/</a>, 我们打开这个链接，选择自己使用的 web server 和操作系统。选择完之后，官网就会显示出对应的安装操作步骤。<br>
 以目前我所使用的服务器为例，web server 使用Nginx(1.12)，操作系统是CentOS(7.3)。因为 Certbot 打包在EPEL中，所以在安装 Certbot 之前要先安装EPEL</p>
 <pre><code class="language-shell">yum -y install epel-release
 </code></pre>
