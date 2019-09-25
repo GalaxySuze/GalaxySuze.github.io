@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-09-23T05:50:40.147Z</updated>
+    <updated>2019-09-25T10:56:42.814Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -332,7 +332,7 @@ msp-queue:msp-queue_07           RUNNING   pid 19970, uptime 0:00:29
 <p>最近薅了百度云双12的羊毛，1核2G一年150。突然想起以前大学整个宿舍通宵开黑挖泥土的岁月，所以刚好趁着这台服务器，打算自己搭建一个我的世界服务器，重温一下以前的感觉。</p>
 </blockquote>
 <!-- more -->
-<h1 id="系统要求-">系统要求 - @</h1>
+<h1 id="系统要求">系统要求</h1>
 <p>google到的MC系统要求:</p>
 <ul>
 <li>CPU：双核</li>
