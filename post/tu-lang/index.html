@@ -200,146 +200,134 @@ var _hmt = _hmt || [];
 
     <!-- 等gridea出自定义页面功能再优化一下 -->
     
-        <div class="container-fluid">
+        
+
+<div class="container">
     <div class="row fh5co-post-entry single-entry">
-        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
-            <figure class="animate-box">
+        <!-- 图册描述 -->
+        <div class="container" style="padding-bottom: 3em;">
+            <article class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xxs-12 animate-box">
+                <h5 class="fh5co-article-title"><h3>关于图廊：</h3>
+凌厉的文字能人明白如画，而优秀的绘画也能让人一眼阅出像素中的深邃。<br/>
+近段时间博主也在学习板绘，平时会收集一些临摹素材或个人感觉优美的图画。还有一些个人拍摄和绘画的作品，在此分享。<br>
+图片资源都搜集自网络，仅供欣赏交流。如有侵权，可联系博主About页面邮箱，立即删除。<br>
+资源目前都放在个人阿里OSS上，目前流量有限加上版权考虑，暂不提供外链。</h5>
+            </article>
+        </div>
+
+        
+
+            <!-- 阴影卡片布局 -->
+            <div class="gallery">
                 
-                    <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-8.jpg" alt="使用Supervisor来管理Laravel队列" class="img-responsive">
-                
-            </figure>
-            <span class="fh5co-meta animate-box">
-                
-                    <div class="tag-container">
-                        
-                            <a href="https://zhangajian.com/tag/fb3yEkNaz" class="tag">Supervisor, </a>
-                        
-                            <a href="https://zhangajian.com/tag/laravel" class="tag">Laravel, </a>
-                        
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover1">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-39.jpg" alt="cover1"/>
                     </div>
                 
-            </span>
-            <h2 class="fh5co-article-title animate-box">使用Supervisor来管理Laravel队列</h2>
-            <span class="fh5co-meta fh5co-date animate-box">2019-01-06</span>
-
-            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
-                <div class="row">
-                    <div class="col-md-12 animate-box post-content">
-                        <p> <h3 id="supervisor是什么">Supervisor是什么</h3>
-<p><a href="http://supervisord.org/">Supervisor</a> 是基于 Python 的进程管理工具，可以帮助我们更简单的启动、重启和停止服务器上的后台进程，是 Linux 服务器管理的效率工具。</p>
-<p>什么情况下我们需要进程管理呢？就是执行一些需要以守护进程方式启动的程序，比如一个后台任务、一组 Web 服务的进程（说是一组，是因为经常用 Nginx 来做负载均衡），这些很可能是一些网站、REST API 的服务、消息推送的后台服务、日志数据的处理分析服务等等。</p>
-<blockquote>
-<p>需要注意的是 Supervisor 是通用的进程管理工具，可以用来启动任意进程，不仅仅是用来管理 Python 进程。</p>
-</blockquote>
-<p>除此之外，Supervisor 还能很友好的管理程序在命令行上输出的日志，可以将日志重定向到自定义的日志文件中，还能按文件大小对日志进行分割。</p>
-<p>目前 Supervisor 只能运行在 Unix-Like 的系统上，也就是无法运行在 Windows 上。Supervisor 官方版目前只能运行在 Python 2.4 以上版本，但是还无法运行在 Python 3 上。</p>
-<p><strong>Supervisor 有两个主要的组成部分：</strong></p>
-<ul>
-<li><strong>supervisord</strong>，运行 Supervisor 时会启动一个进程 supervisord，它负责启动所管理的进程，并将所管理的进程作为自己的子进程来启动，而且可以在所管理的进程出现崩溃时自动重启。</li>
-<li><strong>supervisorctl</strong>，是命令行管理工具，可以用来执行 stop、start、restart 等命令，来对这些子进程进行管理。</li>
-</ul>
-<h3 id="安装">安装</h3>
-<pre><code class="language-shell">pip install supervisor
-</code></pre>
-<h3 id="创建配置文件命令">创建配置文件命令</h3>
-<pre><code class="language-shell">echo_supervisord_conf &gt; /etc/supervisord.conf
-</code></pre>
-<h3 id="修改默认配置">修改默认配置</h3>
-<blockquote>
-<p>默认配置文件中的 supervisord.sock、supervisord.log 以及 supervisord.pid 是放在 /tmp 目录下，这个目录存放的是 Linux 中的临时文件，一旦被系统删除，就会提示 unix:///tmp/supervisor.sock no such file，所以我们要把这三个文件放到其他目录中保存。</p>
-</blockquote>
-<pre><code class="language-vim">[unix_http_server]
-;此处修改为/var/run目录，避免被系统删除
-file=/var/run/supervisor.sock   ; the path to the socket file
-
-[supervisord]
-;此处修改为/var/log/supervisor目录
-logfile=/var/log/supervisor/supervisord.log
-...
-;此处修改为/var/run目录
-pidfile=/var/run/supervisord.pid
-
-[supervisorctl]
-;此处是关键，否则执行supervisorctl status会报出unix:// not found错误
-serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket
-
-；在最后加上include，新增的配置将在/etc/supervisord.d/conf.d目录下并以.conf结尾
-[include]
-files = /etc/supervisord.d/conf.d/*.conf
-</code></pre>
-<h3 id="启动服务">启动服务</h3>
-<pre><code class="language-shell">supervisord -c /etc/supervisord.conf
-</code></pre>
-<h3 id="查看进程">查看进程</h3>
-<pre><code class="language-shell">pgrep supervisord | xargs ps -u --pid
-</code></pre>
-<h3 id="进程的配置">进程的配置</h3>
-<p>我们在上面默认配置文件中加入了 [include]，所以我们在 /etc/supervisord.d/conf.d 下新建一个配置文件 queue-worker.conf</p>
-<pre><code class="language-vim">[program:queue-worker]  ;项目名称
-process_name=%(program_name)s_%(process_num)02d
-command=php (填入你的artisan路径)/artisan queue:work redis --sleep=3 --tries=3  ;需要启动的命令
-autostart=true
-autorestart=true
-user=root ;此处填入你运行WEB应用的用户
-numprocs=8  ;进程数
-redirect_stderr=true  ;把 stderr 重定向到 stdout，默认 false
-stdout_logfile=/var/log/supervisor/larashop-queue.log  ;注意分配好日志文件夹权限
-</code></pre>
-<p>配置完成后我们执行</p>
-<pre><code class="language-shell">supervisorctl reread  # 读取有更新（增加）的配置文件，不会启动新添加的程序
-supervisorctl update # 重启配置文件修改过的程序
-supervisorctl start queue-worker:* # 启动 larashop-worker 程序
-</code></pre>
-<blockquote>
-<p>如果报如下错误，需要在命令行工具增加配置文件指向</p>
-</blockquote>
-<pre><code class="language-shell">http://localhost:9001 refused connection
-</code></pre>
-<blockquote>
-<p>解决方法</p>
-</blockquote>
-<pre><code class="language-shell">supervisorctl -c /etc/supervisord/supervisord.conf reread
-supervisorctl -c /etc/supervisord/supervisord.conf update
-supervisorctl -c /etc/supervisord/supervisord.conf start msp-queue:*
-</code></pre>
-<p>查看状态</p>
-<pre><code class="language-shell">[root@localhost vick]# supervisorctl -c /etc/supervisord/supervisord.conf status
-msp-queue:msp-queue_00           RUNNING   pid 19965, uptime 0:00:29
-msp-queue:msp-queue_01           RUNNING   pid 19964, uptime 0:00:29
-msp-queue:msp-queue_02           RUNNING   pid 19967, uptime 0:00:29
-msp-queue:msp-queue_03           RUNNING   pid 19966, uptime 0:00:29
-msp-queue:msp-queue_04           RUNNING   pid 19969, uptime 0:00:29
-msp-queue:msp-queue_05           RUNNING   pid 19968, uptime 0:00:29
-msp-queue:msp-queue_06           RUNNING   pid 19971, uptime 0:00:29
-msp-queue:msp-queue_07           RUNNING   pid 19970, uptime 0:00:29
-</code></pre>
-<p>说明 Laravel 队列已经开始正常运行了<br>
-如果在 Laravel 中修改了队列代码，需要重启 Supervisor 才能生效</p>
-<h3 id="参考链接">参考链接</h3>
-<ul>
-<li><a href="https://learnku.com/articles/22321">配置 Supervisor 管理 Laravel 队列</a></li>
-<li><a href="https://www.restran.net/2015/10/04/supervisord-tutorial/">Python 进程管理工具 Supervisor 使用教程</a></li>
-</ul>
- </p>
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover2">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-46.jpg" alt="cover2"/>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12 animate-box">
-                        
-                            <div class="next-post">
-                                <div class="next">下一篇</div>
-                                <a href="https://zhangajian.com/post/xie-zai-2018-de-wei-ba">
-                                    <h3 class="post-title">
-                                        写在2018的尾巴
-                                    </h3>
-                                </a>
-                            </div>
-                        
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover3">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-63.jpg" alt="cover3"/>
                     </div>
-                </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover4">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c_41.jpg" alt="cover4"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover5">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c_42.jpg" alt="cover5"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover6">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-66.jpg" alt="cover6"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover9">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c_43.jpg" alt="cover9"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover7">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c_44.jpg" alt="cover7"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover8">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c_45.jpg" alt="cover8"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover10">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-1.jpg" alt="cover10"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover11">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-11.jpg" alt="cover11"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover12">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-15.jpg" alt="cover12"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover13">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-27.jpg" alt="cover13"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover14">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-28.jpg" alt="cover14"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover15">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-30.jpg" alt="cover15"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover16">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-33.jpg" alt="cover16"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover17">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-34.jpg" alt="cover17"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover18">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-30.jpg" alt="cover18"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover19">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-5.jpg" alt="cover19"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover20">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-6.jpg" alt="cover20"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover21">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-7.jpg" alt="cover21"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover21">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-8.jpg" alt="cover21"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover22">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-40.jpg" alt="cover22"/>
+                    </div>
+                
+                    <div class="gallery-item animate-box" data-toggle="tooltip" data-placement="top" title="cover23">
+                        <img class="gallery-image lazy" data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-49.jpg" alt="cover23"/>
+                    </div>
+                
+            </div>
+        
 
-                <div class="row">
+        <!-- 分隔线 -->
+        <div class="container-fluid" style="padding-top: 3em;">
+            <article class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xxs-12 animate-box">
+                <hr class="album-hr">
+            </article>
+        </div>
+    </div>
+
+    <div class="row">
     <div class="col-md-12 animate-box">
         
             
@@ -351,10 +339,7 @@ msp-queue:msp-queue_07           RUNNING   pid 19970, uptime 0:00:29
     </div>
 </div>
 
-            </div>
 
-        </article>
-    </div>
 </div>
 
     
