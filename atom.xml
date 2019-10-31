@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-10-31T07:34:54.035Z</updated>
+    <updated>2019-10-31T07:44:52.212Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -56,7 +56,7 @@
 <li>其中图廊分两种样式：可在选择Space主题后，在 主题自定义配置 -&gt; 布局 -&gt; 图廊样式中进行选择</li>
 </ul>
 <h4 id="阴影卡片布局">阴影卡片布局</h4>
-<figure data-type="image" tabindex="4"><img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/theme_info/space-tulang-demo.jpg" alt="阴影卡片"></figure>
+<figure data-type="image" tabindex="4"><img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/theme_info/space-tulang-demo1.png" alt="阴影卡片"></figure>
 <h4 id="平面卡片布局">平面卡片布局</h4>
 <figure data-type="image" tabindex="5"><img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/theme_info/space-tulang-demo-2.png" alt="平面卡片"></figure>
 <h3 id="end">END</h3>
