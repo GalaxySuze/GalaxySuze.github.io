@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-10-31T07:00:18.452Z</updated>
+    <updated>2019-10-31T07:07:11.415Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -53,7 +53,7 @@
 <li>在文章设置中，将此篇设置为隐藏</li>
 <li>新增<strong>图廊</strong>菜单，菜单链接选择此篇文章</li>
 <li>点击Gridea的预览查看效果吧~</li>
-<li>演示效果截图</li>
+<li>其中图廊分两种样式：可在选择Space主题后，在 主题自定义配置 -&gt; 布局 -&gt; 图廊样式中进行选择</li>
 </ul>
 <h4 id="阴影卡片布局">阴影卡片布局</h4>
 <figure data-type="image" tabindex="4"><img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/theme_info/space-tulang-demo.jpg" alt="阴影卡片"></figure>
