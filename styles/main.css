@@ -894,6 +894,15 @@ figure figcaption {
   height: auto;
   display: block;
 }
+.back-to-top {
+  position: fixed;
+  bottom: 3%;
+  right: 2%;
+  font-size: 1.3em;
+}
+.back-to-top a {
+  color: #98A9F9;
+}
 .links-title a {
   text-decoration: none;
   line-height: 1.5em;

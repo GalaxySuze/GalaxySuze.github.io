@@ -51,14 +51,14 @@ var _hmt = _hmt || [];
 
 </head>
 <body>
-    
-<div id="fh5co-offcanvas">
+    <div id="fh5co-offcanvas">
     <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
         <span><i class="icon-cross3"></i> <span>Close</span></span>
     </a>
     <div class="fh5co-bio">
         <figure>
-            <img src="https://zhangajian.com/media/images/avatar.png" alt="张阿简博客" class="img-responsive">
+            <img src="https://zhangajian.com/media/images/avatar.png" alt="张阿简博客"
+                 class="img-responsive">
         </figure>
         <a href="https://zhangajian.com/post/about/"><h3 class="heading">ABOUT ME</h3></a>
         <h2>张阿简博客</h2>
@@ -101,6 +101,8 @@ var _hmt = _hmt || [];
     </div>
 
     <div class="fh5co-menu">
+
+        <!-- 标签 -->
         <div class="fh5co-box">
             <a href="https://zhangajian.com/tags/"><h3 class="heading">👉标签</h3></a>
             <ul>
@@ -162,28 +164,32 @@ var _hmt = _hmt || [];
                 
                     <li>
                         <a href="/"
-                         >
+                        
+                        >
                             首页
                         </a>
                     </li>
                 
                     <li>
                         <a href="/archives"
-                         >
+                        
+                        >
                             归档
                         </a>
                     </li>
                 
                     <li>
                         <a href="https://zhangajian.com/post/tu-lang/"
-                         >
+                        
+                        >
                             图廊
                         </a>
                     </li>
                 
                     <li>
                         <a href="https://zhangajian.com/post/you-lian/"
-                         >
+                        
+                        >
                             友链
                         </a>
                     </li>
@@ -211,6 +217,26 @@ var _hmt = _hmt || [];
                 
                     <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-41.jpg" alt="在Linux下搭建我的世界(Minecraft)服务器" class="img-responsive">
                 
+                    <p> <ul class="markdownIt-TOC">
+<li><a href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82">系统要求</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85java">安装Java</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BDmc%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF">下载MC服务器端</a></li>
+<li><a href="#mc%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8">MC服务器，启动！</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F">启动成功</a></li>
+<li><a href="#mcshell%E8%84%9A%E6%9C%AC%E5%90%AF%E5%8A%A8">MC，Shell脚本启动！</a></li>
+<li><a href="#mc%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B3%E9%97%AD">MC服务器，关闭！</a></li>
+<li><a href="#mc%E6%9C%8D%E5%8A%A1%E8%B5%B7%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5">MC服务起最常见的启动失败</a></li>
+<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5mc%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%B1%E8%B4%A5">客户端连接MC服务器失败</a></li>
+<li><a href="#%E4%BF%9D%E6%8C%81%E6%9C%8D%E5%8A%A1%E4%BC%9A%E8%AF%9D">保持服务会话</a><br>
+*<br>
+*<br>
+* <a href="#%E5%AE%89%E8%A3%85-screen">安装 screen</a><br>
+* <a href="#%E8%AF%AD%E6%B3%95">语法：</a><br>
+* <a href="#%E5%B8%B8%E7%94%A8screen%E5%8F%82%E6%95%B0">常用screen参数</a><br>
+* <a href="#%E4%BF%9D%E6%8C%81%E6%88%91%E4%BB%AC%E7%9A%84mc%E6%9C%8D%E5%8A%A1%E4%BC%9A%E8%AF%9D">保持我们的MC服务会话</a></li>
+</ul>
+ </p>
+
             </figure>
             <span class="fh5co-meta animate-box">
                 
@@ -230,7 +256,11 @@ var _hmt = _hmt || [];
                 
             </span>
             <h2 class="fh5co-article-title animate-box">在Linux下搭建我的世界(Minecraft)服务器</h2>
-            <span class="fh5co-meta fh5co-date animate-box">2018-12-21</span>
+            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
+                <li>2018-12-21</li>
+                <li>1820字</li>
+                <li>7 min read</li>
+            </ol>
 
             <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
                 <div class="row">
@@ -402,6 +432,28 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
 
     
 
+    <!-- 返回顶部 -->
+    <div class="back-to-top">
+    
+        <a href="#!" title="Popover title" data-toggle="popover">
+            <i class="fa fa-map"></i>
+        </a>
+        <br>
+    
+    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
+</div>
+
+<div class="container hidden">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Panel title 1</h3>
+        </div>
+        <div class="panel-body">Panel content 1</div>
+        <div class="my-popover-content">Here is some hidden content 1</div>
+    </div>
+</div>
+
+
     
 <footer id="fh5co-footer">
   <p>Powered by <a target="_blank" href="https://gridea.dev/">Gridea</a>, © 2016 - 2019 Copyright 张阿简. All Rights Reserved. 自制主题<a target="_blank" href="https://github.com/GalaxySuze/gridea-theme-space">Space For Gridea</a></p>
@@ -434,6 +486,16 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
         });
         // tooltip
         $('[data-toggle="tooltip"]').tooltip();
+        // 右下角工具
+        popOptions = {
+            content: function () {
+                return $(this).siblings('.my-popover-content').html();
+            },
+            trigger: 'hover',
+            placement: 'left',
+            html: true
+        };
+        $("[data-toggle='popover']").popover(popOptions);
     });
 </script>
 

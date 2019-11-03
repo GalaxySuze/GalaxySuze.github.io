@@ -45,14 +45,14 @@ var _hmt = _hmt || [];
 
 </head>
 <body>
-
 <div id="fh5co-offcanvas">
     <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
         <span><i class="icon-cross3"></i> <span>Close</span></span>
     </a>
     <div class="fh5co-bio">
         <figure>
-            <img src="https://zhangajian.com/media/images/avatar.png" alt="张阿简博客" class="img-responsive">
+            <img src="https://zhangajian.com/media/images/avatar.png" alt="张阿简博客"
+                 class="img-responsive">
         </figure>
         <a href="https://zhangajian.com/post/about/"><h3 class="heading">ABOUT ME</h3></a>
         <h2>张阿简博客</h2>
@@ -95,6 +95,8 @@ var _hmt = _hmt || [];
     </div>
 
     <div class="fh5co-menu">
+
+        <!-- 标签 -->
         <div class="fh5co-box">
             <a href="https://zhangajian.com/tags/"><h3 class="heading">👉标签</h3></a>
             <ul>
@@ -156,28 +158,32 @@ var _hmt = _hmt || [];
                 
                     <li>
                         <a href="/"
-                         >
+                        
+                        >
                             首页
                         </a>
                     </li>
                 
                     <li>
                         <a href="/archives"
-                         >
+                        
+                        >
                             归档
                         </a>
                     </li>
                 
                     <li>
                         <a href="https://zhangajian.com/post/tu-lang/"
-                         >
+                        
+                        >
                             图廊
                         </a>
                     </li>
                 
                     <li>
                         <a href="https://zhangajian.com/post/you-lian/"
-                         >
+                        
+                        >
                             友链
                         </a>
                     </li>
@@ -393,6 +399,16 @@ var _hmt = _hmt || [];
         });
         // tooltip
         $('[data-toggle="tooltip"]').tooltip();
+        // 右下角工具
+        popOptions = {
+            content: function () {
+                return $(this).siblings('.my-popover-content').html();
+            },
+            trigger: 'hover',
+            placement: 'left',
+            html: true
+        };
+        $("[data-toggle='popover']").popover(popOptions);
     });
 </script>
 
