@@ -31,7 +31,9 @@
     
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
+<!-- katex -->
+<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
 
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
@@ -217,8 +219,6 @@ var _hmt = _hmt || [];
                 
                     <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-42.jpg" alt="Mac下破解Beyond Compare" class="img-responsive">
                 
-<!--                    <p>  </p>-->
-
             </figure>
             <span class="fh5co-meta animate-box">
                 
@@ -257,10 +257,10 @@ var _hmt = _hmt || [];
 <p>4 . 在同级目录下新建一个脚本文件命名为BCompare</p>
 </li>
 </ul>
-<pre><code class="language-shell">vim BCompare
+<pre><code>vim BCompare
 </code></pre>
 <p>写入</p>
-<pre><code class="language-vim">#!/bin/bash
+<pre><code>#!/bin/bash
 
 rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat&quot;
 
@@ -272,7 +272,7 @@ rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.da
 <ul>
 <li>5 . 给新建的文件BCompare，授权文件执行权限</li>
 </ul>
-<pre><code class="language-shell">chmod a+x /Applications/Beyond\ Compare.app/Contents/MacOS/BCompare
+<pre><code>chmod a+x /Applications/Beyond\ Compare.app/Contents/MacOS/BCompare
 </code></pre>
 <p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。</p>
 <blockquote>
@@ -323,14 +323,8 @@ rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.da
     <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
 </div>
 
-<div class="container hidden">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Panel title 1</h3>
-        </div>
-        <div class="panel-body">Panel content 1</div>
-        <div class="my-popover-content">Here is some hidden content 1</div>
-    </div>
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    
 </div>
 
 
@@ -354,10 +348,16 @@ rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.da
 <script src="https://zhangajian.com/media/scripts/_vendors/main.js"></script>
 <!-- Md5 Min JS -->
 <script src="https://zhangajian.com/media/scripts/_vendors/md5.min.js"></script>
+<!-- katex -->
+<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
+<!-- highlight -->
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 
 <script type="application/javascript">
     // 代码高亮
     hljs.initHighlightingOnLoad();
+
     // img 懒加载
     $(function () {
         $("img.lazy").lazyload({
@@ -366,16 +366,11 @@ rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.da
         });
         // tooltip
         $('[data-toggle="tooltip"]').tooltip();
-        // 右下角工具
-        popOptions = {
-            content: function () {
-                return $(this).siblings('.my-popover-content').html();
-            },
-            trigger: 'hover',
-            placement: 'left',
-            html: true
-        };
-        $("[data-toggle='popover']").popover(popOptions);
+
+        // 目录
+        $('#tool-toc').click(function () {
+            $('.post-toc').toggle();
+        });
     });
 </script>
 

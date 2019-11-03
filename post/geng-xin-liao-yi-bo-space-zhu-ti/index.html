@@ -31,7 +31,9 @@
     
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
+<!-- katex -->
+<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
 
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
@@ -217,27 +219,6 @@ var _hmt = _hmt || [];
                 
                     <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/comics-cover-15.jpg" alt="更新了一波Space主题" class="img-responsive">
                 
-<!--                    <p> <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9%E5%A6%82%E4%B8%8B">🎉 更新内容如下：</a></li>
-<li><a href="#%EF%B8%8F-%E5%8F%8B%E9%93%BE%E9%A1%B5%E9%9D%A2%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">✍️ 友链页面使用方法</a></li>
-<li><a href="#%EF%B8%8F-%E5%9B%BE%E5%BB%8A%E9%A1%B5%E9%9D%A2%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">✍️ 图廊页面使用方法</a>
-<ul>
-<li><a href="#%E9%98%B4%E5%BD%B1%E5%8D%A1%E7%89%87%E5%B8%83%E5%B1%80">阴影卡片布局</a></li>
-<li><a href="#%E5%B9%B3%E9%9D%A2%E5%8D%A1%E7%89%87%E5%B8%83%E5%B1%80">平面卡片布局</a></li>
-</ul>
-</li>
-<li><a href="#end">END</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
- </p>-->
-
             </figure>
             <span class="fh5co-meta animate-box">
                 
@@ -266,7 +247,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>基于静态博客生成器<a href="https://gridea.dev/">Gridea</a>的卡片式、简洁风博客网站主题<a href="https://github.com/GalaxySuze/gridea-theme-space">「 Space 」</a></p>
 </blockquote>
-<h3 id="更新内容如下">🎉 更新内容如下：</h3>
+<h3 id="更新内容如下">🎉 更新内容如下</h3>
 <ul>
 <li>新增友链页面</li>
 <li>新增图廊页面（分两种布局）</li>
@@ -348,7 +329,7 @@ var _hmt = _hmt || [];
     <!-- 返回顶部 -->
     <div class="back-to-top">
     
-        <a href="#!">
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
             <i class="fa fa-map"></i>
         </a>
         <br>
@@ -356,14 +337,27 @@ var _hmt = _hmt || [];
     <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
 </div>
 
-<div class="container hidden">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Panel title 1</h3>
-        </div>
-        <div class="panel-body">Panel content 1</div>
-        <div class="my-popover-content">Here is some hidden content 1</div>
-    </div>
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9%E5%A6%82%E4%B8%8B">🎉 更新内容如下</a></li>
+<li><a href="#%EF%B8%8F-%E5%8F%8B%E9%93%BE%E9%A1%B5%E9%9D%A2%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">✍️ 友链页面使用方法</a></li>
+<li><a href="#%EF%B8%8F-%E5%9B%BE%E5%BB%8A%E9%A1%B5%E9%9D%A2%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">✍️ 图廊页面使用方法</a>
+<ul>
+<li><a href="#%E9%98%B4%E5%BD%B1%E5%8D%A1%E7%89%87%E5%B8%83%E5%B1%80">阴影卡片布局</a></li>
+<li><a href="#%E5%B9%B3%E9%9D%A2%E5%8D%A1%E7%89%87%E5%B8%83%E5%B1%80">平面卡片布局</a></li>
+</ul>
+</li>
+<li><a href="#end">END</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
 </div>
 
 
@@ -387,10 +381,16 @@ var _hmt = _hmt || [];
 <script src="https://zhangajian.com/media/scripts/_vendors/main.js"></script>
 <!-- Md5 Min JS -->
 <script src="https://zhangajian.com/media/scripts/_vendors/md5.min.js"></script>
+<!-- katex -->
+<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
+<!-- highlight -->
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 
 <script type="application/javascript">
     // 代码高亮
     hljs.initHighlightingOnLoad();
+
     // img 懒加载
     $(function () {
         $("img.lazy").lazyload({
@@ -399,16 +399,11 @@ var _hmt = _hmt || [];
         });
         // tooltip
         $('[data-toggle="tooltip"]').tooltip();
-        // 右下角工具
-        popOptions = {
-            content: function () {
-                return $(this).siblings('.my-popover-content').html();
-            },
-            trigger: 'hover',
-            placement: 'left',
-            html: true
-        };
-        $("[data-toggle='popover']").popover(popOptions);
+
+        // 目录
+        $('#tool-toc').click(function () {
+            $('.post-toc').toggle();
+        });
     });
 </script>
 

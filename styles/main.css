@@ -903,6 +903,30 @@ figure figcaption {
 .back-to-top a {
   color: #98A9F9;
 }
+.back-to-top a:hover {
+  opacity: 0.6;
+}
+.post-toc {
+  position: fixed;
+  top: 22%;
+  right: 2%;
+}
+.post-toc ul {
+  list-style: none;
+  width: 100%;
+  height: auto;
+}
+.post-toc ul li {
+  line-height: 2em;
+}
+.post-toc ul li a {
+  text-decoration: none;
+  color: #98A9F9;
+  font-weight: bolder;
+}
+.post-toc ul li a:hover {
+  color: #ff8a80;
+}
 .links-title a {
   text-decoration: none;
   line-height: 1.5em;

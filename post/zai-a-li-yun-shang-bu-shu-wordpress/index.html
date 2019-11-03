@@ -31,7 +31,9 @@
     
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
+<!-- katex -->
+<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
 
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
@@ -217,15 +219,6 @@ var _hmt = _hmt || [];
                 
                     <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-63.jpg" alt="在阿里云上部署WordPress" class="img-responsive">
                 
-<!--                    <p> <ul class="markdownIt-TOC">
-<li><a href="#%E5%AE%89%E8%A3%85nginx">安装Nginx</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85mysql57">安装Mysql5.7</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85-php72">安装 PHP7.2</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85-wordpress">安装 WordPress</a></li>
-<li><a href="#%E5%86%8D%E6%AC%A1%E8%AE%BF%E9%97%AE%E6%88%90%E5%8A%9F">再次访问成功！</a></li>
-</ul>
- </p>-->
-
             </figure>
             <span class="fh5co-meta animate-box">
                 
@@ -257,31 +250,31 @@ var _hmt = _hmt || [];
                         <p> <p>最近刚好因为活动买了一台新的服务器，空着也空着，刚好可以用来搭博客使用，搭建博客这件事。之前也做过很多次，不管是用静态博客生成器，还是手写一个博客项目。都尝试过，思来想去，这次打算用用WordPress，听闻许久，也该用用看了。</p>
 <!-- more -->
 <h1 id="安装nginx">安装Nginx</h1>
-<pre><code class="language-shell">yum -y install nginx
+<pre><code>yum -y install nginx
 </code></pre>
 <h1 id="安装mysql57">安装Mysql5.7</h1>
 <ul>
 <li>安装 mysql 官方 yum 源</li>
 </ul>
-<pre><code class="language-shell">rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+<pre><code>rpm -ivh https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
 </code></pre>
 <ul>
 <li>查看 MySQL yum 源</li>
 </ul>
-<pre><code class="language-shell">yum list | grep mysql
+<pre><code>yum list | grep mysql
 </code></pre>
 <p>发现只有 mysql80 的包，这是因为没有开启 mysql57 的包，关闭80包，开启57包。</p>
-<pre><code class="language-shell">yum-config-manager --disable mysql80-community
+<pre><code>yum-config-manager --disable mysql80-community
 yum-config-manager --enable mysql57-community
 </code></pre>
 <p>报错</p>
-<pre><code class="language-shell">-bash: yum-config-manager: 未找到命令
+<pre><code>-bash: yum-config-manager: 未找到命令
 </code></pre>
 <p>这个是因为系统默认没有安装这个命令，这个命令在yum-utils 包里，可以通过命令yum -y install yum-utils 安装就可以了。</p>
 <ul>
 <li>安装 yum-utils 包</li>
 </ul>
-<pre><code class="language-shell">yum -y install yum-utils
+<pre><code>yum -y install yum-utils
 </code></pre>
 <ul>
 <li>
@@ -291,7 +284,7 @@ yum-config-manager --enable mysql57-community
 <p>安装 Mysql57</p>
 </li>
 </ul>
-<pre><code class="language-shell">yum -y install mysql-community-server
+<pre><code>yum -y install mysql-community-server
 </code></pre>
 <ul>
 <li>启动 Mysql57服务</li>
@@ -301,31 +294,31 @@ yum-config-manager --enable mysql57-community
 <ul>
 <li>查看初始密码</li>
 </ul>
-<pre><code class="language-shell">grep 'temporary password' /var/log/mysqld.log
+<pre><code>grep 'temporary password' /var/log/mysqld.log
 </code></pre>
 <ul>
 <li>登录 Mysql，修改密码</li>
 </ul>
-<pre><code class="language-shell">mysql -uroot -p
+<pre><code>mysql -uroot -p
 
 set password for root@localhost = password('你的密码');
 </code></pre>
 <p>如果提示错误，那是因为 mysql57 对密码的复杂度进行了限制，依次执行下列命令，取消复杂度限制，再修改</p>
-<pre><code class="language-shell">set global validate_password_policy=0;
+<pre><code>set global validate_password_policy=0;
 set global validate_password_mixed_case_count=0;
 set global validate_password_number_count=3;
 set global validate_password_special_char_count=0;
 set global validate_password_length=3;
 </code></pre>
 <p>提示错误</p>
-<pre><code class="language-shell">[root@izuf6fco0zwyipdq9485s2z ~]# mysql -uroot -p
+<pre><code>[root@izuf6fco0zwyipdq9485s2z ~]# mysql -uroot -p
 Enter password:
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
 </code></pre>
 <ul>
 <li>如下操作修复</li>
 </ul>
-<pre><code class="language-shell"># 先关闭服务
+<pre><code># 先关闭服务
 systemctl stop mysqld
 # 跳过权限验证
 mysqld --user=root --skip-grant-tables &amp;
@@ -341,62 +334,62 @@ FLUSH PRIVILEGES;
 <ul>
 <li>安装 epel-release</li>
 </ul>
-<pre><code class="language-shell">yum -y install epel-release
+<pre><code>yum -y install epel-release
 </code></pre>
 <p>安装完成后，在 /etc/yum.repos.d 目录下，就会多一个 epel.repo 的文件，还有一个 testing 的测试文件。当系统通过 yum 进行安装软件时，如果需要 epel 里的扩展包，就会自动下载安装。</p>
 <ul>
 <li>安装 webtatic yum 源</li>
 </ul>
-<pre><code class="language-shell">rpm -ivh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+<pre><code>rpm -ivh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 </code></pre>
 <p>安装完成后，在 /etc/yum.repos.d 目录下会多出 webtatic.repo 和 webtatic-archive.repo 两个文件，还有一个 testing 的测试文件。</p>
 <ul>
 <li>查看 php 可以安装的包</li>
 </ul>
-<pre><code class="language-shell"> yum list | grep php72
+<pre><code> yum list | grep php72
 </code></pre>
 <p>上面这些 rpm 包就是 webtatic 的 yum 源里面的包啦。我们要安装的就是 php72 的核心包 mod_php72w 和核心扩展包 php72w-cli 、php72w-fpm、php72w-common、php72w-devel。其它扩展选项包请根据需要安装，例如需要 php72w-gd 后期可单独安装。</p>
 <ul>
 <li>安装php72</li>
 </ul>
-<pre><code class="language-shell">yum -y install mod_php72w php72w-cli php72w-fpm php72w-common php72w-devel
+<pre><code>yum -y install mod_php72w php72w-cli php72w-fpm php72w-common php72w-devel
 </code></pre>
 <p>通过这种方式安装的 php72 的 php.ini 文件与我们认识的不太一样，它类似于 nginx.conf 存在一个主配置，通过类型 include 方法，包含指定文件夹下的模块配置文件。</p>
 <ul>
 <li>启动php-fpm</li>
 </ul>
-<pre><code class="language-shell">systemctl start php-fpm
+<pre><code>systemctl start php-fpm
 </code></pre>
 <h1 id="安装-wordpress">安装 WordPress</h1>
 <ul>
 <li>下载wordpress</li>
 </ul>
-<pre><code class="language-shell">wget https://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz
+<pre><code>wget https://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz
 </code></pre>
 <ul>
 <li>解压到/home/目录下</li>
 </ul>
-<pre><code class="language-shell">tar -zxvf wordpress-4.9.4-zh_CN.tar.gz -C /home/
+<pre><code>tar -zxvf wordpress-4.9.4-zh_CN.tar.gz -C /home/
 </code></pre>
 <ul>
 <li>登陆mysql并添加数据库，命名为wordpress</li>
 </ul>
-<pre><code class="language-shell">mysql -uroot -p
+<pre><code>mysql -uroot -p
 create database wordpress;
 show databases;
 </code></pre>
 <ul>
 <li>备份nginx的配置文件</li>
 </ul>
-<pre><code class="language-shell">cp /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak
+<pre><code>cp /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak
 </code></pre>
 <ul>
 <li>修改配置文件</li>
 </ul>
-<pre><code class="language-shell">vim /etc/nginx/conf.d/default.conf
+<pre><code>vim /etc/nginx/conf.d/default.conf
 </code></pre>
 <p>重启Nginx服务时候报错，查看错误日志</p>
-<pre><code class="language-shell">vim /var/log/nginx/error.log
+<pre><code>vim /var/log/nginx/error.log
 2018/11/14 17:15:23 [emerg] 14151#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
 2018/11/14 17:15:23 [emerg] 14151#0: bind() to [::]:80 failed (98: Address already in use)
 2018/11/14 17:15:23 [emerg] 14151#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
@@ -410,7 +403,7 @@ show databases;
 2018/11/14 17:15:23 [emerg] 14151#0: still could not bind()
 </code></pre>
 <p>看错误信息提示80端口已经被占用，无法重启Nginx服务，查看80端口进程是哪一个，并kill掉后，重启服务成功</p>
-<pre><code class="language-shell">netstat -ntpl
+<pre><code>netstat -ntpl
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
 tcp        0      0 127.0.0.1:9000          0.0.0.0:*               LISTEN      11333/php-fpm: mast
@@ -429,20 +422,20 @@ service nginx restart
 <p>抱歉，我不能写入wp-config.php文件 ......</p>
 </blockquote>
 <p>查看wordpress文件夹，发现是权限问题</p>
-<pre><code class="language-shell">ll /home | grep wordpress
+<pre><code>ll /home | grep wordpress
 drwxr-xr-x 5 nobody 65534 4096 2月   8 2018 wordpress
 </code></pre>
 <ul>
 <li>查看用户组</li>
 </ul>
-<pre><code class="language-shell">grep -E '^(user|group)' /etc/php-fpm.d/www.conf
+<pre><code>grep -E '^(user|group)' /etc/php-fpm.d/www.conf
 user = apache
 group = apache
 </code></pre>
 <ul>
 <li>设置访问权限</li>
 </ul>
-<pre><code class="language-shell">chown -R apache:apache /home/wordpress
+<pre><code>chown -R apache:apache /home/wordpress
 </code></pre>
 <h1 id="再次访问成功">再次访问成功！</h1>
 <p>参开链接：<br>
@@ -491,7 +484,7 @@ https://laravel-china.org/articles/17377#296073</p>
     <!-- 返回顶部 -->
     <div class="back-to-top">
     
-        <a href="#!">
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
             <i class="fa fa-map"></i>
         </a>
         <br>
@@ -499,14 +492,15 @@ https://laravel-china.org/articles/17377#296073</p>
     <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
 </div>
 
-<div class="container hidden">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Panel title 1</h3>
-        </div>
-        <div class="panel-body">Panel content 1</div>
-        <div class="my-popover-content">Here is some hidden content 1</div>
-    </div>
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E5%AE%89%E8%A3%85nginx">安装Nginx</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85mysql57">安装Mysql5.7</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85-php72">安装 PHP7.2</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85-wordpress">安装 WordPress</a></li>
+<li><a href="#%E5%86%8D%E6%AC%A1%E8%AE%BF%E9%97%AE%E6%88%90%E5%8A%9F">再次访问成功！</a></li>
+</ul>
+
 </div>
 
 
@@ -530,10 +524,16 @@ https://laravel-china.org/articles/17377#296073</p>
 <script src="https://zhangajian.com/media/scripts/_vendors/main.js"></script>
 <!-- Md5 Min JS -->
 <script src="https://zhangajian.com/media/scripts/_vendors/md5.min.js"></script>
+<!-- katex -->
+<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
+<!-- highlight -->
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 
 <script type="application/javascript">
     // 代码高亮
     hljs.initHighlightingOnLoad();
+
     // img 懒加载
     $(function () {
         $("img.lazy").lazyload({
@@ -542,16 +542,11 @@ https://laravel-china.org/articles/17377#296073</p>
         });
         // tooltip
         $('[data-toggle="tooltip"]').tooltip();
-        // 右下角工具
-        popOptions = {
-            content: function () {
-                return $(this).siblings('.my-popover-content').html();
-            },
-            trigger: 'hover',
-            placement: 'left',
-            html: true
-        };
-        $("[data-toggle='popover']").popover(popOptions);
+
+        // 目录
+        $('#tool-toc').click(function () {
+            $('.post-toc').toggle();
+        });
     });
 </script>
 

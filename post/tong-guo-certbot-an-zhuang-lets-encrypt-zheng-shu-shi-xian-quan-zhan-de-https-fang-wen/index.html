@@ -31,7 +31,9 @@
     
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
+<!-- katex -->
+<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
 
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
@@ -217,39 +219,6 @@ var _hmt = _hmt || [];
                 
                     <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-51.jpeg" alt="通过Certbot安装Let&#39;s Encrypt证书实现全站的HTTPS访问" class="img-responsive">
                 
-<!--                    <p> <ul class="markdownIt-TOC">
-<li><a href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86">相关知识</a><br>
-*
-<ul>
-<li><a href="#httphttps-%E6%98%AF%E4%BB%80%E4%B9%88">HTTP/HTTPS 是什么?</a></li>
-<li><a href="#ssltls-%E6%98%AF%E4%BB%80%E4%B9%88">SSL/TLS 是什么？</a></li>
-<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%83%A8%E7%BD%B2-https">为什么要部署 HTTPS？</a></li>
-<li><a href="#%E6%80%8E%E4%B9%88%E9%83%A8%E7%BD%B2-https-%E5%91%A2">怎么部署 HTTPS 呢？</a></li>
-<li><a href="#%E6%80%8E%E4%B9%88%E8%8E%B7%E5%BE%97-ssl-%E5%AE%89%E5%85%A8%E8%AF%81%E4%B9%A6%E5%91%A2">怎么获得 SSL 安全证书呢？</a></li>
-<li><a href="#lets-encrypt-%E7%AE%80%E4%BB%8B">Let’s Encrypt 简介</a></li>
-<li><a href="#certbot-%E7%AE%80%E4%BB%8B">Certbot 简介</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C">实际操作</a><br>
-*
-<ul>
-<li><a href="#certbot-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">Certbot 使用方法</a></li>
-</ul>
-</li>
-<li><a href="#%E5%85%B6%E4%BB%96">其他</a><br>
-*
-<ul>
-<li><a href="#nginx%E7%9A%84%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E">Nginx的设置说明</a></li>
-<li><a href="#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E8%AF%81%E4%B9%A6">自动更新证书</a></li>
-<li><a href="#certbot-%E7%9A%84-log-%E8%B7%AF%E5%BE%84">Certbot 的 log 路径</a></li>
-<li><a href="#%E7%9B%B8%E5%85%B3%E7%AC%AC%E4%B8%89%E6%96%B9">相关第三方</a></li>
-</ul>
-</li>
-<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
-<li><a href="#%E5%8D%9A%E5%AE%A2%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5">博客原文链接</a></li>
-</ul>
- </p>-->
-
             </figure>
             <span class="fh5co-meta animate-box">
                 
@@ -271,7 +240,7 @@ var _hmt = _hmt || [];
             <h2 class="fh5co-article-title animate-box">通过Certbot安装Let&#39;s Encrypt证书实现全站的HTTPS访问</h2>
             <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
                 <li>2018-11-17</li>
-                <li>2873字</li>
+                <li>2863字</li>
                 <li>12 min read</li>
             </ol>
 
@@ -311,22 +280,22 @@ var _hmt = _hmt || [];
 <h3 id="certbot-使用方法">Certbot 使用方法</h3>
 <p>Certbot 的官网是<a href="https://certbot.eff.org/">https://certbot.eff.org/</a>, 我们打开这个链接，选择自己使用的 web server 和操作系统。选择完之后，官网就会显示出对应的安装操作步骤。<br>
 以目前我所使用的服务器为例，web server 使用Nginx(1.12)，操作系统是CentOS(7.3)。因为 Certbot 打包在EPEL中，所以在安装 Certbot 之前要先安装EPEL</p>
-<pre><code class="language-shell">yum -y install epel-release
+<pre><code>yum -y install epel-release
 </code></pre>
 <p>然后按着官网给出的步骤提示命令安装 Certbot</p>
-<pre><code class="language-shell">yum install python2-certbot-nginx
+<pre><code>yum install python2-certbot-nginx
 </code></pre>
 <p>安装完毕后，继续输入官网提示命令</p>
-<pre><code class="language-shell">certbot --nginx
+<pre><code>certbot --nginx
 </code></pre>
 <p>运行此命令会自动获取证书，并且 Certbot 会自动编辑Nginx配置文件配置HTTPS服务。</p>
 <blockquote>
 <p>这边在运行配置命令时遇到一个坑</p>
 </blockquote>
-<pre><code class="language-shell">ImportError: No module named 'requests.packages.urllib3'
+<pre><code>ImportError: No module named 'requests.packages.urllib3'
 </code></pre>
 <p>可以看出是缺少一个模块包，看配置命令在命令台的输出，Certbot 是用 python 来写 Nginx 配置。既然是用的 python，可以通过 <strong>pip list</strong> 命令查看 python 的依赖包列表。但是查看是已经存在的，这个问题很快通过 Certbot 在 github 上的一个 Issues 找到了答案（<a href="https://github.com/certbot/certbot/issues/5104">Issues链接</a>）。目前看是包的版本依赖有问题，执行以下命令进行依赖包的重装</p>
-<pre><code class="language-shell">pip uninstall requests
+<pre><code>pip uninstall requests
 pip uninstall urllib3
 yum remove python-urllib3
 yum remove python-requests
@@ -335,7 +304,7 @@ yum install python-requests
 yum install certbot
 </code></pre>
 <p>再次执行 <strong>certbot --nginx</strong> 命令成功。命令执行后首先会提示输入一个邮箱地址，主要作用是订阅一些通知，输入后回车。</p>
-<pre><code class="language-shell">[root@izuf6fco0zwyipdq9485s2z ~]# certbot --nginx
+<pre><code>[root@izuf6fco0zwyipdq9485s2z ~]# certbot --nginx
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator nginx, Installer nginx
 
@@ -347,7 +316,7 @@ Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 </code></pre>
 <p>回车后 Certbot 就会自动请求下载 Let's Encrypt 证书，并设置 Nginx 配置文件。期间会有一些同意相关协议和选择哪个网站配置的交互，这个看输出文字就能明白意思。</p>
-<pre><code class="language-shell">...
+<pre><code>...
 ▽
 server {
 (A)gree/(C)ancel: a
@@ -376,7 +345,7 @@ Cleaning up challenges
 <blockquote>
 <p>但是这边到 Certbot 设置 Nginx 配置文件的时候遇到一个坑，报如下一个错误</p>
 </blockquote>
-<pre><code class="language-shell">An unexpected error occurred:
+<pre><code>An unexpected error occurred:
 UnicodeDecodeError: 'ascii' codec can't decode byte 0xe5 in position 2: ordinal not in range(128)
 Please see the logfiles in /var/log/letsencrypt for more details.
 </code></pre>
@@ -384,14 +353,14 @@ Please see the logfiles in /var/log/letsencrypt for more details.
 <blockquote>
 <p>在解决错误之前，首先要了解unicode和utf-8的区别。unicode指的是万国码，是一种“字码表”。而utf-8是这种字码表储存的编码方法。unicode不一定要由utf-8这种方式编成bytecode储存，也可以使用utf-16,utf-7等其他方式。目前大多都以utf-8的方式来变成bytecode。其次，Python中字符串类型分为byte string 和 unicode string两种。如果在python文件中指定编码方式为utf-8(#coding=utf-8)，那么所有带中文的字符串都会被认为是utf-8编码的byte string（例如：mystr=&quot;你好&quot;），但是在函数中所产生的字符串则被认为是unicode string。问题就出在这边，unicode string 和 byte string 是不可以混合使用的，一旦混合使用了，就会产生这样的错误。例如：</p>
 </blockquote>
-<pre><code class="language-python">self.response.out.write(&quot;你好&quot;+self.request.get(&quot;argu&quot;))
+<pre><code>self.response.out.write(&quot;你好&quot;+self.request.get(&quot;argu&quot;))
 </code></pre>
 <blockquote>
 <p>其中，&quot;你好&quot;被认为是byte string，而self.request.get(&quot;argu&quot;)的返回值被认为是unicode string。由于预设的解码器是ascii，所以就不能识别中文byte string。然后就报错了。</p>
 </blockquote>
 <p>那理解了这个错误原因后，我这边首先想到的就是网站的 Nginx 配置文件中是否含有中文。打开一看，确实存在中文注释。将注释去掉，重新执行命令成功不在报错</p>
 <p>接着命令交互会提示是否将所有HTTP重定向到HTTPS，我这边选择全部重定向也就是「2」。</p>
-<pre><code class="language-shell">Cleaning up challenges
+<pre><code>Cleaning up challenges
 Deploying Certificate to VirtualHost:  //这边会显示你的网站配置文件目录
 
 Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
@@ -426,14 +395,14 @@ IMPORTANT NOTES:
    Donating to EFF:                    https://eff.org/donate-le
 </code></pre>
 <p>OK，当完成上面最后一步后，输入如上信息后就表明 HTTPS 配置成功了！我们可以通过提示中的 <a href="www.ssllabs.com">SSL Server Test</a> 网址来测试网站是否能够 HTTPS 来进行访问</p>
-<pre><code class="language-shell">You should test your configuration at:
+<pre><code>You should test your configuration at:
 https://www.ssllabs.com/ssltest/analyze.html?d=kisstime.top
 </code></pre>
 <p>事实证明，高兴的太早了。。。通过测试网站和直接访问域名发现网站都是访问不了。思考了一下，确认下服务器的443端口是否开启，我这边用的是阿里云的服务器，登录控制台查看安全组规则，发现确实是443端口没有开启，配置开启后，重新访问成功。</p>
 <h1 id="其他">其他</h1>
 <h3 id="nginx的设置说明">Nginx的设置说明</h3>
 <p>基本上 Certbot 会在对应的 Nginx 配置文件加上下面的参数：</p>
-<pre><code class="language-nginx">server {
+<pre><code>server {
     # ... other configs
     
     # SSL 设置
@@ -454,10 +423,10 @@ https://www.ssllabs.com/ssltest/analyze.html?d=kisstime.top
 </code></pre>
 <h3 id="自动更新证书">自动更新证书</h3>
 <p>Let’s Encrypt 免费SSL证书用起来非常方便，但每次申请只有三个月有效期，在每次到期之前都需要重新申请，Certbot 已经提供了一键续订的命令</p>
-<pre><code class="language-shell">certbot renew
+<pre><code>certbot renew
 </code></pre>
 <p>我们可以通过添加此条命令的cron作业（或systemd计时器）来安排证书的自动续订</p>
-<pre><code class="language-shell">SHELL=/bin/bash
+<pre><code>SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
 0 0,12 * * * certbot renew --quiet 
@@ -474,8 +443,6 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 <li><a href="https://blog.csdn.net/use_my_heart/article/details/51303317">https://blog.csdn.net/use_my_heart/article/details/51303317</a></li>
 <li><a href="https://blog.hellojcc.tw/2018/05/02/setup-https-with-letsencrypt-on-nginx/">https://blog.hellojcc.tw/2018/05/02/setup-https-with-letsencrypt-on-nginx/</a></li>
 </ul>
-<h1 id="博客原文链接">博客原文链接</h1>
-<p><a href="https://kisstime.top/?p=123">👉点击链接</a></p>
  </p>
                     </div>
                 </div>
@@ -518,7 +485,7 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
     <!-- 返回顶部 -->
     <div class="back-to-top">
     
-        <a href="#!">
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
             <i class="fa fa-map"></i>
         </a>
         <br>
@@ -526,14 +493,38 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
     <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
 </div>
 
-<div class="container hidden">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Panel title 1</h3>
-        </div>
-        <div class="panel-body">Panel content 1</div>
-        <div class="my-popover-content">Here is some hidden content 1</div>
-    </div>
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86">相关知识</a><br>
+*
+<ul>
+<li><a href="#httphttps-%E6%98%AF%E4%BB%80%E4%B9%88">HTTP/HTTPS 是什么?</a></li>
+<li><a href="#ssltls-%E6%98%AF%E4%BB%80%E4%B9%88">SSL/TLS 是什么？</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%83%A8%E7%BD%B2-https">为什么要部署 HTTPS？</a></li>
+<li><a href="#%E6%80%8E%E4%B9%88%E9%83%A8%E7%BD%B2-https-%E5%91%A2">怎么部署 HTTPS 呢？</a></li>
+<li><a href="#%E6%80%8E%E4%B9%88%E8%8E%B7%E5%BE%97-ssl-%E5%AE%89%E5%85%A8%E8%AF%81%E4%B9%A6%E5%91%A2">怎么获得 SSL 安全证书呢？</a></li>
+<li><a href="#lets-encrypt-%E7%AE%80%E4%BB%8B">Let’s Encrypt 简介</a></li>
+<li><a href="#certbot-%E7%AE%80%E4%BB%8B">Certbot 简介</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C">实际操作</a><br>
+*
+<ul>
+<li><a href="#certbot-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">Certbot 使用方法</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%B6%E4%BB%96">其他</a><br>
+*
+<ul>
+<li><a href="#nginx%E7%9A%84%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E">Nginx的设置说明</a></li>
+<li><a href="#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E8%AF%81%E4%B9%A6">自动更新证书</a></li>
+<li><a href="#certbot-%E7%9A%84-log-%E8%B7%AF%E5%BE%84">Certbot 的 log 路径</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E7%AC%AC%E4%B8%89%E6%96%B9">相关第三方</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+
 </div>
 
 
@@ -557,10 +548,16 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 <script src="https://zhangajian.com/media/scripts/_vendors/main.js"></script>
 <!-- Md5 Min JS -->
 <script src="https://zhangajian.com/media/scripts/_vendors/md5.min.js"></script>
+<!-- katex -->
+<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
+<!-- highlight -->
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 
 <script type="application/javascript">
     // 代码高亮
     hljs.initHighlightingOnLoad();
+
     // img 懒加载
     $(function () {
         $("img.lazy").lazyload({
@@ -569,16 +566,11 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
         });
         // tooltip
         $('[data-toggle="tooltip"]').tooltip();
-        // 右下角工具
-        popOptions = {
-            content: function () {
-                return $(this).siblings('.my-popover-content').html();
-            },
-            trigger: 'hover',
-            placement: 'left',
-            html: true
-        };
-        $("[data-toggle='popover']").popover(popOptions);
+
+        // 目录
+        $('#tool-toc').click(function () {
+            $('.post-toc').toggle();
+        });
     });
 </script>
 

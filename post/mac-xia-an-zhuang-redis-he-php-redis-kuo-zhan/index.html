@@ -31,7 +31,9 @@
     
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
+<!-- katex -->
+<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
 
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
@@ -217,17 +219,6 @@ var _hmt = _hmt || [];
                 
                     <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c_44.jpg" alt="Mac下安装Redis和php-redis扩展" class="img-responsive">
                 
-<!--                    <p> <ul class="markdownIt-TOC">
-<li><a href="#%E4%B8%80-%E5%AE%89%E8%A3%85redis%E6%9C%8D%E5%8A%A1%E5%99%A8">一. 安装redis服务器</a><br>
-*<br>
-*<br>
-* <a href="#%E6%89%A7%E8%A1%8C-brew-install-redis-%E5%AE%89%E8%A3%85redis">执行 brew install redis 安装redis</a><br>
-* <a href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">常用命令</a></li>
-<li><a href="#%E4%BA%8C-%E5%AE%89%E8%A3%85php-redis%E6%89%A9%E5%B1%95">二. 安装php-redis扩展</a></li>
-<li><a href="#%E4%B8%89-%E5%9C%A8php%E4%B8%AD%E4%BD%BF%E7%94%A8redis">三. 在PHP中使用redis</a></li>
-</ul>
- </p>-->
-
             </figure>
             <span class="fh5co-meta animate-box">
                 
@@ -293,7 +284,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>连接到 redis 服务php代码</p>
 </blockquote>
-<pre><code class="language-php">&lt;?php
+<pre><code>&lt;?php
     //连接本地的 Redis 服务
    $redis = new Redis();
    $redis-&gt;connect('127.0.0.1', 6379);
@@ -337,7 +328,7 @@ Server is running: PONG
     <!-- 返回顶部 -->
     <div class="back-to-top">
     
-        <a href="#!">
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
             <i class="fa fa-map"></i>
         </a>
         <br>
@@ -345,14 +336,17 @@ Server is running: PONG
     <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
 </div>
 
-<div class="container hidden">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Panel title 1</h3>
-        </div>
-        <div class="panel-body">Panel content 1</div>
-        <div class="my-popover-content">Here is some hidden content 1</div>
-    </div>
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-%E5%AE%89%E8%A3%85redis%E6%9C%8D%E5%8A%A1%E5%99%A8">一. 安装redis服务器</a><br>
+*<br>
+*<br>
+* <a href="#%E6%89%A7%E8%A1%8C-brew-install-redis-%E5%AE%89%E8%A3%85redis">执行 brew install redis 安装redis</a><br>
+* <a href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">常用命令</a></li>
+<li><a href="#%E4%BA%8C-%E5%AE%89%E8%A3%85php-redis%E6%89%A9%E5%B1%95">二. 安装php-redis扩展</a></li>
+<li><a href="#%E4%B8%89-%E5%9C%A8php%E4%B8%AD%E4%BD%BF%E7%94%A8redis">三. 在PHP中使用redis</a></li>
+</ul>
+
 </div>
 
 
@@ -376,10 +370,16 @@ Server is running: PONG
 <script src="https://zhangajian.com/media/scripts/_vendors/main.js"></script>
 <!-- Md5 Min JS -->
 <script src="https://zhangajian.com/media/scripts/_vendors/md5.min.js"></script>
+<!-- katex -->
+<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
+<!-- highlight -->
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 
 <script type="application/javascript">
     // 代码高亮
     hljs.initHighlightingOnLoad();
+
     // img 懒加载
     $(function () {
         $("img.lazy").lazyload({
@@ -388,16 +388,11 @@ Server is running: PONG
         });
         // tooltip
         $('[data-toggle="tooltip"]').tooltip();
-        // 右下角工具
-        popOptions = {
-            content: function () {
-                return $(this).siblings('.my-popover-content').html();
-            },
-            trigger: 'hover',
-            placement: 'left',
-            html: true
-        };
-        $("[data-toggle='popover']").popover(popOptions);
+
+        // 目录
+        $('#tool-toc').click(function () {
+            $('.post-toc').toggle();
+        });
     });
 </script>
 

@@ -31,7 +31,9 @@
     
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
+<!-- katex -->
+<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
 
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
@@ -217,12 +219,6 @@ var _hmt = _hmt || [];
                 
                     <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-61.jpg" alt="Mac下iTerm2 SSH 免密登陆阿里云" class="img-responsive">
                 
-<!--                    <p> <ul class="markdownIt-TOC">
-<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE">服务器配置</a></li>
-<li><a href="#%E6%9C%AC%E6%9C%BA%E9%85%8D%E7%BD%AE">本机配置</a></li>
-</ul>
- </p>-->
-
             </figure>
             <span class="fh5co-meta animate-box">
                 
@@ -253,7 +249,7 @@ var _hmt = _hmt || [];
 <p>vim  /etc/ssh/sshd_config</p>
 </blockquote>
 <p>找到以下内容，去掉前面的注释（#）</p>
-<pre><code class="language-shell">RSAAuthentication yes 
+<pre><code>RSAAuthentication yes 
 PubkeyAuthentication yes 
 AuthorizedKeysFile .ssh/authorized_keys
 </code></pre>
@@ -267,7 +263,7 @@ AuthorizedKeysFile .ssh/authorized_keys
 <p>ssh-keygen -t rsa</p>
 </blockquote>
 <p>一路回车即可。默认在 ~/.ssh目录生成两个文件</p>
-<pre><code class="language-shell">id_rsa ：私钥 
+<pre><code>id_rsa ：私钥 
 id_rsa.pub ：公钥
 </code></pre>
 <p>2 将本地公钥导入到服务器认证文件中</p>
@@ -275,7 +271,7 @@ id_rsa.pub ：公钥
 <p>ssh-copy-id -i ~/.ssh/id_rsa.pub root@你的公网IP</p>
 </blockquote>
 <p>3 修改 mac 下的配置文件 ~/.ssh/config （没有则创建）</p>
-<pre><code class="language-shell">Host aliyun  ### 别名
+<pre><code>Host aliyun  ### 别名
 Hostname 192.168.10.10  ###公网 IP
 Port 22  ###端口
 User root  ###登录账号
@@ -327,7 +323,7 @@ IdentityFile ~/.ssh/id_rsa ###本机私钥地址
     <!-- 返回顶部 -->
     <div class="back-to-top">
     
-        <a href="#!">
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
             <i class="fa fa-map"></i>
         </a>
         <br>
@@ -335,14 +331,12 @@ IdentityFile ~/.ssh/id_rsa ###本机私钥地址
     <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
 </div>
 
-<div class="container hidden">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Panel title 1</h3>
-        </div>
-        <div class="panel-body">Panel content 1</div>
-        <div class="my-popover-content">Here is some hidden content 1</div>
-    </div>
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE">服务器配置</a></li>
+<li><a href="#%E6%9C%AC%E6%9C%BA%E9%85%8D%E7%BD%AE">本机配置</a></li>
+</ul>
+
 </div>
 
 
@@ -366,10 +360,16 @@ IdentityFile ~/.ssh/id_rsa ###本机私钥地址
 <script src="https://zhangajian.com/media/scripts/_vendors/main.js"></script>
 <!-- Md5 Min JS -->
 <script src="https://zhangajian.com/media/scripts/_vendors/md5.min.js"></script>
+<!-- katex -->
+<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
+<!-- highlight -->
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 
 <script type="application/javascript">
     // 代码高亮
     hljs.initHighlightingOnLoad();
+
     // img 懒加载
     $(function () {
         $("img.lazy").lazyload({
@@ -378,16 +378,11 @@ IdentityFile ~/.ssh/id_rsa ###本机私钥地址
         });
         // tooltip
         $('[data-toggle="tooltip"]').tooltip();
-        // 右下角工具
-        popOptions = {
-            content: function () {
-                return $(this).siblings('.my-popover-content').html();
-            },
-            trigger: 'hover',
-            placement: 'left',
-            html: true
-        };
-        $("[data-toggle='popover']").popover(popOptions);
+
+        // 目录
+        $('#tool-toc').click(function () {
+            $('.post-toc').toggle();
+        });
     });
 </script>
 

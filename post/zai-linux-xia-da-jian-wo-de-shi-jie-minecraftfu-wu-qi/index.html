@@ -31,7 +31,9 @@
     
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
+<!-- katex -->
+<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
 
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
@@ -217,26 +219,6 @@ var _hmt = _hmt || [];
                 
                     <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-41.jpg" alt="在Linux下搭建我的世界(Minecraft)服务器" class="img-responsive">
                 
-<!--                    <p> <ul class="markdownIt-TOC">
-<li><a href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82">系统要求</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85java">安装Java</a></li>
-<li><a href="#%E4%B8%8B%E8%BD%BDmc%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF">下载MC服务器端</a></li>
-<li><a href="#mc%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8">MC服务器，启动！</a></li>
-<li><a href="#%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F">启动成功</a></li>
-<li><a href="#mcshell%E8%84%9A%E6%9C%AC%E5%90%AF%E5%8A%A8">MC，Shell脚本启动！</a></li>
-<li><a href="#mc%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B3%E9%97%AD">MC服务器，关闭！</a></li>
-<li><a href="#mc%E6%9C%8D%E5%8A%A1%E8%B5%B7%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5">MC服务起最常见的启动失败</a></li>
-<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5mc%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%B1%E8%B4%A5">客户端连接MC服务器失败</a></li>
-<li><a href="#%E4%BF%9D%E6%8C%81%E6%9C%8D%E5%8A%A1%E4%BC%9A%E8%AF%9D">保持服务会话</a><br>
-*<br>
-*<br>
-* <a href="#%E5%AE%89%E8%A3%85-screen">安装 screen</a><br>
-* <a href="#%E8%AF%AD%E6%B3%95">语法：</a><br>
-* <a href="#%E5%B8%B8%E7%94%A8screen%E5%8F%82%E6%95%B0">常用screen参数</a><br>
-* <a href="#%E4%BF%9D%E6%8C%81%E6%88%91%E4%BB%AC%E7%9A%84mc%E6%9C%8D%E5%8A%A1%E4%BC%9A%E8%AF%9D">保持我们的MC服务会话</a></li>
-</ul>
- </p>-->
-
             </figure>
             <span class="fh5co-meta animate-box">
                 
@@ -270,12 +252,12 @@ var _hmt = _hmt || [];
 </blockquote>
 <!-- more -->
 <h1 id="系统要求">系统要求</h1>
-<p>google到的MC系统要求:</p>
+<p>google到的MC系统要求</p>
 <ul>
 <li>CPU：双核</li>
 <li>内存：20-40人<strong>2GB</strong>，30-60人<strong>3GB</strong>，60+人<strong>8GB</strong></li>
 </ul>
-<p>上面就是服务器端的需求，如果只是和小伙伴们一起玩，也并不需要多优秀的服务器。下面是我的配置：</p>
+<p>上面就是服务器端的需求，如果只是和小伙伴们一起玩，也并不需要多优秀的服务器。下面是我的配置</p>
 <ul>
 <li>CPU：单核</li>
 <li>内存：2G</li>
@@ -283,30 +265,30 @@ var _hmt = _hmt || [];
 </ul>
 <h1 id="安装java">安装Java</h1>
 <p>MC是用Java写的（当然现在也有别的语言写的版本），由于服务器端的MC是一个jar包，我们在配置之后通过运行jar包来开启服务器端，同时我们在客户端上打开后通过IP地址即可搜索并进入服务器。所以我们首先要先安装Java。通过下面的方法来安装：</p>
-<pre><code class="language-shell">yum install -y java-1.8.0-openjdk
+<pre><code>yum install -y java-1.8.0-openjdk
 </code></pre>
 <h1 id="下载mc服务器端">下载MC服务器端</h1>
 <p>这里有一个要求，就是你和你的小伙伴要拥有同样版本的MC。不同的版本对应着不同的服务器端，所以我们要下载正确的版本。如何看MC版本呢，一般进入游戏后，游戏左下角会有版本显示。知道了版本号，那么用命令就可以下载对应版本的服务器端了。需要根据版本号补全命令格式：</p>
-<pre><code class="language-shell">wget https://s3.amazonaws.com/Minecraft.Download/versions/&lt;你要下载的版本号&gt;/minecraft_server.&lt;你要下载的版本号&gt;.jar
+<pre><code>wget https://s3.amazonaws.com/Minecraft.Download/versions/&lt;你要下载的版本号&gt;/minecraft_server.&lt;你要下载的版本号&gt;.jar
 
 </code></pre>
 <p>例子：博主这边选择安装了比较稳定的1.12版本</p>
-<pre><code class="language-shell">wget https://s3.amazonaws.com/Minecraft.Download/versions/1.12/minecraft_server.1.12.jar
+<pre><code>wget https://s3.amazonaws.com/Minecraft.Download/versions/1.12/minecraft_server.1.12.jar
 </code></pre>
 <p>等下载提示结束后，minecraft_server.1.12.jar就躺在当前目录了。</p>
 <h1 id="mc服务器启动">MC服务器，启动！</h1>
 <p>我们就可以使用命令来运行MC服务器：</p>
-<pre><code class="language-shell">java -Xms[初始启动分配内存] -Xmx[最大分配内存] -jar [jar包所在路径]/minecraft_server.[版本号].jar nogui
+<pre><code>java -Xms[初始启动分配内存] -Xmx[最大分配内存] -jar [jar包所在路径]/minecraft_server.[版本号].jar nogui
 </code></pre>
 <p>例子：</p>
-<pre><code class="language-shell">java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
+<pre><code>java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
 </code></pre>
 <blockquote>
 <p>关于命令最后一个参数 nogui，是分开的单词 no gui，意思是不需要图形界面，这样会大大减小内存的使用，如果你的Linux是有图形界面的，就可以不打这个 nogui。</p>
 </blockquote>
 <h1 id="启动成功">启动成功</h1>
 <p>上面的命令输入完成后，等待参数由0%一直到100%就启动完成啦！下面给出博主启动完成的后几行显示：</p>
-<pre><code class="language-shell">[05:58:08] [Server thread/INFO]: Loaded 488 advancements
+<pre><code>[05:58:08] [Server thread/INFO]: Loaded 488 advancements
 [05:58:08] [Server thread/INFO]: Preparing start region for level 0
 [05:58:09] [Server thread/INFO]: Preparing spawn area: 0%
 [05:58:10] [Server thread/INFO]: Preparing spawn area: 41%
@@ -315,24 +297,24 @@ var _hmt = _hmt || [];
 </code></pre>
 <h1 id="mcshell脚本启动">MC，Shell脚本启动！</h1>
 <p>我们如果一直使用上面那一句启动的话是不是非常麻烦！每次都要复制粘贴，那么我们可以写一个简单的Shell脚本，放在jar包所在目录，每次启动的时候直接启动脚本就能进入游戏了。</p>
-<pre><code class="language-shell">vim start-game.sh
+<pre><code>vim start-game.sh
 </code></pre>
 <p>编辑内容如下：</p>
-<pre><code class="language-vim">#!/bin/sh
+<pre><code>#!/bin/sh
 
 java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
 </code></pre>
 <p>保存退出，每次启动游戏只需要运行下面命令即可:</p>
-<pre><code class="language-shell">bash start-game.sh
+<pre><code>bash start-game.sh
 </code></pre>
 <h1 id="mc服务器关闭">MC服务器，关闭！</h1>
 <p>按 Ctrl + C 来停止当前服务器</p>
 <h1 id="mc服务起最常见的启动失败">MC服务起最常见的启动失败</h1>
 <p>我们在第一次运行完jar包后，无论是否运行成功，都能发现当前目录下多出了一堆文件，运行失败的时候其实就是配置除了一点问题。我们在当前目录找一下文件：<strong>eula.txt</strong></p>
-<pre><code class="language-shell">vim eula.txt
+<pre><code>vim eula.txt
 </code></pre>
 <p>按i键进入编辑模式，找到如下一行把 <strong>false</strong> 改为 <strong>true</strong></p>
-<pre><code class="language-vim">eula=false
+<pre><code>eula=false
 </code></pre>
 <p>保存退出</p>
 <ul>
@@ -341,10 +323,10 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
 </ul>
 <h1 id="客户端连接mc服务器失败">客户端连接MC服务器失败</h1>
 <p>上面都启动成功之后，就可以下载对应服务器版本的客户端。下载好后启动，点击多人游戏，添加服务器，服务器地址输入我们云服务器的公网IP，就可连接上去愉快的玩耍了。但是这时候可能会发现就是怎么连接都失败，如果遇到这个情况，我们需要检查下服务器配置文件，先在jar包目录下找到文件server.propertices 并编辑：</p>
-<pre><code class="language-shell">vim server.propertices
+<pre><code>vim server.propertices
 </code></pre>
 <p>找到这一行</p>
-<pre><code class="language-vim">online-mode:true
+<pre><code>online-mode:true
 </code></pre>
 <p>将true改为false，这是正版验证服务的设置<br>
 关于 <strong>server.propertices</strong> 文件，这边就不多做介绍了，可通过下面的链接了解详情</p>
@@ -359,7 +341,7 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
 <p>GNU Screen是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</p>
 </blockquote>
 <h4 id="安装-screen">安装 screen</h4>
-<pre><code class="language-shell">yum install -y screen
+<pre><code>yum install -y screen
 </code></pre>
 <h4 id="语法">语法：</h4>
 <p>screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]</p>
@@ -390,7 +372,7 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
 <ul>
 <li>新建一个screen会话</li>
 </ul>
-<pre><code class="language-shell">screen -S mcs
+<pre><code>screen -S mcs
 </code></pre>
 <p>当输入这个命令后，就会进入 <strong>mcs</strong> 会话，在当前会话下，输入上面的启动脚本命令，确认游戏正常启动后，就可以放着不管了，只要不是服务器挂掉了，服务就会一直运行着。</p>
  </p>
@@ -435,7 +417,7 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
     <!-- 返回顶部 -->
     <div class="back-to-top">
     
-        <a href="#!">
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
             <i class="fa fa-map"></i>
         </a>
         <br>
@@ -443,14 +425,26 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
     <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
 </div>
 
-<div class="container hidden">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Panel title 1</h3>
-        </div>
-        <div class="panel-body">Panel content 1</div>
-        <div class="my-popover-content">Here is some hidden content 1</div>
-    </div>
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82">系统要求</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85java">安装Java</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BDmc%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF">下载MC服务器端</a></li>
+<li><a href="#mc%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%AF%E5%8A%A8">MC服务器，启动！</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F">启动成功</a></li>
+<li><a href="#mcshell%E8%84%9A%E6%9C%AC%E5%90%AF%E5%8A%A8">MC，Shell脚本启动！</a></li>
+<li><a href="#mc%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B3%E9%97%AD">MC服务器，关闭！</a></li>
+<li><a href="#mc%E6%9C%8D%E5%8A%A1%E8%B5%B7%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5">MC服务起最常见的启动失败</a></li>
+<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5mc%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%B1%E8%B4%A5">客户端连接MC服务器失败</a></li>
+<li><a href="#%E4%BF%9D%E6%8C%81%E6%9C%8D%E5%8A%A1%E4%BC%9A%E8%AF%9D">保持服务会话</a><br>
+*<br>
+*<br>
+* <a href="#%E5%AE%89%E8%A3%85-screen">安装 screen</a><br>
+* <a href="#%E8%AF%AD%E6%B3%95">语法：</a><br>
+* <a href="#%E5%B8%B8%E7%94%A8screen%E5%8F%82%E6%95%B0">常用screen参数</a><br>
+* <a href="#%E4%BF%9D%E6%8C%81%E6%88%91%E4%BB%AC%E7%9A%84mc%E6%9C%8D%E5%8A%A1%E4%BC%9A%E8%AF%9D">保持我们的MC服务会话</a></li>
+</ul>
+
 </div>
 
 
@@ -474,10 +468,16 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
 <script src="https://zhangajian.com/media/scripts/_vendors/main.js"></script>
 <!-- Md5 Min JS -->
 <script src="https://zhangajian.com/media/scripts/_vendors/md5.min.js"></script>
+<!-- katex -->
+<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
+<!-- highlight -->
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+
 
 <script type="application/javascript">
     // 代码高亮
     hljs.initHighlightingOnLoad();
+
     // img 懒加载
     $(function () {
         $("img.lazy").lazyload({
@@ -486,16 +486,11 @@ java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
         });
         // tooltip
         $('[data-toggle="tooltip"]').tooltip();
-        // 右下角工具
-        popOptions = {
-            content: function () {
-                return $(this).siblings('.my-popover-content').html();
-            },
-            trigger: 'hover',
-            placement: 'left',
-            html: true
-        };
-        $("[data-toggle='popover']").popover(popOptions);
+
+        // 目录
+        $('#tool-toc').click(function () {
+            $('.post-toc').toggle();
+        });
     });
 </script>
 
