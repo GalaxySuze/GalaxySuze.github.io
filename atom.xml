@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-11-03T10:18:29.530Z</updated>
+    <updated>2019-11-03T11:05:03.686Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -1002,10 +1002,11 @@ group = apache
 <pre><code>chown -R apache:apache /home/wordpress
 </code></pre>
 <h1 id="再次访问成功">再次访问成功！</h1>
-<p>参开链接：<br>
-https://laravel-china.org/articles/10803/this-weekend-theres-a-lot-of-pits-on-the-website-for-a-friend-to-do<br>
-https://blog.csdn.net/u011475134/article/details/80222098<br>
-https://laravel-china.org/articles/17377#296073</p>
+<p>参考链接：<br>
+<a href="https://laravel-china.org/articles/10803/">https://laravel-china.org/articles/10803/</a><br>
+<a href="this-weekend-theres-a-lot-of-pits-on-the-website-for-a-friend-to-do">this-weekend-theres-a-lot-of-pits-on-the-website-for-a-friend-to-do</a><br>
+<a href="https://blog.csdn.net/u011475134/article/details/80222098">https://blog.csdn.net/u011475134/article/details/80222098</a><br>
+<a href="https://laravel-china.org/articles/17377#296073">https://laravel-china.org/articles/17377#296073</a></p>
 ]]></content>
     </entry>
     <entry>
