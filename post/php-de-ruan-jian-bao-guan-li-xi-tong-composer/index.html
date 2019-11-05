@@ -430,6 +430,16 @@ mustache/mustache v2.9.0 A Mustache implementation in PHP.
             $('.post-toc').toggle();
         });
     });
+
+    
+        var allImg = $("img");
+        allImg.on("contextmenu", function () {
+            return false;
+        });
+        allImg.on("dragstart", function () {
+            return false;
+        });
+    
 </script>
 
 

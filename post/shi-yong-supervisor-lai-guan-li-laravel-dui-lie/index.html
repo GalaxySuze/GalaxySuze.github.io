@@ -451,6 +451,16 @@ msp-queue:msp-queue_07           RUNNING   pid 19970, uptime 0:00:29
             $('.post-toc').toggle();
         });
     });
+
+    
+        var allImg = $("img");
+        allImg.on("contextmenu", function () {
+            return false;
+        });
+        allImg.on("dragstart", function () {
+            return false;
+        });
+    
 </script>
 
 

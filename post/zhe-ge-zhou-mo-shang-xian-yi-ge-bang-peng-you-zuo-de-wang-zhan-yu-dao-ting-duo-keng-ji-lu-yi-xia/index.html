@@ -1171,6 +1171,16 @@ libmysqlclient.so.18      libmysqlclient.so.18.1.0
             $('.post-toc').toggle();
         });
     });
+
+    
+        var allImg = $("img");
+        allImg.on("contextmenu", function () {
+            return false;
+        });
+        allImg.on("dragstart", function () {
+            return false;
+        });
+    
 </script>
 
 

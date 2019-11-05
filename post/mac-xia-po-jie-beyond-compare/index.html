@@ -368,6 +368,16 @@ rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.da
             $('.post-toc').toggle();
         });
     });
+
+    
+        var allImg = $("img");
+        allImg.on("contextmenu", function () {
+            return false;
+        });
+        allImg.on("dragstart", function () {
+            return false;
+        });
+    
 </script>
 
 

@@ -570,6 +570,16 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
             $('.post-toc').toggle();
         });
     });
+
+    
+        var allImg = $("img");
+        allImg.on("contextmenu", function () {
+            return false;
+        });
+        allImg.on("dragstart", function () {
+            return false;
+        });
+    
 </script>
 
 
