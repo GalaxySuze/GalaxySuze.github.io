@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-11-11T07:57:28.683Z</updated>
+    <updated>2019-11-11T08:40:15.921Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -10,6 +10,41 @@
     <logo>https://zhangajian.com/images/avatar.png</logo>
     <icon>https://zhangajian.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 张阿简博客</rights>
+    <entry>
+        <title type="html"><![CDATA[新主题SubtleGalaxy上线]]></title>
+        <id>https://zhangajian.com/post/xin-zhu-ti-subtlegalaxy-shang-xian</id>
+        <link href="https://zhangajian.com/post/xin-zhu-ti-subtlegalaxy-shang-xian">
+        </link>
+        <updated>2019-11-11T08:37:52.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>基于静态博客生成器<a href="https://gridea.dev/">Gridea</a>的简洁现代风博客网站主题「 Subtle Galaxy 」。原设计自Ghost Subtle主题，在此基础上增加了标签页和归档页，优化文章显示以及响应式。</p>
+</blockquote>
+<blockquote>
+<p>欢迎使用本人另外自制的一个主题 <a href="https://github.com/GalaxySuze/gridea-theme-space">Space</a></p>
+</blockquote>
+<h3 id="安装方法">安装方法</h3>
+<ul>
+<li>克隆项目到本地</li>
+<li>复制「 subtle-galaxy 」目录到「 Gridea 」主题文件中</li>
+<li>重启「 Gridea 」客户端</li>
+<li>在主题中选择「 Subtle Galaxy 」主题，点击保存</li>
+<li>预览查看效果</li>
+</ul>
+<h3 id="待更新项">待更新项</h3>
+<ul>
+<li>友链页面</li>
+<li>相册页面</li>
+<li>支持评论</li>
+<li>图片懒加载</li>
+<li>优化文章页面</li>
+</ul>
+<h3 id="示例截图">示例截图</h3>
+<figure data-type="image" tabindex="1"><img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/theme_info/subtle-galaxy-1.jpg" alt="subtle-galaxy-1.jpg"></figure>
+<figure data-type="image" tabindex="2"><img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/theme_info/subtle-galaxy-3.jpg" alt="subtle-galaxy-3.jpg"></figure>
+<figure data-type="image" tabindex="3"><img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/theme_info/subtle-galaxy-4.jpg" alt="subtle-galaxy-4.jpg"></figure>
+<figure data-type="image" tabindex="4"><img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/theme_info/subtle-galaxy-2.jpg" alt="subtle-galaxy-2.jpg"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[更新了一波Space主题]]></title>
         <id>https://zhangajian.com/post/geng-xin-liao-yi-bo-space-zhu-ti</id>
@@ -1008,30 +1043,6 @@ group = apache
 <a href="this-weekend-theres-a-lot-of-pits-on-the-website-for-a-friend-to-do">this-weekend-theres-a-lot-of-pits-on-the-website-for-a-friend-to-do</a><br>
 <a href="https://blog.csdn.net/u011475134/article/details/80222098">https://blog.csdn.net/u011475134/article/details/80222098</a><br>
 <a href="https://laravel-china.org/articles/17377#296073">https://laravel-china.org/articles/17377#296073</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[伏梦]]></title>
-        <id>https://zhangajian.com/post/fu-meng</id>
-        <link href="https://zhangajian.com/post/fu-meng">
-        </link>
-        <updated>2018-09-10T07:55:27.000Z</updated>
-        <content type="html"><![CDATA[<p>前阵子感冒了，不算严重。期间去过趟医院打针吃药。</p>
-<p>那天是周五，请了一天假，下午回家后吃完药。就觉的特别的困，可能是前几天实在没有睡好，也可能是药效起的作用。这一觉睡了有个9小时。</p>
-<p>这之间做了一个梦，算是噩梦。但没有突然的惊醒，浑身冷汗。只感觉睡了好久好久，醒后觉的浑身无力。</p>
-<p>但这个梦却莹莹沥沥。它是一个故事，不知道是从前哪里看的小说还是哪部电影中留下的碎念。所以，我决定将它稍加改动记录下来：</p>
-<p>一个女孩，外衣深黑色针织衫，里面穿着一件白色衬衫，红色格子百褶裙，柔柔弱弱的印象。在一家咖啡店中，靠窗的位置坐着，像是在完成学业。</p>
-<p>突然电话响了，应该是一位好友的来电。女孩说：「不知道哦，挺久没联系了，可能不喜欢我了。打算用这种方式分手吧」。</p>
-<p>没一会就挂了电话，女孩看了会窗外。用力的咳嗽了几下，从包里拿出了一瓶感冒药，看来也是重感冒，倒了两颗药出来，胶囊状的，瓶子上像是写着女孩的名字。拿起桌子上的水杯服了下去。</p>
-<p>不久，女孩起身准备离开，拿起桌子上的书籍和文件。出了咖啡店。像是去往家的路上，路上的风景似曾相识。有一颗无花果树攀出围墙，果子红红郁郁，似血似肉。</p>
-<p>女孩到了住处，习惯性的打开楼道门口的信箱，检查是否有来信。翻开信箱盖子，里面一封白色信封静静的躺在黑色的信盒中。女孩邹了下眉头，像是疑问。拿起信封翻看了一下，两面都是空白一片，没有署名，没有地址，没有邮编，是一封匿名信。</p>
-<p>女孩撕开信封，里面只有一张照片。拿起一看，顿时被吓了一跳，照片也被抖到了地上。地面上的照片中是一个人被烧死的照片，只有上半身，却血肉模糊，狰狞发呕。照片随着画面一步一步放大。（我也吓死了😭）</p>
-<p>画面一转，女孩在家中打着电话：「不会是恶作剧吧，太变态了。本来最近重感冒难受的要死，还有那么多门毕业考试要准备。烦死了」「有点害怕唉，要不报警吧？但是这些估计最多也就立个案」「哎呀，真的和他挺久没联系了，估计想用这种方式逼我先提出分手，他不理我，我也不理他，哼」「好呀，好呀，现在我就过去，在这今晚我肯定睡不着」。</p>
-<p>第二天早上，女孩和好友道了别，应该是回去拿一些重要的东西。再次来到楼道门口，女孩看了下信箱，拍了拍胸口呼了一口气，像是给自己打气。再次打开信箱，这次里面躺着两封信，女孩有些惊讶，拿起信封，一封清晰的印着是什么医师证书的回寄，而另外一封又是和昨天一样，双面空白，又是一封匿名信。</p>
-<p>女孩犹豫着要不要打开，「又是昨天那样的恶作剧？」，女孩还是撕开了这封匿名信，这次还是一张照片。一只手正在一个昏暗的房间中，拿着一个锤子敲碎着一具尸体的骨架。这次女孩镇定了很多，「我可是学医的，这吓不到我，死变态」，女孩把照片塞了回去，将信封直接扔进了边上的垃圾桶中。</p>
-<p>第三天早上，女孩整装待发，走出楼道，经过信箱时，突然有些犹豫。但还是慢慢的转身走向信箱，翻开信箱盖子，里面又躺着一份双面空白的匿名信。「我靠，有完没完」，女孩取出了这封新的信，快速的撕开了信封。这次信封中是两张照片。第一张，一只手将骨灰塞进一个像香烟头的小模具中，大拇指手指甲上还涂着鲜红的指甲油。女孩皱了下眉头，拿起另外一张。</p>
-<p>另一张，则是一个被装满药囊瓶子的特写。</p>
-<p>女孩突然懵了一下，好像意识到了什么。快速翻起自己包中的感冒药瓶子，和照片做了下比对。女孩干呕了声，将手中的照片和药瓶子扔在了地上，双手捂住了嘴巴，惊恐的退到了墙上。</p>
 ]]></content>
     </entry>
 </feed>
