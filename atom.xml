@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-12-01T16:21:22.162Z</updated>
+    <updated>2019-12-01T16:28:01.841Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -292,10 +292,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 </ul>
 <pre><code>git push R2 R2-repo
 </code></pre>
-<h6 id="参考文章">参考文章</h6>
-<blockquote>
+<h5 id="参考文章">参考文章</h5>
 <p><a href="https://blog.csdn.net/gouboft/article/details/8450696">合并两个git仓库</a></p>
-</blockquote>
 ]]></content>
     </entry>
     <entry>
