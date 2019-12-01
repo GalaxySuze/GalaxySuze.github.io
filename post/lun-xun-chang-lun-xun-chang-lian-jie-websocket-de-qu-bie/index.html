@@ -214,73 +214,105 @@ var _hmt = _hmt || [];
 
     <!-- 等gridea出自定义页面功能再优化一下 -->
     
-        
+        <div class="container-fluid">
+    <div class="row fh5co-post-entry single-entry">
+        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+            <figure class="animate-box">
+                
+                    <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-61.jpg" alt="轮询、长轮询、长连接、Websocket的区别" class="img-responsive">
+                
+            </figure>
+            <span class="fh5co-meta animate-box">
+                
+                    <div class="tag-container">
+                        
+                            <a href="https://zhangajian.com/tag/sfluukB2E" class="tag">Websocket, </a>
+                        
+                            <a href="https://zhangajian.com/tag/32-ELgkvl" class="tag">HTTPS, </a>
+                        
+                    </div>
+                
+            </span>
+            <h2 class="fh5co-article-title animate-box">轮询、长轮询、长连接、Websocket的区别</h2>
+            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
+                <li>2019-11-12</li>
+                <li>930字</li>
+                <li>4 min read</li>
+            </ol>
 
-<!-- 链接列表 -->
-<div class="container">
-    <div class="row fh5co-post-entry">
+            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                <div class="row">
+                    <div class="col-md-12 animate-box post-content">
+                        <p> <h1 id="短连接">短连接</h1>
+<blockquote>
+<p>短连接：HTTP1.0中默认使用短连接。也就是说，客户端和服务器每进行一次HTTP操作，就建立一次连接，任务结束就中断连接。HTTP的生命周期通过Request来界定，也就是说一个Request、一个Response，那么在HTTP1.0中，这次HTTP请求就结束了。</p>
+</blockquote>
+<ul>
+<li><strong>轮询</strong>: 客户端一定频率的不停请求服务端是否有新的消息</li>
+<li><strong>长轮询</strong> :客户端发出一次请求后，服务器挂起这个请求，等有新的消息或者超时后返回</li>
+</ul>
+<p>以上都属于短连接的情况。</p>
+<h1 id="长连接">长连接</h1>
+<p>客户端发起一次请求，服务器保持住之间用于传输http数据的tcp连接，客户端再次访问这个服务器时，会继续使用这一条已经建立的连接,在这样一个http连接中，可以发送多个Request，接收多个Response。但是Request和Response永远是相对应的，也就是说一个request只能有一个response。并且这个response也是被动的，不能主动发起。</p>
+<p>类型：</p>
+<ul>
+<li>
+<p><strong>keep-alive</strong>：<br>
+http1.1 出了新头，如果请求头中包含 keep-alive，那么这个 http 请求发送收到返回之后，底层的 tcp 连接不会立马断掉，如果后续有 http 请求还是会利用。但是这个连接保持一来是没有硬性规定时间的，由浏览器和服务端实现来控制。二来这个连接不断是指底层 tcp 连接，不是说一次 http 请求收到返回之后不会断掉，还能再收服务端的返回（如果服务端对这次 http 请求立马返回，那么这次 http 请求就结束了。http 请求和底层 tcp 连接的关系后面再说）。这种不是应用层面的长连接，其实和模拟 WebSocket 没啥关系。</p>
+</li>
+<li>
+<p><strong>comet</strong>：<br>
+这种技术是一种 hack 技术，即浏览器发送一个 http 请求，但是服务端不是立马返回，服务端一直不返回直到有浏览器需要的内容了在返回。期间这个 http 请求可以连着维持比较长的时间（在服务端返回之前）。这样模拟一种服务端推送机制。因为浏览器请求的时候等于先把连接建立好，等服务端有消息需要返回时再返回给浏览器。</p>
+</li>
+</ul>
+<h1 id="websocket">Websocket</h1>
+<p>Websocket是基于HTTP协议的一个新的协议，是HTTP协议上的一种补充，但是不等于http协议的长连接.<br>
+Websocket借用了HTTP的协议来完成一部分握手，解决的http的几项难题:</p>
+<ul>
+<li>
+<p><strong>被动性</strong>：当服务器完成协议升级后（即由 HTTP 升级为 Websocket），服务端就可以主动推送信息给客户端；只需要经过一次HTTP请求，就可以做到源源不断的信息传送。</p>
+</li>
+<li>
+<p><strong>服务器端的资源消耗</strong>：long poll 和 ajax轮询 对服务器资源有很大的消耗：ajax轮询需要服务器有很快的资源处理速度；long poll 采用阻塞模型，需要有很高的并发，占用服务器资源空间。而Websocket建立后，可以直接建立持久连接，有信息的时候由服务端主动进行信息传送。</p>
+</li>
+<li>
+<p><strong>处理速度慢</strong>：HTTP协议是无状态的，每建立一次http协议，就要重新发送鉴别信息告诉服务器你是谁，因此会消耗多余无用的传输和处理的时间；Websocket只需要一次HTTP握手，就可以保持通讯状态，直到关闭请求。解决了反复解析HTTP协议，查看identity info的问题。</p>
+</li>
+</ul>
+ </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 animate-box">
+                        
+                            <div class="next-post">
+                                <div class="next">下一篇</div>
+                                <a href="https://zhangajian.com/post/xin-zhu-ti-subtlegalaxy-shang-xian">
+                                    <h3 class="post-title">
+                                        新主题SubtleGalaxy上线
+                                    </h3>
+                                </a>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+    <div class="col-md-12 animate-box">
         
-            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box article-box">
-                
-                    <figure class="img-box">
-                        <a href="https://learnku.com/laravel" target="_blank">
-                            <img data-original="https://oss.getimg.net/cc/2019/06/13/%5B16934%5D20170914%20%E8%8A%B1%E7%81%AB-64975522.jpg" alt="Laravel-China" class="img-responsive img-rounded lazy">
-                        </a>
-                    </figure>
-                
-                <h3 class="links-title">
-                    <a href="https://learnku.com/laravel" target="_blank">
-                        Laravel-China
-                    </a>
-                </h3>
-            </article>
+            
+                <div id="gitalk-container"></div>
+            
+
+            
         
-            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box article-box">
-                
-                    <figure class="img-box">
-                        <a href="https://learnku.com/" target="_blank">
-                            <img data-original="https://oss.getimg.net/cc/2019/06/13/%5B73618%5DAutumn-60095408.jpg" alt="Learnku" class="img-responsive img-rounded lazy">
-                        </a>
-                    </figure>
-                
-                <h3 class="links-title">
-                    <a href="https://learnku.com/" target="_blank">
-                        Learnku
-                    </a>
-                </h3>
-            </article>
-        
-            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box article-box">
-                
-                    <figure class="img-box">
-                        <a href="https://kisstime.top/" target="_blank">
-                            <img data-original="https://oss.getimg.net/cc/2019/06/13/%5B19600%5D%E3%81%82%E3%81%91%E3%81%BE%E3%81%97%E3%81%A6%E3%81%8A%E3%82%81%E3%81%A7%E3%81%A8%E3%81%86%E3%81%94%E3%81%96%E3%81%84%E3%81%BE%E3%81%99-47917842.png" alt="简兮" class="img-responsive img-rounded lazy">
-                        </a>
-                    </figure>
-                
-                <h3 class="links-title">
-                    <a href="https://kisstime.top/" target="_blank">
-                        简兮
-                    </a>
-                </h3>
-            </article>
-        
-            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box article-box">
-                
-                    <figure class="img-box">
-                        <a href="https://juejin.im/timeline" target="_blank">
-                            <img data-original="https://oss.getimg.net/cc/2019/06/19/%5B15181%5D%E5%B7%AB%E5%A5%B3-62259051.jpg" alt="掘金" class="img-responsive img-rounded lazy">
-                        </a>
-                    </figure>
-                
-                <h3 class="links-title">
-                    <a href="https://juejin.im/timeline" target="_blank">
-                        掘金
-                    </a>
-                </h3>
-            </article>
-        
-        <div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+    </div>
+</div>
+
+            </div>
+
+        </article>
     </div>
 </div>
 
@@ -289,11 +321,21 @@ var _hmt = _hmt || [];
     <!-- 返回顶部 -->
     <div class="back-to-top">
     
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
+            <i class="fa fa-map"></i>
+        </a>
+        <br>
+    
     <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
 </div>
 
 <div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
-    
+    <ul class="markdownIt-TOC">
+<li><a href="#%E7%9F%AD%E8%BF%9E%E6%8E%A5">短连接</a></li>
+<li><a href="#%E9%95%BF%E8%BF%9E%E6%8E%A5">长连接</a></li>
+<li><a href="#websocket">Websocket</a></li>
+</ul>
+
 </div>
 
 

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-12-01T16:16:36.580Z</updated>
+    <updated>2019-12-01T16:21:22.162Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -296,6 +296,50 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 <blockquote>
 <p><a href="https://blog.csdn.net/gouboft/article/details/8450696">合并两个git仓库</a></p>
 </blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[轮询、长轮询、长连接、Websocket的区别]]></title>
+        <id>https://zhangajian.com/post/lun-xun-chang-lun-xun-chang-lian-jie-websocket-de-qu-bie</id>
+        <link href="https://zhangajian.com/post/lun-xun-chang-lun-xun-chang-lian-jie-websocket-de-qu-bie">
+        </link>
+        <updated>2019-11-11T16:20:15.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="短连接">短连接</h1>
+<blockquote>
+<p>短连接：HTTP1.0中默认使用短连接。也就是说，客户端和服务器每进行一次HTTP操作，就建立一次连接，任务结束就中断连接。HTTP的生命周期通过Request来界定，也就是说一个Request、一个Response，那么在HTTP1.0中，这次HTTP请求就结束了。</p>
+</blockquote>
+<ul>
+<li><strong>轮询</strong>: 客户端一定频率的不停请求服务端是否有新的消息</li>
+<li><strong>长轮询</strong> :客户端发出一次请求后，服务器挂起这个请求，等有新的消息或者超时后返回</li>
+</ul>
+<p>以上都属于短连接的情况。</p>
+<h1 id="长连接">长连接</h1>
+<p>客户端发起一次请求，服务器保持住之间用于传输http数据的tcp连接，客户端再次访问这个服务器时，会继续使用这一条已经建立的连接,在这样一个http连接中，可以发送多个Request，接收多个Response。但是Request和Response永远是相对应的，也就是说一个request只能有一个response。并且这个response也是被动的，不能主动发起。</p>
+<p>类型：</p>
+<ul>
+<li>
+<p><strong>keep-alive</strong>：<br>
+http1.1 出了新头，如果请求头中包含 keep-alive，那么这个 http 请求发送收到返回之后，底层的 tcp 连接不会立马断掉，如果后续有 http 请求还是会利用。但是这个连接保持一来是没有硬性规定时间的，由浏览器和服务端实现来控制。二来这个连接不断是指底层 tcp 连接，不是说一次 http 请求收到返回之后不会断掉，还能再收服务端的返回（如果服务端对这次 http 请求立马返回，那么这次 http 请求就结束了。http 请求和底层 tcp 连接的关系后面再说）。这种不是应用层面的长连接，其实和模拟 WebSocket 没啥关系。</p>
+</li>
+<li>
+<p><strong>comet</strong>：<br>
+这种技术是一种 hack 技术，即浏览器发送一个 http 请求，但是服务端不是立马返回，服务端一直不返回直到有浏览器需要的内容了在返回。期间这个 http 请求可以连着维持比较长的时间（在服务端返回之前）。这样模拟一种服务端推送机制。因为浏览器请求的时候等于先把连接建立好，等服务端有消息需要返回时再返回给浏览器。</p>
+</li>
+</ul>
+<h1 id="websocket">Websocket</h1>
+<p>Websocket是基于HTTP协议的一个新的协议，是HTTP协议上的一种补充，但是不等于http协议的长连接.<br>
+Websocket借用了HTTP的协议来完成一部分握手，解决的http的几项难题:</p>
+<ul>
+<li>
+<p><strong>被动性</strong>：当服务器完成协议升级后（即由 HTTP 升级为 Websocket），服务端就可以主动推送信息给客户端；只需要经过一次HTTP请求，就可以做到源源不断的信息传送。</p>
+</li>
+<li>
+<p><strong>服务器端的资源消耗</strong>：long poll 和 ajax轮询 对服务器资源有很大的消耗：ajax轮询需要服务器有很快的资源处理速度；long poll 采用阻塞模型，需要有很高的并发，占用服务器资源空间。而Websocket建立后，可以直接建立持久连接，有信息的时候由服务端主动进行信息传送。</p>
+</li>
+<li>
+<p><strong>处理速度慢</strong>：HTTP协议是无状态的，每建立一次http协议，就要重新发送鉴别信息告诉服务器你是谁，因此会消耗多余无用的传输和处理的时间；Websocket只需要一次HTTP握手，就可以保持通讯状态，直到关闭请求。解决了反复解析HTTP协议，查看identity info的问题。</p>
+</li>
+</ul>
 ]]></content>
     </entry>
     <entry>
@@ -648,50 +692,6 @@ msp-queue:msp-queue_07           RUNNING   pid 19970, uptime 0:00:29
 <li><a href="https://learnku.com/articles/22321">配置 Supervisor 管理 Laravel 队列</a></li>
 <li><a href="https://www.restran.net/2015/10/04/supervisord-tutorial/">Python 进程管理工具 Supervisor 使用教程</a></li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[写在2018的尾巴]]></title>
-        <id>https://zhangajian.com/post/xie-zai-2018-de-wei-ba</id>
-        <link href="https://zhangajian.com/post/xie-zai-2018-de-wei-ba">
-        </link>
-        <updated>2018-12-31T07:43:15.000Z</updated>
-        <summary type="html"><![CDATA[<p>2018，转瞬将过。</p>
-<p>宇宙万载，时光荏苒，在看不见的光阴中，人生的刻度又长了一分，想来也该有几分收获。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>2018，转瞬将过。</p>
-<p>宇宙万载，时光荏苒，在看不见的光阴中，人生的刻度又长了一分，想来也该有几分收获。</p>
-<!-- more -->
-<p><strong>工作</strong>：入行已是三年有余，高兴的是仍旧一头秀发，沮丧的是衣带渐渐宽阔。但整个一年有惊无险，懊恼、焦虑过，也明朗、开阔过。从小米CRM到上汽ASCM，一点一线的变化不止于0和1之间，更是许多云泥窥缝中产生的思维碰撞。</p>
-<p><strong>关键句</strong>：</p>
-<ul>
-<li>
-<p>『你要比业务更懂业务』</p>
-</li>
-<li>
-<p>『好的产品，他首先一定是好用的产品』</p>
-</li>
-<li>
-<p>『你并不需要预测什么会变化，你需要知道的是，变化必然会发生。程序应该保证尽可能合理的灵活性，这样才能在未来不管发生什么变化，都可以应付得了』</p>
-</li>
-<li>
-<p>『PHP是世界上最好的语言』</p>
-</li>
-<li>
-<p>『写JavaScript是真的很蛋疼』</p>
-</li>
-</ul>
-<p><strong>生活</strong>：日子过的依旧，单调孤赏，只是熬夜变成了常态。一个人躺在黑夜里，手机却连接着整个喧哗的世界。只要你不停下来，它永远有新鲜的东西喂养给你，我们被这块小小的电子屏幕驯养成了一只又一只信息饕餮。但庆幸的是，在流连中做过改变，我把小小的电子屏幕换成了27寸的大显示器，咳咳。。。当然，重点的改变是在年中的一个时辰，突然悟了。卸载了微博、抖音、游戏等等纷杂的软件，取关了所有微信信息类的公众号和订阅号，上下班出勤看编程视频，到家看专业书籍，每晚准11点闹钟一响就洗漱睡觉。活生生的坚持了2个月不到的时间，看完了120节的编程视频，读完了3本专业书。尽管后面因为出差和一些事情，慢慢的又回到了原态，但今年在生活希冀上又增厚了一羽。</p>
-<p><strong>关键句</strong>：</p>
-<ul>
-<li>『我从不相信什么懒洋洋的自由，我向往的自由是通过勤奋和努力实现更广阔的人生，那样的自由才是珍贵的、有价值的。我相信一万小时定律，我从来不相信天上掉馅饼的灵感和坐等的成就。做一个自由又自律的人，靠势必实现的决心认真地活着。』</li>
-</ul>
-<p><strong>2019 Flag</strong>：</p>
-<p>接下来又到了大家喜欢的立 flag 的环节，2019 flag 👉 瘦、眠、智、帅、猫、富富富富富富富富富富富富富*1024，希望能完成其中的一项，共勉。</p>
-<p><strong>总结</strong>：</p>
-<p>2018，不再见。</p>
-<p>2019，祝爱我的人和我爱的人，以及可爱的人们，岁月安好。</p>
-<p>最后的最后，我的愿望是世界和平。</p>
 ]]></content>
     </entry>
 </feed>
