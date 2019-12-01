@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-12-01T09:53:58.626Z</updated>
+    <updated>2019-12-01T15:00:35.512Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -16,8 +16,10 @@
         <link href="https://zhangajian.com/post/xin-mbp-dao-liao-ji-lu-yi-xia-ge-ren-de-shi-yong-huan-jing-da-jian">
         </link>
         <updated>2019-11-29T05:50:13.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="配置">配置</h1>
-<p>2.4GHz i9 + 32G + 1T SSD + 5300M</p>
+        <content type="html"><![CDATA[<h1 id="吐槽">吐槽</h1>
+<p>本来是打算用迁移助手来直接迁移我时光机器备份中的系统（两边系统版本一致），迁移了整整8个多小时，进度还是2%，感觉有问题就取消了。。。然后系统就崩掉了。。崩掉了，开机进不去了。还好mac都自带重装系统的程序，开机时按 command + R 进入（进入后一定要用格式化工具先抹除硬盘中的数据），点击重装系统就行，必须要联网，网速快基本半个小时内搞定。因为我之前那台是15款的MBP，估计还是会有什么系统硬件上不兼容的地方。所以，如果两台电脑年数差太多，还是别用时光机器或网内直接同步比较好，还是手动重装新环境吧。浪费了我一晚上时间（T_T）。。。</p>
+<h1 id="配置">配置</h1>
+<p>16寸 - 2.4GHz i9 + 32G + 1T SSD + 5300M</p>
 <h1 id="mac习惯设置">Mac习惯设置</h1>
 <ul>
 <li>finder「显示」菜单中将路径和硬盘容量显示出来</li>
