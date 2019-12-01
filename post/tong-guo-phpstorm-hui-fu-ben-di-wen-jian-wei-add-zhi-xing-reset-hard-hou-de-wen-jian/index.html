@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <title>张阿简博客</title>
@@ -23,6 +23,12 @@
 <![endif]-->
 
 <!-- Comment -->
+
+    
+        <link href="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css" rel="stylesheet">
+    
+
+    
 
 
 
@@ -47,7 +53,7 @@ var _hmt = _hmt || [];
 
 </head>
 <body>
-<div id="fh5co-offcanvas">
+    <div id="fh5co-offcanvas">
     <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
         <span><i class="icon-cross3"></i> <span>Close</span></span>
     </a>
@@ -201,63 +207,117 @@ var _hmt = _hmt || [];
 </header>
 
 
-<div class="container-fluid">
+    <!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+    <!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
 
-  <div class="col-lg-12 col-md-12 text-center tag-title">
-      <i class="fa fa-tag"></i> 标签: <h3>Java</h3>
-  </div>
-
-  <div class="row fh5co-post-entry">
-
+    <!-- 等gridea出自定义页面功能再优化一下 -->
     
-      <article class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-xxs-12 animate-box article-box" style="height: 25em;">
-        <figure class="img-box">
-          <a href="https://zhangajian.com/post/zai-linux-xia-da-jian-wo-de-shi-jie-minecraftfu-wu-qi">
+        <div class="container-fluid">
+    <div class="row fh5co-post-entry single-entry">
+        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+            <figure class="animate-box">
+                
+                    <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/nc-5.jpg" alt="通过PHPStorm恢复本地文件未add执行reset --hard后的文件" class="img-responsive">
+                
+            </figure>
+            <span class="fh5co-meta animate-box">
+                
+                    <div class="tag-container">
+                        
+                            <a href="https://zhangajian.com/tag/-9el9FFuM" class="tag">PHPStorm, </a>
+                        
+                            <a href="https://zhangajian.com/tag/L31qriw3_" class="tag">Git, </a>
+                        
+                    </div>
+                
+            </span>
+            <h2 class="fh5co-article-title animate-box">通过PHPStorm恢复本地文件未add执行reset --hard后的文件</h2>
+            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
+                <li>2019-11-14</li>
+                <li>244字</li>
+                <li>1 min read</li>
+            </ol>
+
+            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                <div class="row">
+                    <div class="col-md-12 animate-box post-content">
+                        <p> <blockquote>
+<h1 id="前提使用的是jb家的ide-phpstorm">！前提使用的是JB家的IDE - PHPStorm</h1>
+</blockquote>
+<p><strong>git reset --hard</strong>：HEAD引用指向给定提交，索引（暂存区）内容和工作目录内容都会变给定提交时的状态。也就是在给定提交后所修改的内容都会丢失(新文件会被删除，不在工作目录中的文件恢复，未清除回收站的前提)。</p>
+<p>所以这是一个比较危险的操作，想象一下，在一个风和日丽的午后，我们辛勤的在代码的海洋中遨游了好几个时辰的结果突然这样，被自己的骚操作给弄丢了。换做是谁应该都是心里一万匹草泥马奔腾而过吧。</p>
+<p>在PHPStorm中：</p>
+<ul>
+<li>在需要恢复的文件中点击右键</li>
+<li>选择 「本地历史」功能菜单</li>
+<li>打开后会显示近段时间的修改记录</li>
+<li>点击记录节点查看修改，右键点击节点，选择还原后恢复</li>
+</ul>
+ </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 animate-box">
+                        
+                            <div class="next-post">
+                                <div class="next">下一篇</div>
+                                <a href="https://zhangajian.com/post/postman-shi-yong-json-ge-shi-ce-shi-api">
+                                    <h3 class="post-title">
+                                        Postman使用json格式测试API
+                                    </h3>
+                                </a>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+    <div class="col-md-12 animate-box">
+        
             
-              <img data-original="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/c-41.jpg" alt="在Linux下搭建我的世界(Minecraft)服务器" class="img-responsive img-rounded lazy">
+                <div id="gitalk-container"></div>
             
-          </a>
-        </figure>
-        <span class="fh5co-meta">
-          
-            <div class="tag-container">
-              
-                <a href="https://zhangajian.com/tag/2Lrsz8nQ5" class="tag">Java, </a>
-              
-                <a href="https://zhangajian.com/tag/linux" class="tag">Linux, </a>
-              
-                <a href="https://zhangajian.com/tag/Q1TPBCeTZ" class="tag">Minecraft, </a>
-              
-                <a href="https://zhangajian.com/tag/screen" class="tag">screen, </a>
-              
-                <a href="https://zhangajian.com/tag/wa6VE0See" class="tag">原创, </a>
-              
+
+            
+        
+    </div>
+</div>
+
             </div>
-          
-        </span>
-        <h3 class="fh5co-article-title">
-          <a href="https://zhangajian.com/post/zai-linux-xia-da-jian-wo-de-shi-jie-minecraftfu-wu-qi">在Linux下搭建我的世界(Minecraft)服务器</a>
-        </h3>
-        <span class="fh5co-meta fh5co-date">2018-12-21</span>
-      </article>
-    
-    <div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
 
-  </div>
+        </article>
+    </div>
+</div>
 
-  <div class="pagination-box animate-box">
     
+
+    <!-- 返回顶部 -->
+    <div class="back-to-top">
     
-  </div>
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
+            <i class="fa fa-map"></i>
+        </a>
+        <br>
+    
+    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
+</div>
+
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E5%89%8D%E6%8F%90%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AFjb%E5%AE%B6%E7%9A%84ide-phpstorm">！前提使用的是JB家的IDE - PHPStorm</a></li>
+</ul>
+
 </div>
 
 
+    
 <footer id="fh5co-footer">
   <p>Powered by <a target="_blank" href="https://gridea.dev/">Gridea</a>, © 2016 - 2019 Copyright 张阿简. All Rights Reserved. 自制主题<a target="_blank" href="https://github.com/GalaxySuze/gridea-theme-space">Space For Gridea</a></p>
 </footer>
 
 
-<!-- jQuery -->
+    <!-- jQuery -->
 <script src="https://zhangajian.com/media/scripts/_vendors/jquery.min.js"></script>
 <!-- img lazy load -->
 <script src="https://zhangajian.com/media/scripts/_vendors/jquery.lazyload.min.js"></script>
@@ -306,6 +366,29 @@ var _hmt = _hmt || [];
         });
     
 </script>
+
+
+
+    
+        <script src="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+        <script>
+
+            var gitalk = new Gitalk({
+                clientID: 'f82af725bc4967d0e195',
+                clientSecret: 'ea48b3d1484e6658649b97c3de3dd33e0ca89a64',
+                repo: 'ZhangAJianBlogGitalk',
+                owner: 'GalaxySuze',
+                admin: ['GalaxySuze'],
+                id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+                distractionFreeMode: false  // Facebook-like distraction free mode
+            })
+
+            gitalk.render('gitalk-container')
+
+        </script>
+    
+
+    
 
 
 

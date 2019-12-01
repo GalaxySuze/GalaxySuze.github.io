@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2019-12-01T15:31:29.339Z</updated>
+    <updated>2019-12-01T16:05:52.363Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zhangajian.com"/>
     <link rel="self" href="https://zhangajian.com/atom.xml"/>
@@ -210,6 +210,92 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 </code></pre>
 <p><strong>兼容~/.bash_profile</strong></p>
 <p>zsh安装后,** ~/.bash_profile** 下设置的环境变量和alias会失效, 需要在 <strong>~/.zshrc</strong> 文件里添加 <strong>~/.bash_profile</strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[通过PHPStorm恢复本地文件未add执行reset --hard后的文件]]></title>
+        <id>https://zhangajian.com/post/tong-guo-phpstorm-hui-fu-ben-di-wen-jian-wei-add-zhi-xing-reset-hard-hou-de-wen-jian</id>
+        <link href="https://zhangajian.com/post/tong-guo-phpstorm-hui-fu-ben-di-wen-jian-wei-add-zhi-xing-reset-hard-hou-de-wen-jian">
+        </link>
+        <updated>2019-11-14T15:39:17.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<h1 id="前提使用的是jb家的ide-phpstorm">！前提使用的是JB家的IDE - PHPStorm</h1>
+</blockquote>
+<p><strong>git reset --hard</strong>：HEAD引用指向给定提交，索引（暂存区）内容和工作目录内容都会变给定提交时的状态。也就是在给定提交后所修改的内容都会丢失(新文件会被删除，不在工作目录中的文件恢复，未清除回收站的前提)。</p>
+<p>所以这是一个比较危险的操作，想象一下，在一个风和日丽的午后，我们辛勤的在代码的海洋中遨游了好几个时辰的结果突然这样，被自己的骚操作给弄丢了。换做是谁应该都是心里一万匹草泥马奔腾而过吧。</p>
+<p>在PHPStorm中：</p>
+<ul>
+<li>在需要恢复的文件中点击右键</li>
+<li>选择 「本地历史」功能菜单</li>
+<li>打开后会显示近段时间的修改记录</li>
+<li>点击记录节点查看修改，右键点击节点，选择还原后恢复</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Postman使用json格式测试API]]></title>
+        <id>https://zhangajian.com/post/postman-shi-yong-json-ge-shi-ce-shi-api</id>
+        <link href="https://zhangajian.com/post/postman-shi-yong-json-ge-shi-ce-shi-api">
+        </link>
+        <updated>2019-11-12T15:57:25.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="导入curl">导入cURL</h1>
+<ol>
+<li>打开浏览器开发工具 Network</li>
+<li>右键选择需要请求的URL，Copy -&gt; Copy as cURL</li>
+<li>打开Postman，选择左上方 Import -&gt; Paste Raw Text，点击 Import 即可</li>
+</ol>
+<h1 id="手动填入">手动填入</h1>
+<ol>
+<li>选择 POST 请求方式</li>
+<li>设置 headers 增加 「Content-Type」「application/json」</li>
+<li>设置 body 为「raw」</li>
+<li>填入 json 数据发送测试</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[合并两个远程仓库的提交]]></title>
+        <id>https://zhangajian.com/post/he-bing-liang-ge-yuan-cheng-cang-ku-de-ti-jiao</id>
+        <link href="https://zhangajian.com/post/he-bing-liang-ge-yuan-cheng-cang-ku-de-ti-jiao">
+        </link>
+        <updated>2019-11-12T15:35:26.000Z</updated>
+        <content type="html"><![CDATA[<p>比如有两个仓库R1和R2，需要将R1的提交合并到R2，当前本地跟踪仓库为R1。</p>
+<ul>
+<li>新增远程仓库</li>
+</ul>
+<pre><code>git remote add R2 [url]
+</code></pre>
+<ul>
+<li>拉取远程仓库分支</li>
+</ul>
+<pre><code>git fetch --all
+</code></pre>
+<ul>
+<li>本地新建并切换到跟踪R2的分支</li>
+</ul>
+<pre><code>git checkout -b R2-repo R2/master
+</code></pre>
+<ul>
+<li>合并R1仓库的分支提交</li>
+</ul>
+<pre><code>git merge R1/master
+</code></pre>
+<p>如果出现以下错误，按下面命令进行解决</p>
+<pre><code>git merge master
+报错: fatal: refusing to merge unrelated histories
+
+解决方法: git merge master --allow-unrelated-histories
+</code></pre>
+<ul>
+<li>合并后可能会有冲突，解决冲突后即可</li>
+<li>推送分支到R2远程仓库</li>
+</ul>
+<pre><code>git push R2 R2-repo
+</code></pre>
+<h6 id="参考文章">参考文章</h6>
+<blockquote>
+<p><a href="https://blog.csdn.net/gouboft/article/details/8450696">合并两个git仓库</a></p>
+</blockquote>
 ]]></content>
     </entry>
     <entry>
@@ -606,393 +692,6 @@ msp-queue:msp-queue_07           RUNNING   pid 19970, uptime 0:00:29
 <p>2018，不再见。</p>
 <p>2019，祝爱我的人和我爱的人，以及可爱的人们，岁月安好。</p>
 <p>最后的最后，我的愿望是世界和平。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[在Linux下搭建我的世界(Minecraft)服务器]]></title>
-        <id>https://zhangajian.com/post/zai-linux-xia-da-jian-wo-de-shi-jie-minecraftfu-wu-qi</id>
-        <link href="https://zhangajian.com/post/zai-linux-xia-da-jian-wo-de-shi-jie-minecraftfu-wu-qi">
-        </link>
-        <updated>2018-12-21T07:46:17.000Z</updated>
-        <summary type="html"><![CDATA[<blockquote>
-<p>最近薅了百度云双12的羊毛，1核2G一年150。突然想起以前大学整个宿舍通宵开黑挖泥土的岁月，所以刚好趁着这台服务器，打算自己搭建一个我的世界服务器，重温一下以前的感觉。</p>
-</blockquote>
-]]></summary>
-        <content type="html"><![CDATA[<blockquote>
-<p>最近薅了百度云双12的羊毛，1核2G一年150。突然想起以前大学整个宿舍通宵开黑挖泥土的岁月，所以刚好趁着这台服务器，打算自己搭建一个我的世界服务器，重温一下以前的感觉。</p>
-</blockquote>
-<!-- more -->
-<h1 id="系统要求">系统要求</h1>
-<p>google到的MC系统要求</p>
-<ul>
-<li>CPU：双核</li>
-<li>内存：20-40人<strong>2GB</strong>，30-60人<strong>3GB</strong>，60+人<strong>8GB</strong></li>
-</ul>
-<p>上面就是服务器端的需求，如果只是和小伙伴们一起玩，也并不需要多优秀的服务器。下面是我的配置</p>
-<ul>
-<li>CPU：单核</li>
-<li>内存：2G</li>
-<li>Linux系统：CentOS 7.3 x86_64</li>
-</ul>
-<h1 id="安装java">安装Java</h1>
-<p>MC是用Java写的（当然现在也有别的语言写的版本），由于服务器端的MC是一个jar包，我们在配置之后通过运行jar包来开启服务器端，同时我们在客户端上打开后通过IP地址即可搜索并进入服务器。所以我们首先要先安装Java。通过下面的方法来安装：</p>
-<pre><code>yum install -y java-1.8.0-openjdk
-</code></pre>
-<h1 id="下载mc服务器端">下载MC服务器端</h1>
-<p>这里有一个要求，就是你和你的小伙伴要拥有同样版本的MC。不同的版本对应着不同的服务器端，所以我们要下载正确的版本。如何看MC版本呢，一般进入游戏后，游戏左下角会有版本显示。知道了版本号，那么用命令就可以下载对应版本的服务器端了。需要根据版本号补全命令格式：</p>
-<pre><code>wget https://s3.amazonaws.com/Minecraft.Download/versions/&lt;你要下载的版本号&gt;/minecraft_server.&lt;你要下载的版本号&gt;.jar
-
-</code></pre>
-<p>例子：博主这边选择安装了比较稳定的1.12版本</p>
-<pre><code>wget https://s3.amazonaws.com/Minecraft.Download/versions/1.12/minecraft_server.1.12.jar
-</code></pre>
-<p>等下载提示结束后，minecraft_server.1.12.jar就躺在当前目录了。</p>
-<h1 id="mc服务器启动">MC服务器，启动！</h1>
-<p>我们就可以使用命令来运行MC服务器：</p>
-<pre><code>java -Xms[初始启动分配内存] -Xmx[最大分配内存] -jar [jar包所在路径]/minecraft_server.[版本号].jar nogui
-</code></pre>
-<p>例子：</p>
-<pre><code>java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
-</code></pre>
-<blockquote>
-<p>关于命令最后一个参数 nogui，是分开的单词 no gui，意思是不需要图形界面，这样会大大减小内存的使用，如果你的Linux是有图形界面的，就可以不打这个 nogui。</p>
-</blockquote>
-<h1 id="启动成功">启动成功</h1>
-<p>上面的命令输入完成后，等待参数由0%一直到100%就启动完成啦！下面给出博主启动完成的后几行显示：</p>
-<pre><code>[05:58:08] [Server thread/INFO]: Loaded 488 advancements
-[05:58:08] [Server thread/INFO]: Preparing start region for level 0
-[05:58:09] [Server thread/INFO]: Preparing spawn area: 0%
-[05:58:10] [Server thread/INFO]: Preparing spawn area: 41%
-[05:58:11] [Server thread/INFO]: Preparing spawn area: 76%
-[05:58:11] [Server thread/INFO]: Done (4.263s)! For help, type &quot;help&quot; or &quot;?&quot;
-</code></pre>
-<h1 id="mcshell脚本启动">MC，Shell脚本启动！</h1>
-<p>我们如果一直使用上面那一句启动的话是不是非常麻烦！每次都要复制粘贴，那么我们可以写一个简单的Shell脚本，放在jar包所在目录，每次启动的时候直接启动脚本就能进入游戏了。</p>
-<pre><code>vim start-game.sh
-</code></pre>
-<p>编辑内容如下：</p>
-<pre><code>#!/bin/sh
-
-java -Xms256m -Xmx512m -jar /home/mc/minecraft_server.1.12.jar nogui
-</code></pre>
-<p>保存退出，每次启动游戏只需要运行下面命令即可:</p>
-<pre><code>bash start-game.sh
-</code></pre>
-<h1 id="mc服务器关闭">MC服务器，关闭！</h1>
-<p>按 Ctrl + C 来停止当前服务器</p>
-<h1 id="mc服务起最常见的启动失败">MC服务起最常见的启动失败</h1>
-<p>我们在第一次运行完jar包后，无论是否运行成功，都能发现当前目录下多出了一堆文件，运行失败的时候其实就是配置除了一点问题。我们在当前目录找一下文件：<strong>eula.txt</strong></p>
-<pre><code>vim eula.txt
-</code></pre>
-<p>按i键进入编辑模式，找到如下一行把 <strong>false</strong> 改为 <strong>true</strong></p>
-<pre><code>eula=false
-</code></pre>
-<p>保存退出</p>
-<ul>
-<li>按 <strong>esc</strong></li>
-<li>输入 <strong>:wq</strong></li>
-</ul>
-<h1 id="客户端连接mc服务器失败">客户端连接MC服务器失败</h1>
-<p>上面都启动成功之后，就可以下载对应服务器版本的客户端。下载好后启动，点击多人游戏，添加服务器，服务器地址输入我们云服务器的公网IP，就可连接上去愉快的玩耍了。但是这时候可能会发现就是怎么连接都失败，如果遇到这个情况，我们需要检查下服务器配置文件，先在jar包目录下找到文件server.propertices 并编辑：</p>
-<pre><code>vim server.propertices
-</code></pre>
-<p>找到这一行</p>
-<pre><code>online-mode:true
-</code></pre>
-<p>将true改为false，这是正版验证服务的设置<br>
-关于 <strong>server.propertices</strong> 文件，这边就不多做介绍了，可通过下面的链接了解详情</p>
-<ul>
-<li><a href="http://www.mcbbs.net/thread-569077-1-1.html">服务器配置文件详细设置</a></li>
-<li><a href="https://minecraft-zh.gamepedia.com/Server.properties">我的世界WiKi</a></li>
-</ul>
-<h1 id="保持服务会话">保持服务会话</h1>
-<p>因为博主用的是云服务器，需要通过使用ssh工具来连接到服务器启动游戏服务，但是一般服务器和ssh工具都会有连接会话的超时设置，在一段时间没有在服务器上操作后，会自动断开ssh会话，这时这个会话中的任务就会被杀掉，那小伙伴们游戏玩着玩着就<strong>与服务器断开连接</strong>了。<br>
-这个时候我们可以使用Linux上这个 <strong>GNU Screen</strong> 工具来解决上述问题</p>
-<blockquote>
-<p>GNU Screen是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。</p>
-</blockquote>
-<h4 id="安装-screen">安装 screen</h4>
-<pre><code>yum install -y screen
-</code></pre>
-<h4 id="语法">语法：</h4>
-<p>screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]</p>
-<p>参数说明</p>
-<ul>
-<li>-A 　将所有的视窗都调整为目前终端机的大小。</li>
-<li>-d &lt;作业名称&gt; 　将指定的screen作业离线。</li>
-<li>-h &lt;行数&gt; 　指定视窗的缓冲区行数。</li>
-<li>-m 　即使目前已在作业中的screen作业，仍强制建立新的screen作业。</li>
-<li>-r &lt;作业名称&gt; 　恢复离线的screen作业。</li>
-<li>-R 　先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。</li>
-<li>-s 　指定建立新视窗时，所要执行的shell。</li>
-<li>-S &lt;作业名称&gt; 　指定screen作业的名称。</li>
-<li>-v 　显示版本信息。</li>
-<li>-x 　恢复之前离线的screen作业。</li>
-<li>-ls或--list 　显示目前所有的screen作业。</li>
-<li>-wipe 　检查目前所有的screen作业，并删除已经无法使用的screen作业。</li>
-</ul>
-<h4 id="常用screen参数">常用screen参数</h4>
-<ul>
-<li>screen -S yourname -&gt; 新建一个叫yourname的session</li>
-<li>screen -ls -&gt; 列出当前所有的session</li>
-<li>screen -r yourname -&gt; 回到yourname这个session</li>
-<li>screen -d yourname -&gt; 远程detach某个session</li>
-<li>screen -d -r yourname -&gt; 结束当前session并回到yourname这个session</li>
-</ul>
-<h4 id="保持我们的mc服务会话">保持我们的MC服务会话</h4>
-<ul>
-<li>新建一个screen会话</li>
-</ul>
-<pre><code>screen -S mcs
-</code></pre>
-<p>当输入这个命令后，就会进入 <strong>mcs</strong> 会话，在当前会话下，输入上面的启动脚本命令，确认游戏正常启动后，就可以放着不管了，只要不是服务器挂掉了，服务就会一直运行着。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mac下破解Beyond Compare]]></title>
-        <id>https://zhangajian.com/post/mac-xia-po-jie-beyond-compare</id>
-        <link href="https://zhangajian.com/post/mac-xia-po-jie-beyond-compare">
-        </link>
-        <updated>2018-12-05T07:50:59.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>
-<p>1 . 去官网下载Beyond Compare并安装</p>
-</li>
-<li>
-<p>2 . 进入Beyond Compare应用程序MacOS目录下(/Applications/Beyond Compare.app/Contents/MacOS)</p>
-</li>
-<li>
-<p>3 . 将主启动程序BCompare重命名为BCompare.real</p>
-</li>
-<li>
-<p>4 . 在同级目录下新建一个脚本文件命名为BCompare</p>
-</li>
-</ul>
-<pre><code>vim BCompare
-</code></pre>
-<p>写入</p>
-<pre><code>#!/bin/bash
-
-rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat&quot;
-
-&quot;`dirname &quot;$0&quot;`&quot;/BCompare.real $@
-</code></pre>
-<blockquote>
-<p>ps: 代码意义，第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序</p>
-</blockquote>
-<ul>
-<li>5 . 给新建的文件BCompare，授权文件执行权限</li>
-</ul>
-<pre><code>chmod a+x /Applications/Beyond\ Compare.app/Contents/MacOS/BCompare
-</code></pre>
-<p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。</p>
-<blockquote>
-<p><a href="https://m.pythontab.com/article/1356">参考资料 - https://m.pythontab.com/article/1356</a></p>
-</blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[通过Certbot安装Let's Encrypt证书实现全站的HTTPS访问]]></title>
-        <id>https://zhangajian.com/post/tong-guo-certbot-an-zhuang-lets-encrypt-zheng-shu-shi-xian-quan-zhan-de-https-fang-wen</id>
-        <link href="https://zhangajian.com/post/tong-guo-certbot-an-zhuang-lets-encrypt-zheng-shu-shi-xian-quan-zhan-de-https-fang-wen">
-        </link>
-        <updated>2018-11-17T07:52:01.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="相关知识">相关知识</h1>
-<h3 id="httphttps-是什么">HTTP/HTTPS 是什么?</h3>
-<blockquote>
-<p>简单来说，HTTP 是一个传输网页内容的协议，比如我们浏览一个网页，网页上的文字、图片、 CSS 、 JS 等文件都是通过 HTTP 协议传输到我们的浏览器，然后被我们看到。因为 HTTP 是明文传输的，通过 HTTP 协议传输的内容很容易被偷看和篡改，为了安全（你肯定不想被人偷看或者篡改网页内容吧，比如网站银行密码什么的。）就为 HTTP 协议再加上了一层 SSL/TLS 安全协议，所以就有了 HTTPS 。</p>
-</blockquote>
-<h3 id="ssltls-是什么">SSL/TLS 是什么？</h3>
-<blockquote>
-<p>SSL 是指安全套接字层（Secure Sockets Layer），内心纯洁的同学也可以理解为「带安全套的 HTTP」，因为带了安全套，所以当然会比较安全。TLS 是 传输层安全协议（Transport Layer Security），SSL 和 TLS 是同一个东西的不同阶段，理解为同一个东西也行，都是安全协议就对了。</p>
-</blockquote>
-<h3 id="为什么要部署-https">为什么要部署 HTTPS？</h3>
-<blockquote>
-<p>说到底，就是 HTTPS 更安全。甚至为了安全，一个专业可靠的网站， HTTPS 是必须的。 Firefox 和 Chrome 都计划将没有配置 SSL 加密的 HTTP 网站标记为不安全，目前它们也正在联合其他相关的基金会与公司推动整个互联网 HTTPS 化，现在大家访问的一些主要的网站。如 Google 多年前就已经全部启用 HTTPS ，国内的淘宝、搜狗、知乎、百度等等也全面 HTTPS 了。甚至 Google 和百度的搜索结果也正在给予 HTTPS 的网站更高的排名和优先收录权。</p>
-</blockquote>
-<h3 id="怎么部署-https-呢">怎么部署 HTTPS 呢？</h3>
-<blockquote>
-<p>你只需要有一张被信任的 CA （ Certificate Authority ）也就是证书授权中心颁发的 SSL 安全证书，并且将它部署到你的网站服务器上。一旦部署成功后，当用户访问你的网站时，浏览器会在显示的网址前加一把小绿锁，表明这个网站是安全的，当然同时你也会看到网址前的前缀变成了 HTTPS ，不再是 HTTP 了。</p>
-</blockquote>
-<h3 id="怎么获得-ssl-安全证书呢">怎么获得 SSL 安全证书呢？</h3>
-<blockquote>
-<p>理论上，我们自己也可以签发 SSL 安全证书，但是我们自己签发的安全证书不会被主流的浏览器信任，所以我们需要被信任的证书授权中心（ CA ）签发的安全证书。而一般的 SSL 安全证书签发服务都比较贵，比如 Godaddy 、 GlobalSign 等机构签发的证书一般都需要20美金一年甚至更贵，不过为了加快推广 HTTPS 的普及， EEF 电子前哨基金会、 Mozilla 基金会和美国密歇根大学成立了一个公益组织叫 ISRG （ Internet Security Research Group ），这个组织从 2015 年开始推出了 Let’s Encrypt 免费证书。这个免费证书不仅免费，而且还相当好用，所以我们就可以利用 Let’s Encrypt 提供的免费证书部署 HTTPS 了。</p>
-</blockquote>
-<h3 id="lets-encrypt-简介">Let’s Encrypt 简介</h3>
-<blockquote>
-<p>前面已经介绍过， Let’s Encrypt 是 一个叫 ISRG （ Internet Security Research Group ，互联网安全研究小组）的组织推出的免费安全证书计划。参与这个计划的组织和公司可以说是互联网顶顶重要的先驱，除了前文提到的三个牛气哄哄的发起单位外，后来又有思科（全球网络设备制造商执牛耳者）、 Akamai 加入，甚至连 Linux 基金会也加入了合作，这些大牌组织的加入保证了这个项目的可信度和可持续性。</p>
-</blockquote>
-<h3 id="certbot-简介">Certbot 简介</h3>
-<blockquote>
-<p>ISRG 的发起者 EFF （电子前哨基金会）为 Let’s Encrypt 项目发布了一个官方的客户端 Certbot ，利用它可以完全自动化的获取、部署和更新安全证书。虽然第三方工具也可以使用，但是官方工具更权威，风险也更小，而且遇到问题也更容易解决，毕竟有官方的支持。</p>
-</blockquote>
-<h1 id="实际操作">实际操作</h1>
-<h3 id="certbot-使用方法">Certbot 使用方法</h3>
-<p>Certbot 的官网是<a href="https://certbot.eff.org/">https://certbot.eff.org/</a>, 我们打开这个链接，选择自己使用的 web server 和操作系统。选择完之后，官网就会显示出对应的安装操作步骤。<br>
-以目前我所使用的服务器为例，web server 使用Nginx(1.12)，操作系统是CentOS(7.3)。因为 Certbot 打包在EPEL中，所以在安装 Certbot 之前要先安装EPEL</p>
-<pre><code>yum -y install epel-release
-</code></pre>
-<p>然后按着官网给出的步骤提示命令安装 Certbot</p>
-<pre><code>yum install python2-certbot-nginx
-</code></pre>
-<p>安装完毕后，继续输入官网提示命令</p>
-<pre><code>certbot --nginx
-</code></pre>
-<p>运行此命令会自动获取证书，并且 Certbot 会自动编辑Nginx配置文件配置HTTPS服务。</p>
-<blockquote>
-<p>这边在运行配置命令时遇到一个坑</p>
-</blockquote>
-<pre><code>ImportError: No module named 'requests.packages.urllib3'
-</code></pre>
-<p>可以看出是缺少一个模块包，看配置命令在命令台的输出，Certbot 是用 python 来写 Nginx 配置。既然是用的 python，可以通过 <strong>pip list</strong> 命令查看 python 的依赖包列表。但是查看是已经存在的，这个问题很快通过 Certbot 在 github 上的一个 Issues 找到了答案（<a href="https://github.com/certbot/certbot/issues/5104">Issues链接</a>）。目前看是包的版本依赖有问题，执行以下命令进行依赖包的重装</p>
-<pre><code>pip uninstall requests
-pip uninstall urllib3
-yum remove python-urllib3
-yum remove python-requests
-yum install python-urllib3
-yum install python-requests
-yum install certbot
-</code></pre>
-<p>再次执行 <strong>certbot --nginx</strong> 命令成功。命令执行后首先会提示输入一个邮箱地址，主要作用是订阅一些通知，输入后回车。</p>
-<pre><code>[root@izuf6fco0zwyipdq9485s2z ~]# certbot --nginx
-Saving debug log to /var/log/letsencrypt/letsencrypt.log
-Plugins selected: Authenticator nginx, Installer nginx
-
-▽
-Enter email address (used for urgent renewal and security notices) (Enter 'c' to
-cancel): demo@mail.com // 演示邮箱
-Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-</code></pre>
-<p>回车后 Certbot 就会自动请求下载 Let's Encrypt 证书，并设置 Nginx 配置文件。期间会有一些同意相关协议和选择哪个网站配置的交互，这个看输出文字就能明白意思。</p>
-<pre><code>...
-▽
-server {
-(A)gree/(C)ancel: a
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Would you be willing to share your email address with the Electronic Frontier
-Foundation, a founding partner of the Let's Encrypt project and the non-profit
-organization that develops Certbot? We'd like to send you email about our work
-encrypting the web, EFF news, campaigns, and ways to support digital freedom.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-(Y)es/(N)o: y
-Starting new HTTPS connection (1): supporters.eff.org
-
-Which names would you like to activate HTTPS for?
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-1: kisstime.top
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Select the appropriate numbers separated by commas and/or spaces, or leave input
-blank to select all options shown (Enter 'c' to cancel): 1
-Obtaining a new certificate
-Performing the following challenges:
-http-01 challenge for kisstime.top
-Cleaning up challenges
-...
-</code></pre>
-<blockquote>
-<p>但是这边到 Certbot 设置 Nginx 配置文件的时候遇到一个坑，报如下一个错误</p>
-</blockquote>
-<pre><code>An unexpected error occurred:
-UnicodeDecodeError: 'ascii' codec can't decode byte 0xe5 in position 2: ordinal not in range(128)
-Please see the logfiles in /var/log/letsencrypt for more details.
-</code></pre>
-<p>熟悉 python 的同学应该对这个错误比较了解。不过博主 python 还是用的比较少，花了点时间了解了一下。</p>
-<blockquote>
-<p>在解决错误之前，首先要了解unicode和utf-8的区别。unicode指的是万国码，是一种“字码表”。而utf-8是这种字码表储存的编码方法。unicode不一定要由utf-8这种方式编成bytecode储存，也可以使用utf-16,utf-7等其他方式。目前大多都以utf-8的方式来变成bytecode。其次，Python中字符串类型分为byte string 和 unicode string两种。如果在python文件中指定编码方式为utf-8(#coding=utf-8)，那么所有带中文的字符串都会被认为是utf-8编码的byte string（例如：mystr=&quot;你好&quot;），但是在函数中所产生的字符串则被认为是unicode string。问题就出在这边，unicode string 和 byte string 是不可以混合使用的，一旦混合使用了，就会产生这样的错误。例如：</p>
-</blockquote>
-<pre><code>self.response.out.write(&quot;你好&quot;+self.request.get(&quot;argu&quot;))
-</code></pre>
-<blockquote>
-<p>其中，&quot;你好&quot;被认为是byte string，而self.request.get(&quot;argu&quot;)的返回值被认为是unicode string。由于预设的解码器是ascii，所以就不能识别中文byte string。然后就报错了。</p>
-</blockquote>
-<p>那理解了这个错误原因后，我这边首先想到的就是网站的 Nginx 配置文件中是否含有中文。打开一看，确实存在中文注释。将注释去掉，重新执行命令成功不在报错</p>
-<p>接着命令交互会提示是否将所有HTTP重定向到HTTPS，我这边选择全部重定向也就是「2」。</p>
-<pre><code>Cleaning up challenges
-Deploying Certificate to VirtualHost:  //这边会显示你的网站配置文件目录
-
-Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-1: No redirect - Make no further changes to the webserver configuration.
-2: Redirect - Make all requests redirect to secure HTTPS access. Choose this for
-new sites, or if you're confident your site works on HTTPS. You can undo this
-change by editing your web server's configuration.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
-Redirecting all traffic on port 80 to ssl in //这边会显示你的网站配置文件目录
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Congratulations! You have successfully enabled https://kisstime.top
-
-You should test your configuration at:
-https://www.ssllabs.com/ssltest/analyze.html?d=kisstime.top
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-IMPORTANT NOTES:
- - Congratulations! Your certificate and chain have been saved at:
-   .../fullchain.pem
-   Your key file has been saved at:
-   .../privkey.pem
-   Your cert will expire on 2019-02-14. To obtain a new or tweaked
-   version of this certificate in the future, simply run certbot again
-   with the &quot;certonly&quot; option. To non-interactively renew *all* of
-   your certificates, run &quot;certbot renew&quot;
- - If you like Certbot, please consider supporting our work by:
-
-   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
-   Donating to EFF:                    https://eff.org/donate-le
-</code></pre>
-<p>OK，当完成上面最后一步后，输入如上信息后就表明 HTTPS 配置成功了！我们可以通过提示中的 <a href="www.ssllabs.com">SSL Server Test</a> 网址来测试网站是否能够 HTTPS 来进行访问</p>
-<pre><code>You should test your configuration at:
-https://www.ssllabs.com/ssltest/analyze.html?d=kisstime.top
-</code></pre>
-<p>事实证明，高兴的太早了。。。通过测试网站和直接访问域名发现网站都是访问不了。思考了一下，确认下服务器的443端口是否开启，我这边用的是阿里云的服务器，登录控制台查看安全组规则，发现确实是443端口没有开启，配置开启后，重新访问成功。</p>
-<h1 id="其他">其他</h1>
-<h3 id="nginx的设置说明">Nginx的设置说明</h3>
-<p>基本上 Certbot 会在对应的 Nginx 配置文件加上下面的参数：</p>
-<pre><code>server {
-    # ... other configs
-    
-    # SSL 设置
-    listen 443 ssl;
-
-    # set crt and key
-    ssl_certificate .../fullchain.pem;
-    ssl_certificate_key .../privkey.pem;
-    
-    # include 基本的 ssl 设置
-    include .../options-ssl-nginx.conf;
-    
-    # Certbot 也会生成一把 Diffie-Hellman 密钥
-    ssl_dhparam .../ssl-dhparams.pem;
-
-    # ... other configs
-}
-</code></pre>
-<h3 id="自动更新证书">自动更新证书</h3>
-<p>Let’s Encrypt 免费SSL证书用起来非常方便，但每次申请只有三个月有效期，在每次到期之前都需要重新申请，Certbot 已经提供了一键续订的命令</p>
-<pre><code>certbot renew
-</code></pre>
-<p>我们可以通过添加此条命令的cron作业（或systemd计时器）来安排证书的自动续订</p>
-<pre><code>SHELL=/bin/bash
-PATH=/sbin:/bin:/usr/sbin:/usr/bin
-
-0 0,12 * * * certbot renew --quiet 
-</code></pre>
-<h3 id="certbot-的-log-路径">Certbot 的 log 路径</h3>
-<p>Certbot 的 log 预设路径在 <strong>/var/log/letsencrypt</strong>，有需要可以去确认查看。</p>
-<h3 id="相关第三方">相关第三方</h3>
-<p><a href="https://github.com/certbot/certbot/blob/master/certbot-auto">certbot-auto</a>是对脚本certbot的封装，可以设置系统环境或自动升级。</p>
-<h1 id="参考资料">参考资料</h1>
-<p>牛顿曾经说过：如果说我看得比别人更远些，那是因为我站在巨人的肩膀上。（If I have seen further, it is by standing on the shoulders of giants.）感谢。</p>
-<ul>
-<li><a href="https://certbot.eff.org/">https://certbot.eff.org/</a></li>
-<li><a href="https://linuxstory.org/deploy-lets-encrypt-ssl-certificate-with-certbot">https://linuxstory.org/deploy-lets-encrypt-ssl-certificate-with-certbot</a></li>
-<li><a href="https://blog.csdn.net/use_my_heart/article/details/51303317">https://blog.csdn.net/use_my_heart/article/details/51303317</a></li>
-<li><a href="https://blog.hellojcc.tw/2018/05/02/setup-https-with-letsencrypt-on-nginx/">https://blog.hellojcc.tw/2018/05/02/setup-https-with-letsencrypt-on-nginx/</a></li>
-</ul>
 ]]></content>
     </entry>
 </feed>
