@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://GalaxySuze.github.io</id>
+    <id>https://zhangajian.com</id>
     <title>张阿简博客</title>
-    <updated>2020-07-27T09:33:31.809Z</updated>
+    <updated>2020-07-27T09:34:48.582Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://GalaxySuze.github.io"/>
-    <link rel="self" href="https://GalaxySuze.github.io/atom.xml"/>
+    <link rel="alternate" href="https://zhangajian.com"/>
+    <link rel="self" href="https://zhangajian.com/atom.xml"/>
     <subtitle>Kill Time, Or Kiss Time</subtitle>
-    <logo>https://GalaxySuze.github.io/images/avatar.png</logo>
-    <icon>https://GalaxySuze.github.io/favicon.ico</icon>
+    <logo>https://zhangajian.com/images/avatar.png</logo>
+    <icon>https://zhangajian.com/favicon.ico</icon>
     <rights>All rights reserved 2020, 张阿简博客</rights>
     <entry>
         <title type="html"><![CDATA[思念]]></title>
-        <id>https://GalaxySuze.github.io/post/si-nian/</id>
-        <link href="https://GalaxySuze.github.io/post/si-nian/">
+        <id>https://zhangajian.com/post/si-nian/</id>
+        <link href="https://zhangajian.com/post/si-nian/">
         </link>
         <updated>2020-01-03T17:27:59.000Z</updated>
         <content type="html"><![CDATA[<p>长这么大，看过太多的生死离别，小说里，电视中。感动的让人流泪，以为是感同身受。可现在才知道，这个世界上从来没有感同身受。真正面对时，没有歇斯底里，没有仰天大吼。发懵，明明就是你自己的身体、眼睛、鼻子，愣愣的站着控制不住的泪流，停止不了颤抖。内心压抑，失魂落魄。<br>
@@ -28,8 +28,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[再见，2019]]></title>
-        <id>https://GalaxySuze.github.io/post/zai-jian-2019/</id>
-        <link href="https://GalaxySuze.github.io/post/zai-jian-2019/">
+        <id>https://zhangajian.com/post/zai-jian-2019/</id>
+        <link href="https://zhangajian.com/post/zai-jian-2019/">
         </link>
         <updated>2019-12-29T01:47:12.000Z</updated>
         <content type="html"><![CDATA[<h1 id="题记">题记</h1>
@@ -50,8 +50,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[新MBP到了，记录一下个人的使用环境搭建]]></title>
-        <id>https://GalaxySuze.github.io/post/xin-mbp-dao-liao-ji-lu-yi-xia-ge-ren-de-shi-yong-huan-jing-da-jian/</id>
-        <link href="https://GalaxySuze.github.io/post/xin-mbp-dao-liao-ji-lu-yi-xia-ge-ren-de-shi-yong-huan-jing-da-jian/">
+        <id>https://zhangajian.com/post/xin-mbp-dao-liao-ji-lu-yi-xia-ge-ren-de-shi-yong-huan-jing-da-jian/</id>
+        <link href="https://zhangajian.com/post/xin-mbp-dao-liao-ji-lu-yi-xia-ge-ren-de-shi-yong-huan-jing-da-jian/">
         </link>
         <updated>2019-11-29T05:50:13.000Z</updated>
         <content type="html"><![CDATA[<h1 id="吐槽">吐槽</h1>
@@ -203,8 +203,8 @@ npm i -g nrm
     </entry>
     <entry>
         <title type="html"><![CDATA[Mac设置shell为zsh]]></title>
-        <id>https://GalaxySuze.github.io/post/mac-she-zhi-shell-wei-zsh/</id>
-        <link href="https://GalaxySuze.github.io/post/mac-she-zhi-shell-wei-zsh/">
+        <id>https://zhangajian.com/post/mac-she-zhi-shell-wei-zsh/</id>
+        <link href="https://zhangajian.com/post/mac-she-zhi-shell-wei-zsh/">
         </link>
         <updated>2019-11-28T05:47:19.000Z</updated>
         <content type="html"><![CDATA[<p><strong>设置shell为zsh</strong></p>
@@ -252,8 +252,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
     </entry>
     <entry>
         <title type="html"><![CDATA[通过PHPStorm恢复本地文件未add执行reset --hard后的文件]]></title>
-        <id>https://GalaxySuze.github.io/post/tong-guo-phpstorm-hui-fu-ben-di-wen-jian-wei-add-zhi-xing-reset-hard-hou-de-wen-jian/</id>
-        <link href="https://GalaxySuze.github.io/post/tong-guo-phpstorm-hui-fu-ben-di-wen-jian-wei-add-zhi-xing-reset-hard-hou-de-wen-jian/">
+        <id>https://zhangajian.com/post/tong-guo-phpstorm-hui-fu-ben-di-wen-jian-wei-add-zhi-xing-reset-hard-hou-de-wen-jian/</id>
+        <link href="https://zhangajian.com/post/tong-guo-phpstorm-hui-fu-ben-di-wen-jian-wei-add-zhi-xing-reset-hard-hou-de-wen-jian/">
         </link>
         <updated>2019-11-14T15:39:17.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -272,8 +272,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
     </entry>
     <entry>
         <title type="html"><![CDATA[Postman使用json格式测试API]]></title>
-        <id>https://GalaxySuze.github.io/post/postman-shi-yong-json-ge-shi-ce-shi-api/</id>
-        <link href="https://GalaxySuze.github.io/post/postman-shi-yong-json-ge-shi-ce-shi-api/">
+        <id>https://zhangajian.com/post/postman-shi-yong-json-ge-shi-ce-shi-api/</id>
+        <link href="https://zhangajian.com/post/postman-shi-yong-json-ge-shi-ce-shi-api/">
         </link>
         <updated>2019-11-12T15:57:25.000Z</updated>
         <content type="html"><![CDATA[<h1 id="导入curl">导入cURL</h1>
@@ -293,8 +293,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
     </entry>
     <entry>
         <title type="html"><![CDATA[合并两个远程仓库的提交]]></title>
-        <id>https://GalaxySuze.github.io/post/he-bing-liang-ge-yuan-cheng-cang-ku-de-ti-jiao/</id>
-        <link href="https://GalaxySuze.github.io/post/he-bing-liang-ge-yuan-cheng-cang-ku-de-ti-jiao/">
+        <id>https://zhangajian.com/post/he-bing-liang-ge-yuan-cheng-cang-ku-de-ti-jiao/</id>
+        <link href="https://zhangajian.com/post/he-bing-liang-ge-yuan-cheng-cang-ku-de-ti-jiao/">
         </link>
         <updated>2019-11-12T15:35:26.000Z</updated>
         <content type="html"><![CDATA[<p>比如有两个仓库R1和R2，需要将R1的提交合并到R2，当前本地跟踪仓库为R1。</p>
@@ -336,8 +336,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
     </entry>
     <entry>
         <title type="html"><![CDATA[轮询、长轮询、长连接、Websocket的区别]]></title>
-        <id>https://GalaxySuze.github.io/post/lun-xun-chang-lun-xun-chang-lian-jie-websocket-de-qu-bie/</id>
-        <link href="https://GalaxySuze.github.io/post/lun-xun-chang-lun-xun-chang-lian-jie-websocket-de-qu-bie/">
+        <id>https://zhangajian.com/post/lun-xun-chang-lun-xun-chang-lian-jie-websocket-de-qu-bie/</id>
+        <link href="https://zhangajian.com/post/lun-xun-chang-lun-xun-chang-lian-jie-websocket-de-qu-bie/">
         </link>
         <updated>2019-11-11T16:20:15.000Z</updated>
         <content type="html"><![CDATA[<h1 id="短连接">短连接</h1>
@@ -380,8 +380,8 @@ Websocket借用了HTTP的协议来完成一部分握手，解决的http的几项
     </entry>
     <entry>
         <title type="html"><![CDATA[新主题SubtleGalaxy上线]]></title>
-        <id>https://GalaxySuze.github.io/post/xin-zhu-ti-subtlegalaxy-shang-xian/</id>
-        <link href="https://GalaxySuze.github.io/post/xin-zhu-ti-subtlegalaxy-shang-xian/">
+        <id>https://zhangajian.com/post/xin-zhu-ti-subtlegalaxy-shang-xian/</id>
+        <link href="https://zhangajian.com/post/xin-zhu-ti-subtlegalaxy-shang-xian/">
         </link>
         <updated>2019-11-11T08:37:52.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -415,8 +415,8 @@ Websocket借用了HTTP的协议来完成一部分握手，解决的http的几项
     </entry>
     <entry>
         <title type="html"><![CDATA[更新了一波Space主题]]></title>
-        <id>https://GalaxySuze.github.io/post/geng-xin-liao-yi-bo-space-zhu-ti/</id>
-        <link href="https://GalaxySuze.github.io/post/geng-xin-liao-yi-bo-space-zhu-ti/">
+        <id>https://zhangajian.com/post/geng-xin-liao-yi-bo-space-zhu-ti/</id>
+        <link href="https://zhangajian.com/post/geng-xin-liao-yi-bo-space-zhu-ti/">
         </link>
         <updated>2019-10-31T03:28:03.000Z</updated>
         <content type="html"><![CDATA[<p>趁着这段愉悦♂的摸鱼时光，把之前放了很久的 <strong>Space</strong> 主题更新了一波。</p>
