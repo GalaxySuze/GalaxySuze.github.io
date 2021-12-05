@@ -219,63 +219,62 @@ var _hmt = _hmt || [];
         <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
             <figure class="animate-box">
                 
-                    <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/art_cover_57.jpg" alt="合并两个远程仓库的提交" class="img-responsive">
+                    <img src="https://blog-img-hosting.oss-cn-shanghai.aliyuncs.com/blog/article_cover/art_cover_67.jpg" alt="Laravel实现自定义php artisan命令行脚手架" class="img-responsive">
                 
             </figure>
             <span class="fh5co-meta animate-box">
                 
                     <div class="tag-container">
                         
-                            <a href="https://www.zhangajian.com/tag/L31qriw3_/" class="tag">Git, </a>
+                            <a href="https://www.zhangajian.com/tag/laravel/" class="tag">Laravel, </a>
+                        
+                            <a href="https://www.zhangajian.com/tag/gWr_Ce0M-/" class="tag">PHP, </a>
+                        
+                            <a href="https://www.zhangajian.com/tag/wa6VE0See/" class="tag">原创, </a>
                         
                     </div>
                 
             </span>
-            <h2 class="fh5co-article-title animate-box">合并两个远程仓库的提交</h2>
+            <h2 class="fh5co-article-title animate-box">Laravel实现自定义php artisan命令行脚手架</h2>
             <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
-                <li>2019-11-12</li>
-                <li>166字</li>
-                <li>1 min read</li>
+                <li>2019-12-21</li>
+                <li>273字</li>
+                <li>2 min read</li>
             </ol>
 
             <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
                 <div class="row">
                     <div class="col-md-12 animate-box post-content">
-                        <p> <p>比如有两个仓库R1和R2，需要将R1的提交合并到R2，当前本地跟踪仓库为R1。</p>
-<ul>
-<li>新增远程仓库</li>
-</ul>
-<pre><code>git remote add R2 [url]
+                        <p> <h1 id="使用场景">使用场景</h1>
+<p>在我们日常基于项目框架化开发中，经常存在需要通过脚手架工具来生成指定的类文件、组件、模板等场景。而在使用Laravel开发中也不例外，Laravel框架自身已经提供了很多如下<strong>artisan make</strong>命令，用来新建Controller、Model、Job、Event等对象文件。</p>
+<pre><code>$ php artisan | grep make
+ make
+  make:auth                                       Scaffold basic login and registration views and routes
+  make:channel                                    Create a new channel class
+  make:command                                    Create a new Artisan command
+  make:controller                                 Create a new controller class
+  make:event                                      Create a new event class
+  make:exception                                  Create a new custom exception class
+  make:factory                                    Create a new model factory
+  make:job                                        Create a new job class
+  make:listener                                   Create a new event listener class
+  make:mail                                       Create a new email class
+  make:middleware                                 Create a new middleware class
+  make:migration                                  Create a new migration file
+  make:model                                      Create a new Eloquent model class
+  make:notification                               Create a new notification class
+  make:observer                                   Create a new observer class
+  make:policy                                     Create a new policy class
+  make:provider                                   Create a new service provider class
+  make:request                                    Create a new form request class
+  make:resource                                   Create a new resource
+  make:rule                                       Create a new validation rule
+  make:seeder                                     Create a new seeder class
+  make:test                                       Create a new test class
 </code></pre>
-<ul>
-<li>拉取远程仓库分支</li>
-</ul>
-<pre><code>git fetch --all
-</code></pre>
-<ul>
-<li>本地新建并切换到跟踪R2的分支</li>
-</ul>
-<pre><code>git checkout -b R2-repo R2/master
-</code></pre>
-<ul>
-<li>合并R1仓库的分支提交</li>
-</ul>
-<pre><code>git merge R1/master
-</code></pre>
-<p>如果出现以下错误，按下面命令进行解决</p>
-<pre><code>git merge master
-报错: fatal: refusing to merge unrelated histories
-
-解决方法: git merge master --allow-unrelated-histories
-</code></pre>
-<ul>
-<li>合并后可能会有冲突，解决冲突后即可</li>
-<li>推送分支到R2远程仓库</li>
-</ul>
-<pre><code>git push R2 R2-repo
-</code></pre>
-<h5 id="参考文章">参考文章</h5>
-<p><a href="https://blog.csdn.net/gouboft/article/details/8450696">合并两个git仓库</a></p>
+<p>默认的已经足够丰富。</p>
+<h1 id="原理分析">原理分析</h1>
+<h1 id="实现功能">实现功能</h1>
  </p>
                     </div>
                 </div>
@@ -285,9 +284,9 @@ var _hmt = _hmt || [];
                         
                             <div class="next-post">
                                 <div class="next">下一篇</div>
-                                <a href="https://www.zhangajian.com/post/lun-xun-chang-lun-xun-chang-lian-jie-websocket-de-qu-bie/">
+                                <a href="https://www.zhangajian.com/post/xin-mbp-dao-liao-ji-lu-yi-xia-ge-ren-de-shi-yong-huan-jing-da-jian/">
                                     <h3 class="post-title">
-                                        轮询、长轮询、长连接、Websocket的区别
+                                        新MBP到了，记录一下个人的使用环境搭建
                                     </h3>
                                 </a>
                             </div>
@@ -328,23 +327,9 @@ var _hmt = _hmt || [];
 
 <div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
     <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0">参考文章</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">使用场景</a></li>
+<li><a href="#%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90">原理分析</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD">实现功能</a></li>
 </ul>
 
 </div>
